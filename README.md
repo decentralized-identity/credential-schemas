@@ -13,16 +13,16 @@ This template is for use with DIF Working Group work items creating specificatio
 - Update the README (all content and links in this file)
 - Update github repo settings, including tags
 
-## [Latest Editor's Draft](https://identity.foundation/template-for-work-items/)
+## [Latest Editor's Draft](https://identity.foundation/credential-schemas/)
 
 ## Getting Started
 
 ```
-git clone git@github.com:decentralized-identity/template-for-work-items.git
-cd template-for-work-items
+git clone git@github.com:decentralized-identity/credential-schemas.git
+cd credential-schemas
 npm i
 npm run edit
 npx serve build
 ```
 
-Visit http://localhost:5000/
+Visit http://localhost:3000/

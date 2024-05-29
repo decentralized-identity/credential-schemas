@@ -1,12 +1,12 @@
 {
-  "name": "template-for-work-items",
-  "description": "DIF template-for-work-items (boilerplate) specification",
+  "name": "credential-schemas",
+  "description": "DIF credential-schemas (boilerplate) specification",
   "version": "0.0.1",
-  "homepage": "http://identity.foundation/template-for-work-items",
+  "homepage": "http://identity.foundation/credential-schemas",
   "license": "Apache 2",
   "repository": {
     "type": "git",
-    "url": "git://github.com/decentralized-identity/template-for-work-items"
+    "url": "git://github.com/decentralized-identity/credential-schemas"
   },
   "dependencies": {
     "markdown-it": "^9.1.0",
