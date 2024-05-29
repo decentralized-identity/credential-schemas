@@ -1,6 +1,6 @@
 # credential-schemas - rolling agenda & minutes
 
-[![hackmd-github-sync-badge](https://hackmd.io/s9IoKZMUR8ieEwyiztvJjw/badge)](https://hackmd.io/s9IoKZMUR8ieEwyiztvJjw)
+[![hackmd-github-sync-badge](https://hackmd.io/fcNWJ_efTWaYZGpWXxeZxA/badge)](https://hackmd.io/fcNWJ_efTWaYZGpWXxeZxA)
 
 [**WG projects** ](https://github.com/decentralized-identity?q=wg-cc&type=&language=) | [ DIF page ](https://identity.foundation/working-groups/claims-credentials.html) | [Mailing list and Wiki ](https://lists.identity.foundation/g/cc-wg) | [Meeting recordings](https://docs.google.com/spreadsheets/d/1wgccmMvIImx30qVE9GhRKWWv3vmL2ZyUauuKx3IfRmA/edit#gid=1252135265)
 
