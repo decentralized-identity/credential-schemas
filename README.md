@@ -1,8 +1,10 @@
 # DIF Credential Schemas Work Item
 
+This group meets every other week on Tuesdays at 10am PT / 1pm ET. Zoom link and calendar invite to follow
+
+
 ## Remaining Work Item Setup
 
-- Update CODEOWNERS
 - Update CONTRIBUTING.md with any group-specific processes
 - Update this README with any relevant group information 
 
