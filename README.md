@@ -1,6 +1,6 @@
 # DIF Credential Schemas Work Item
 
-This group meets every other week on Tuesdays at 10am PT / 1pm ET. Zoom link and calendar invite to follow
+This group meets every other week on Tuesdays at 10am PT / 1pm ET. Calendar link: https://calendar.app.google/MEvzr6ZfXv4HpuND6
 
 
 ## Remaining Work Item Setup
