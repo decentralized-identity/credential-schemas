@@ -29,6 +29,14 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 </details>
 
+## Meeting - 18 Jun 2024 - (1300 ET)
+
+1. Welcome and Procedural Considerations
+2. Introductions
+3. Review [slides](https://docs.google.com/presentation/d/1QsViPPwtKhFFH6d9kdHiAkSnxJnqK1GV5f_ln3SgNnE/edit#slide=id.p1)
+4. Discussion
+5. Action items and next steps
+
 ## Meeting Template
 
 1. Welcome and introductions
