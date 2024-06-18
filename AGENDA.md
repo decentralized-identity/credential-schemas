@@ -31,11 +31,29 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 ## Meeting - 18 Jun 2024 - (1300 ET)
 
+Attendees: Jim Schoening, Alex Hache, Gerald Glickman, Alfonso Gomez Jordana Manas, Don Sheppard, Valerio Massimo Camaiani, Eric Scouten, Maria Teresa Aarao, Keith Kowal, Otto Moro, Kim Duffy, Limari Navarrette 
+
 1. Welcome and Procedural Considerations
 2. Introductions
 3. Review [slides](https://docs.google.com/presentation/d/1QsViPPwtKhFFH6d9kdHiAkSnxJnqK1GV5f_ln3SgNnE/edit#slide=id.p1)
+    - Kim reviewed intro material
+    - Otto presented donated schema
 4. Discussion
+    - How did you reconcile aligning with other standards:
+        - OpenID and EBSI didn't differ much: casing
+        - Feedback from partners
+    - How did you handle naming:
+        - Provided both to allow full name and piece-by-piece (surname, etc)
+    - Interest in discoverability of registries
+        - There is a precedent of this in DIF; we're thinking about re-activating, based on member feedback
+        - Schemas could live here or elsewhere
+    - Suggestion to take mdl schema and align as closely as possible. Input will be coming from passports or driver's license
+        - Not an either/or; we'll double-check to help ensure alignment
+    - Use cases?
 5. Action items and next steps
+    - How do we talk about the ISO mdl without paying for it?
+    - KYC Use Cases
+    - Align with ISO mdl
 
 ## Meeting Template
 
