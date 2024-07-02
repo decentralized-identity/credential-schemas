@@ -29,6 +29,14 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 </details>
 
+## Meeting Template - July 2 2024 - (1300 ET)
+
+1. Welcome and introductions
+2. Administrivia
+3. Review of issues and pull requests
+4. Focal use cases
+5. Action item review
+
 ## Meeting - 18 Jun 2024 - (1300 ET)
 
 Attendees: Jim Schoening, Alex Hache, Gerald Glickman, Alfonso Gomez Jordana Manas, Don Sheppard, Valerio Massimo Camaiani, Eric Scouten, Maria Teresa Aarao, Keith Kowal, Otto Moro, Kim Duffy, Limari Navarrette 
