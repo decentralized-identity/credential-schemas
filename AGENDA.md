@@ -29,7 +29,7 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 </details>
 
-## Meeting Template - July 2 2024 - (1300 ET)
+## Meeting Template - 2 July 2024 - (1300 ET)
 
 Attendees: Jim Schoening, Alex Hache, Otto Moro, Kim Duffy, Adrian Field, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas
 
