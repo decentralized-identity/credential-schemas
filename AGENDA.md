@@ -31,11 +31,19 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 ## Meeting Template - July 2 2024 - (1300 ET)
 
+Attendees: Jim Schoening, Alex Hache, Otto Moro, Kim Duffy, Adrian Field, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas
+
 1. Welcome and introductions
 2. Administrivia
 3. Review of issues and pull requests
-4. Focal use cases
-5. Action item review
+4. ISO MDoc review: https://github.com/decentralized-identity/credential-schemas/issues/1
+5. Focal use cases: https://github.com/decentralized-identity/credential-schemas/issues/2
+6. What's needed:
+    - Discussion: grouping of terms into schema to enable consistent meaning and interoperability
+    - Grouping, field names, semantics in scope
+    - Permanent URLs to groupings: make links available and discoverable
+7. Action item and next steps
+    - Strawman of abstract data model, get feedback
 
 ## Meeting - 18 Jun 2024 - (1300 ET)
 
