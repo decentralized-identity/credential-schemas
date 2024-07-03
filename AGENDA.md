@@ -29,14 +29,15 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 </details>
 
-## Meeting Template - 2 July 2024 - (1300 ET)
+## Meeting - 2 July 2024 - (1300 ET)
 
 Attendees: Jim Schoening, Alex Hache, Otto Moro, Kim Duffy, Adrian Field, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas
 
 1. Welcome and introductions
 2. Administrivia
 3. Review of issues and pull requests
-4. ISO MDoc review: https://github.com/decentralized-identity/credential-schemas/issues/1
+4. ISO MDL review: https://github.com/decentralized-identity/credential-schemas/issues/1
+     - [ISO MDL Attributes](https://docs.google.com/spreadsheets/d/1kn9jvb91wd_-xA_3ale3M6Lwn-OM6qem/edit?usp=sharing&ouid=116182654223161791531&rtpof=true&sd=true)
 5. Focal use cases: https://github.com/decentralized-identity/credential-schemas/issues/2
 6. What's needed:
     - Discussion: grouping of terms into schema to enable consistent meaning and interoperability
