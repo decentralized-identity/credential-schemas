@@ -29,6 +29,18 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 </details>
 
+
+
+
+## Meeting - 16 July 2024 - (1300 ET)
+
+Attendees: 
+
+1. Welcome and introductions
+2. Administrivia
+3. Review [current unified glossary](https://docs.google.com/spreadsheets/d/12B6oXYOfOB8ocyZvsehDIT4D5ZjMNn9z/edit?gid=1811559849#gid=1811559849) and next steps
+4. Action item and next steps
+
 ## Meeting - 2 July 2024 - (1300 ET)
 
 Attendees: Jim Schoening, Alex Hache, Otto Moro, Kim Duffy, Adrian Field, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas
