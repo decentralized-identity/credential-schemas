@@ -34,7 +34,7 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 ## Meeting - 16 July 2024 - (1300 ET)
 
-Attendees: 
+Attendees: Jim Schoening, Otto Moro, Kim Duffy, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas, Cole Davis, Steven Frank
 
 1. Welcome and introductions
 2. Administrivia
