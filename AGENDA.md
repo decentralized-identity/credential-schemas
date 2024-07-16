@@ -34,11 +34,17 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 ## Meeting - 16 July 2024 - (1300 ET)
 
-Attendees: Jim Schoening, Otto Moro, Kim Duffy, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas, Cole Davis, Steven Frank
+Attendees: Jim Schoening, Otto Moro, Kim Duffy, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas, Cole Davis, Steven Frank (Switchchord)
 
 1. Welcome and introductions
 2. Administrivia
 3. Review [current unified glossary](https://docs.google.com/spreadsheets/d/12B6oXYOfOB8ocyZvsehDIT4D5ZjMNn9z/edit?gid=1811559849#gid=1811559849) and next steps
+4. Discussion
+    - Steven Frank:
+       - buzzsaw is why they should do it
+       - are we developing just the credential schema, or the mechanism for verifying the identity
+       - talk with groups PIPL; Steven to make introductions
+     - Otto presented merged view - will send this out for feedback. Will focus on Basic KYC to start with 
 4. Action item and next steps
 
 ## Meeting - 2 July 2024 - (1300 ET)
