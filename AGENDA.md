@@ -30,6 +30,14 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 </details>
 
 
+<details>
+<summary> Topics for Tuesday 30-Aug </summary>
+
+- Update on Basic KYC credential schema
+- Demo of Proposed Veramo Plugin for Schema Selector (Jim S).
+- Other topics (tbd)
+
+</details>
 
 
 ## Meeting - 16 July 2024 - (1300 ET)
