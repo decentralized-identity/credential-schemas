@@ -31,11 +31,11 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 
 <details>
-<summary> Topics for Tuesday 30-Aug </summary>
+<summary> Topics for Tuesday 30-Jul </summary>
 
-- Update on Basic KYC credential schema
-- Demo of Proposed Veramo Plugin for Schema Selector (Jim S).
-- Other topics (tbd)
+- Quick review of "basic kyc schema" feedback received so far (10 mins)
+- Demo of Proposed Veramo Plugin for Schema Selector (Jim S). (20 mins)
+- Discussion around credential schema submission / discovery platform (topic suggested by Filippos Lymperopoulos and Crossmint team) (20 mins)
 
 </details>
 
