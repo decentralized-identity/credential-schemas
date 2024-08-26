@@ -49,7 +49,7 @@ Credential, Assertion, Attestation, etc.
 _Abstract data model_ is a “Data template” that specifies which attributes a credential should contain. It includes the field names and types, as well as an indication of their interpretation and use.
 Abstract data model are fundamental in ensuring consistency and interoperability across differing verifiable credential formats in the market.
 
-![Abstract data model table representation](abstract-data-model.png "abstract data model table")
+![Abstract data model table representation](images/abstract-data-model.png "abstract data model table")
 
 ::: todo add diagram
   Need to add diagram explaining abstract data model
