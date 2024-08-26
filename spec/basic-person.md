@@ -1,14 +1,9 @@
 ### Basic Person Schema
 
 #### Purpose: 
-The purpose of this credential schema is to define the fields required to identify an individual at a basic level for KYC purposes. The schema integrates fields from various standards including: [Open ID Connect](https://openid.net/specs/openid-connect-core-1_0.html) , [Open ID for Identity Assurance](https://openid.net/specs/openid-connect-4-identity-assurance-1_0.html) , and EBSI for natural person. 
+The purpose of this credential schema is to define the fields required to identify an individual at a basic level for KYC purposes. The schema integrates fields from various standards including: [Open ID Connect](https://openid.net/specs/openid-connect-core-1_0.html) , [Open ID for Identity Assurance](https://openid.net/specs/openid-connect-4-identity-assurance-1_0.html) , and [EBSI for natural person](https://code.europa.eu/ebsi/json-schema/-/tree/main/schemas/vcdm1.1/multi-uni-pilot/verifiable-attestation-individual-id). 
 
 Use cases: Utilized across financial services, telecommunications, and any sector requiring identity verification for customer onboarding, transaction verification, and regulatory compliance, enabling streamlined and standardized data handling for KYC procedures.
-
-Alignments
-OpenID Connect Core
-OIDC for Identity Assurance 
-EBSI
 
 
 ::: note Basic Note
