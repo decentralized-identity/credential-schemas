@@ -44,64 +44,17 @@ Credential, Assertion, Attestation, etc.
 
 ## Structure of this Document
 
-## Data Models
+## Abstract Data Models
 
-Stage | Direct Products | ATP Yields
-----: | --------------: | ---------:
-Glycolysis | 2 ATP ||
-^^ | 2 NADH | 3--5 ATP |
-Pyruvaye oxidation | 2 NADH | 5 ATP |
-Citric acid cycle | 2 ATP ||
-^^ | 6 NADH | 15 ATP |
-^^ | 2 FADH2 | 3 ATP |
-**30--32** ATP |||
-[Net ATP yields per hexose]
+_Abstract data model_ is a “Data template” that specifies which attributes a credential should contain. It includes the field names and types, as well as an indication of their interpretation and use.
+Abstract data model are fundamental in ensuring consistency and interoperability across differing verifiable credential formats in the market.
+
+::: todo add diagram
+  Need to add diagram explaining abstract data model
+:::
+
 
 _Credential Manifests_ are a resource format that defines preconditional
 requirements, Issuer style preferences, and other facets User Agents utilize to
 help articulate and select the inputs necessary for processing and issuance of a
 specified credential.
-
-## Other Sections...
-
-## Appendix
-
-### JSON Schemas
-
-### Examples
-
-## References
-
-[[def:JSON Schema]]
-~ [JSON Schema: A Media Type for Describing JSON Documents](https://json-schema.org/draft/2020-12/json-schema-core.html).
-A. Wright, H. Andrews, B. Hutton, G. Dennis. Status: 28 January 2020.
-Status: Internet-Draft.
-
-## Patent Policy
-
-The Decentralized Identity Foundation has adopted the W3C Patent Policy (2004), as detailed below:
-
-- **Licensing Commitment.** Each contributor agrees to make available any of its
-  Essential Claims, as defined in the W3C Patent Policy (available at
-  http://www.w3.org/Consortium/Patent-Policy-20040205), under the W3C RF licensing
-  requirements Section 5 (http://www.w3.org/Consortium/Patent-Policy-20040205), as
-  if the contribution was contained in or associated with a W3C Recommendation.
-
-- **For Exclusion.** Prior to committing any code, bug reports, pull requests, or
-  other forms of contribution, a contributor may exclude Essential Claims from its
-  licensing commitments under this agreement by providing written notice of that
-  intent to DIF's Executive Director (and must received confirmation of receipt
-  for the exclusion to have effect). The Exclusion Notice for issued patents and
-  published applications must include the patent number(s) or title and
-  application number(s), as the case may be, for each of the issued patent(s) or
-  pending patent application(s) that the contributor wishes to exclude from the
-  licensing commitment set forth in Section 1 of this patent policy. If an issued
-  patent or pending patent application that may contain Essential Claims is not
-  set forth in the Exclusion Notice, those Essential Claims shall continue to be
-  subject to the licensing commitments under this agreement. The Exclusion Notice
-  for unpublished patent applications must provide either: (i) the text of the
-  filed application; or (ii) identification of the specific part(s) of the
-  contribution whose implementation makes the excluded claim an Essential Claim.
-  If (ii) is chosen, the effect of the exclusion will be limited to the identified
-  part(s) of the contribution. DIF's Executive Director will publish Exclusion
-  Notices.
