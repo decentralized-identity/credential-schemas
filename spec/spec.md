@@ -51,10 +51,6 @@ Abstract data model are fundamental in ensuring consistency and interoperability
 
 ![Abstract data model table representation](images/abstract-data-model.png "abstract data model table")
 
-::: todo add diagram
-  Need to add diagram explaining abstract data model
-:::
-
 _Credential Manifests_ are a resource format that defines preconditional
 requirements, Issuer style preferences, and other facets User Agents utilize to
 help articulate and select the inputs necessary for processing and issuance of a

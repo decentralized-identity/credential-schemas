@@ -13,10 +13,6 @@
 A. Wright, H. Andrews, B. Hutton, G. Dennis. Status: 28 January 2020.
 Status: Internet-Draft.
 
-::: todo add external references
-  Need to add references to Open ID Connect, Open ID for Identity Assurance, and EBSI for natural person.
-:::
-
 ## Patent Policy
 
 The Decentralized Identity Foundation has adopted the W3C Patent Policy (2004), as detailed below:
