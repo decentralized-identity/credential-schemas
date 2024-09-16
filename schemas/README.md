@@ -18,6 +18,42 @@ Please note that the schemas submitted to this repository are **proprietary subm
 
 The **World Wide Web Consortium (W3C)** will closely monitor the submissions made to this repository, with the intention of identifying schemas that may become standardized in the future. The goal is to standardize specific schemas according to their comprehensive design and broad adoption in the ecosystem. While this standardization process may take time, it ensures alignment with best practices and long-term interoperability.
 
+## Initial Categories and Folder Names
+
+Below are the initial categories created to organize schemas in this repository. Submitters should place their schema examples in the appropriate category folder. If a category does not exist for your submission, please refer to the **Submission Process and Rules** section for instructions on creating new categories.
+
+- **Education:** `education/`
+  - For schemas related to academic credentials, certifications, and course completions.
+  
+- **Healthcare:** `healthcare/`
+  - For schemas related to medical records, vaccination certificates, and other health-related credentials.
+
+- **Employment & Professional:** `employment-professional/`
+  - For schemas related to employment verification, work history, and professional certifications.
+
+- **Finance:** `finance/`
+  - For schemas related to financial credentials such as KYC, credit scores, and bank account verification.
+
+- **Government & Legal:** `government-legal/`
+  - For schemas related to government-issued IDs, legal documents, and national credentials.
+
+- **Retail & E-Commerce:** `retail-ecommerce/`
+  - For schemas related to loyalty programs, purchase receipts, and other e-commerce documents.
+
+- **Travel & Hospitality:** `travel-hospitality/`
+  - For schemas related to travel documents, event tickets, and hospitality services.
+
+- **Real Estate:** `real-estate/`
+  - For schemas related to property ownership, rental agreements, and real estate transactions.
+
+- **Supply Chain & Logistics:** `supply-chain-logistics/`
+  - For schemas related to product certifications, shipping documentation, and supplier credentials.
+
+- **Identity Verification:** `identity-verification/`
+  - For schemas related to digital identity verification, including proof of age and residency.
+
+These categories will serve as the starting point for organizing schemas and facilitating easy submission and access.
+
 ## Submission Process and Rules
 
 Please follow these rules when submitting schemas to this repository:
