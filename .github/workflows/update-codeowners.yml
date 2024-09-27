@@ -26,16 +26,9 @@ jobs:
           git config --local user.name "GitHub Action"
           git add CODEOWNERS
           git commit -m "update CODEOWNERS"
-      - id: auth
-        if: contains(steps.gitStatus.outputs.status, 'modified')
-        uses: jnwng/github-app-installation-token-action@v2
-        with:
-          appId: ${{ secrets.YOUR_APP_ID }}
-          installationId: ${{ secrets.YOUR_APP_INSTALLATION_ID }}
-          privateKey: ${{ secrets.YOUR_APP_PRIVATE_KEY }}
       - name: Push changes
         if: contains(steps.gitStatus.outputs.status, 'modified')
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ steps.auth.outputs.token }}
-          branch: ${{github.head_ref}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.head_ref }}
