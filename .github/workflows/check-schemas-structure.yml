@@ -46,7 +46,7 @@ jobs:
         git fetch origin ${{ github.event.pull_request.base.ref }}
         
         # Get the list of changed files in the PR within 'schemas/**/*'
-        changed_files=$(git diff --name-only origin/${{ github.event.pull_request.base.ref }}...HEAD -- 'schemas/**/*')
+        changed_files=$(git diff --name-only --diff-filter=M origin/${{ github.event.pull_request.base.ref }}...HEAD -- 'schemas/**/*')
         
         echo "Changed files: $changed_files"
         
