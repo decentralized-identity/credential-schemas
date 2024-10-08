@@ -41,20 +41,13 @@ jobs:
       run: |
         invalid_changes=0
         changes=""
-        for category in schemas/*; do
-        for entity in "$category"/*; do
-            if [ -d "$entity" ]; then
-            # Check for changes in files other than README.md
-            for file in "$entity"/*; do
-                if [ -f "$file" ] && [ "$(basename "$file")" != "README.md" ]; then
-                if git diff --name-only --exit-code "$file"; then
-                    changes="$changes\nUnexpected change in $file, you should not update a schema file, consider creating a new version instead."
-                    invalid_changes=1
-                fi
-                fi
-            done
+        for file in schemas/**/*; do
+          if [ -f "$file" ] && [ "$(basename "$file")" != "README.md" ] && [ "$(basename "$file")" != "CODEOWNERS" ]; then
+            if git diff --name-only --exit-code "$file"; then
+              changes="$changes\nUnexpected change in $file, you should not update a schema file, consider creating a new version instead."
+              invalid_changes=1
             fi
-        done
+          fi
         done
 
         echo "changes=$changes" >> $GITHUB_ENV
