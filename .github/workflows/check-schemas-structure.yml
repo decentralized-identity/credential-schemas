@@ -53,7 +53,7 @@ jobs:
         for file in $changed_files; do
         if [ -f "$file" ] && [ "$(basename "$file")" != "README.md" ] && [ "$(basename "$file")" != "CODEOWNERS" ]; then
             echo "Change detected in $file..."
-            changes="$changes\nUnexpected change in $file, you should not update a schema file, consider creating a new version instead."
+            changes="$changes:\nUnexpected change in $file"
             invalid_changes=1
         fi
         done
@@ -71,5 +71,5 @@ jobs:
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                body: `Unexpected changes detected:\n${{ env.changes }}`
+                body: `Unexpected changes detected, you should not update a schema file, consider creating a new version instead.:\n${{ env.changes }}`
             })
