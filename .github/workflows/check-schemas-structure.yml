@@ -44,6 +44,17 @@ jobs:
         invalid_changes=0
         changes=""
         echo "Checking for changes in schema files..."
+
+        # Debugging: Print git status
+        git status
+        
+        # Debugging: List all files being checked
+        echo "Files being checked:"
+        for file in schemas/**/*; do
+          if [ -f "$file" ]; then
+            echo "$file"
+          fi
+        done
         for file in schemas/**/*; do
           if [ -f "$file" ] && [ "$(basename "$file")" != "README.md" ] && [ "$(basename "$file")" != "CODEOWNERS" ]; then
             echo "Checking $file..."
