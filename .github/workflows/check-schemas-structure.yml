@@ -1,0 +1,76 @@
+name: Check Schemas Structure
+
+on:
+  push:
+    paths:
+      - 'schemas/categories/**'
+  pull_request:
+    paths:
+      - 'schemas/categories/**'
+
+jobs:
+  check-structure:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Check for required files
+      run: |
+        missing_files=0
+        for category in schemas/categories/*; do
+          if [ -d "$category" ]; then
+            if [ ! -f "$category/README.md" ]; then
+              echo "Missing README.md in $category"
+              missing_files=1
+            fi
+            for entity in "$category"/*; do
+              if [ -d "$entity" ]; then
+                if [ ! -f "$entity/README.md" ]; then
+                  echo "Missing README.md in $entity"
+                  missing_files=1
+                fi
+                if [ ! -f "$entity/CODEOWNERS" ]; then
+                  echo "Missing CODEOWNERS in $entity"
+                  missing_files=1
+                fi
+              fi
+            done
+          fi
+        done
+        exit $missing_files
+
+    - name: Check no changes to schemas
+      run: |
+        invalid_changes=0
+        changes=""
+        for category in schemas/categories/*; do
+        for entity in "$category"/*; do
+            if [ -d "$entity" ]; then
+            # Check for changes in files other than README.md
+            for file in "$entity"/*; do
+                if [ -f "$file" ] && [ "$(basename "$file")" != "README.md" ]; then
+                if git diff --name-only --exit-code "$file"; then
+                    changes="$changes\nUnexpected change in $file"
+                    invalid_changes=1
+                fi
+                fi
+            done
+            fi
+        done
+        done
+
+        echo "changes=$changes" >> $GITHUB_ENV
+        exit $invalid_changes
+
+    - name: Comment on PR if there are unexpected changes
+      if: env.changes != ''
+      uses: actions/github-script@v6
+      with:
+        script: |
+            github.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `Unexpected changes detected:\n${process.env.changes}`
+            })
