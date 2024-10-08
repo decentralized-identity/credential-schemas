@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Pull latest changes
+      - name: Reset local branch to match remote
         run: |
-            git pull origin ${{ github.head_ref }} --force
+          git fetch origin
+          git reset --hard origin/${{ github.head_ref }}
       - uses: gagoar/codeowners-generator@master
         with:
           use-maintainers: true
