@@ -3,10 +3,10 @@ name: Check Schemas Structure
 on:
   push:
     paths:
-      - 'schemas/categories/**'
+      - 'schemas/**'
   pull_request:
     paths:
-      - 'schemas/categories/**'
+      - 'schemas/**'
 
 jobs:
   check-structure:
