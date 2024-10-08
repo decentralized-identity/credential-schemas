@@ -9,10 +9,11 @@ jobs:
   check-structure:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0 
+    - uses: actions/checkout@v3
+    - name: Reset local branch to match remote
+      run: |
+          git fetch origin
+          git reset --hard origin/${{ github.head_ref }}
 
     - name: Check for required files
       run: |
