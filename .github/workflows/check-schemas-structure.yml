@@ -1,9 +1,6 @@
 name: Check Schemas Structure
 
 on:
-  push:
-    paths:
-      - 'schemas/**'
   pull_request:
     paths:
       - 'schemas/**'
