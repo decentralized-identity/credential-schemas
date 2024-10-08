@@ -44,7 +44,10 @@ jobs:
       run: |
         invalid_changes=0
         changes=""
-        echo "Checking for changes in schema files..."
+        echo "Checking for changes in schema files against main branch..."
+
+        # Fetch the main branch
+        git fetch origin main:main
 
         # Debugging: Print git status
         git status
@@ -58,8 +61,9 @@ jobs:
         done
         for file in schemas/**/*; do
           if [ -f "$file" ] && [ "$(basename "$file")" != "README.md" ] && [ "$(basename "$file")" != "CODEOWNERS" ]; then
-            echo "Checking $file..."
-            if ! git diff --name-only --exit-code "$file"; then
+            echo "Checking $file against main..."
+            # Compare the file with the main branch
+            if ! git diff --name-only --exit-code main -- "$file"; then
               echo "Change detected in $file"
               changes="$changes\nUnexpected change in $file, you should not update a schema file, consider creating a new version instead."
               invalid_changes=1
