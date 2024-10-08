@@ -10,10 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Fetch all history for all branches
     - name: Reset local branch to match remote
       run: |
           git fetch origin
           git reset --hard origin/${{ github.head_ref }}
+
+    - name: Set up the branch for comparison
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+        git fetch origin ${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
+        git checkout ${{ github.head_ref }}
 
     - name: Check for required files
       run: |
@@ -45,9 +54,6 @@ jobs:
         invalid_changes=0
         changes=""
         echo "Checking for changes in schema files against base branch..."
-
-        # Fetch the base branch
-        git fetch origin ${{ github.base_ref }}
 
         # Debugging: Print git status
         git status
