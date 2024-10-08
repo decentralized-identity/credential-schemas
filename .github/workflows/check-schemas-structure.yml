@@ -41,7 +41,7 @@ jobs:
       run: |
         invalid_changes=0
         changes=""
-        for category in schemas/categories/*; do
+        for category in schemas/*; do
         for entity in "$category"/*; do
             if [ -d "$entity" ]; then
             # Check for changes in files other than README.md
