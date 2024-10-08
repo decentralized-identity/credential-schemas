@@ -14,24 +14,16 @@ jobs:
     - name: Check for required files
       run: |
         missing_files=0
-        for category in schemas/categories/*; do
-          if [ -d "$category" ]; then
-            if [ ! -f "$category/README.md" ]; then
-              echo "Missing README.md in $category"
+        for entity in schemas/*; do
+          if [ -d "$entity" ]; then
+            if [ ! -f "$entity/README.md" ]; then
+              echo "Missing README.md in $entity"
               missing_files=1
             fi
-            for entity in "$category"/*; do
-              if [ -d "$entity" ]; then
-                if [ ! -f "$entity/README.md" ]; then
-                  echo "Missing README.md in $entity"
-                  missing_files=1
-                fi
-                if [ ! -f "$entity/CODEOWNERS" ]; then
-                  echo "Missing CODEOWNERS in $entity"
-                  missing_files=1
-                fi
-              fi
-            done
+            if [ ! -f "$entity/CODEOWNERS" ]; then
+              echo "Missing CODEOWNERS in $entity"
+              missing_files=1
+            fi
           fi
         done
         exit $missing_files
