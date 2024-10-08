@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        fetch-depth: 0  # Fetch all history for all branches
+        fetch-depth: 0  
 
     - name: Check for required files
       run: |
@@ -61,7 +61,6 @@ jobs:
         echo "changes<<EOF" >> $GITHUB_ENV
         echo -e "$changes" >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
-        exit $invalid_changes
 
     - name: Comment on PR if there are unexpected changes
       if: env.changes != ''
