@@ -10,11 +10,14 @@
 # This block has been generated with codeowners-generator (for more information https://github.com/gagoar/codeowners-generator)
 # Don't worry, the content outside this block will be kept.
 
-# Rule extracted from CODEOWNERS
+# Rules extracted from CODEOWNERS
 /**/* @kimdhamilton @ottomorac
+/**/* @kimdhamilton @ottomorac
+/schemas/**/* @kimdhamilton @ottomorac
+/schemas/ExampleCategory/ExampleEntity/**/* @vmc-crossmint
 # Rule extracted from schemas/CODEOWNERS
 /schemas/**/* @kimdhamilton @ottomorac
-# Rule extracted from schemas/ExampleCategory/ExampleEntity/CODEOWNERS
-/schemas/ExampleCategory/ExampleEntity/**/* @vmc-crossmint
+# Rule extracted from schemas/ExampleEntity/CODEOWNERS
+/schemas/ExampleEntity/**/* @vmc-crossmint
 
 #################################### Generated content - do not edit! ####################################
