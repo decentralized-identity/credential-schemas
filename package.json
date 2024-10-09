@@ -29,5 +29,12 @@
     "dev:specs": "node -e \"require('spec-up')()\"",
     "resources": "cp -r schemas build/. && cp -r images build/.",
     "clean": "del build && mkdir build"
+  },
+  "codeowners-generator": {
+    "includes": ["**/CODEOWNERS"],
+    "output": "CODEOWNERS",
+    "useMaintainers": true,
+    "useRootMaintainers": true,
+    "groupSourceComments": true  
   }
 }
