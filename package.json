@@ -32,9 +32,6 @@
   },
   "codeowners-generator": {
     "includes": ["**/CODEOWNERS"],
-    "output": "CODEOWNERS",
-    "useMaintainers": true,
-    "useRootMaintainers": true,
-    "groupSourceComments": true  
+    "output": "CODEOWNERS"
   }
 }
