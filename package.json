@@ -34,7 +34,6 @@
     "includes": ["**/CODEOWNERS"],
     "output": "CODEOWNERS",
     "useMaintainers": true,
-    "useRootMaintainers": true,
     "groupSourceComments": true  
   }
 }

@@ -1,0 +1,65 @@
+{
+    "$id": "verifiable-credential-schema",
+    "$schema": "https://github.com/decentralized-identity/credential-schemas/blob/main/schemas/ExampleEntity/exampleJSONSchema.json",
+    "title": "Verifiable Credential Schema",
+    "description": "A schema for Verifiable Credentials",
+    "type": "object",
+    "properties": {
+      "@context": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "id": {
+        "type": "string"
+      },
+      "issuer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": ["id"]
+      },
+      "credentialSubject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": ["id", "name"]
+      },
+      "validFrom": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "nft": {
+        "type": "object",
+        "properties": {
+          "tokenId": {
+            "type": "string"
+          },
+          "contractAddress": {
+            "type": "string"
+          },
+          "chain": {
+            "type": "string"
+          }
+        },
+        "required": ["tokenId", "contractAddress", "chain"]
+      }
+    },
+    "required": ["@context", "type", "id", "issuer", "credentialSubject", "validFrom", "nft"]
+  }
