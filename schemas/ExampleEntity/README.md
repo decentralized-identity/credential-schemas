@@ -32,6 +32,11 @@ The `ExampleEntity` schema defines the structure for a verifiable credential. It
 - **Standard**: EIP-712
 - **Purpose**: To define a sample for future schemas.
 
+- **File**: `exampleJSONSchema.json`
+- **Standard**: JSON-Schama
+- **Purpose**: To define a sample for future schemas.
+
+
 ## TAGS
 
 - `ExampleTag`
