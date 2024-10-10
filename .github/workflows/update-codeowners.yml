@@ -12,6 +12,9 @@ jobs:
         run: |
           git fetch origin
           git reset --hard origin/${{ github.head_ref }}
+      - name: Delete CODEOWNERS file
+        run: |
+            rm -f CODEOWNERS
       - uses: gagoar/codeowners-generator@master
         with:
           use-maintainers: true
