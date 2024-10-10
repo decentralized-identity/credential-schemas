@@ -30,21 +30,10 @@
     "resources": "cp -r schemas build/. && cp -r images build/.",
     "clean": "del build && mkdir build"
   },
-  "maintainers": [
-    {
-      "name": "Otto",
-      "github": "ottomorac"
-    },
-    {
-      "name": "Kim",
-      "github": "kimdhamilton"
-    }
-  ],
   "codeowners-generator": {
     "includes": ["**/CODEOWNERS"],
     "output": "CODEOWNERS",
     "useMaintainers": true,
-    "useRootMaintainers": true,
     "groupSourceComments": true  
   }
 }

@@ -18,6 +18,9 @@ jobs:
       - uses: gagoar/codeowners-generator@master
         with:
           use-maintainers: true
+      - name: Add default CODEOWNERS
+        run: |
+            echo "* @kimdhamilton @ottomorac" >> CODEOWNERS
       - run: |
           STATUS=$(git diff --quiet && echo clean || echo modified)
           echo "status=$(echo $STATUS)" >> $GITHUB_OUTPUT
