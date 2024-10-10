@@ -15,6 +15,9 @@
 /**/* @kimdhamilton @ottomorac
 /**/* @kimdhamilton @ottomorac
 /**/* @kimdhamilton @ottomorac
+/**/* @kimdhamilton @ottomorac
+/schemas/**/* @kimdhamilton @ottomorac
+/schemas/ExampleEntity/**/* @vmc-crossmint
 /schemas/**/* @kimdhamilton @ottomorac
 /schemas/ExampleEntity/**/* @vmc-crossmint
 /schemas/**/* @kimdhamilton @ottomorac
@@ -22,6 +25,6 @@
 # Rule extracted from schemas/CODEOWNERS
 /schemas/**/* @kimdhamilton @ottomorac
 # Rule extracted from schemas/ExampleEntity/CODEOWNERS
-/schemas/ExampleEntity/**/* @vmc-crossmint
+/schemas/ExampleEntity/**/* @vmc-crossmint @filipposl
 
 #################################### Generated content - do not edit! ####################################
