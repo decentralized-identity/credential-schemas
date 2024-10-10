@@ -8,5 +8,5 @@
 /schemas/ExampleEntity/**/* @vmc-crossmint @filipposl
 
 #################################### Generated content - do not edit! ####################################
-Default Codeowners
+# Default Codeowners
 * @kimdhamilton @ottomorac
