@@ -14,6 +14,9 @@
 # Rules extracted from CODEOWNERS
 /**/* @kimdhamilton @ottomorac
 /**/* @kimdhamilton @ottomorac
+/**/* @kimdhamilton @ottomorac
+/schemas/**/* @kimdhamilton @ottomorac
+/schemas/ExampleEntity/**/* @vmc-crossmint
 /schemas/**/* @kimdhamilton @ottomorac
 /schemas/ExampleEntity/**/* @vmc-crossmint
 # Rule extracted from schemas/CODEOWNERS
