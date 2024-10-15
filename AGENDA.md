@@ -38,13 +38,24 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 </details>
 
+## Meeting - 24 September 2024 - (1300 ET)
+
+Attendees: Jim Schoening, Otto Mora, Kim Duffy, Valerio Massimo Camaiani, Filippos Lymperopoulos
+
+1. Welcome and agenda review
+2. Brief update on [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
+    - Attributes have been split into sub-tables
+
 ## Meeting - 10 September 2024 - (1300 ET)
 
 Attendees: Otto Mora, Adrian Field
 
 1. Welcome and agenda review
-3. Review of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
-    - Feedback from Adrian Field on various field names and structure of the names section
+3. Review of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto and Adrian Field)
+    - Feedback from Adrian on various field names and structure of the names section
+    - Suggestions from Adrian on how to structure the spec
+    - Review of mapping of the basic person to Open ID connect core, Open ID for ID assurance, and ISO mdl
+    - Decision to split the salutation and title into separate fields
 
 
 ## Meeting - 27 August 2024 - (1300 ET)
@@ -52,7 +63,7 @@ Attendees: Otto Mora, Adrian Field
 Attendees: Jim Schoening, Otto Mora, Kim Duffy, Adrian Field, Valerio Massimo Camaiani, Filippos Lymperopoulos, Moises Jaramillo, Christopher Wilson (Guest)
 
 1. Welcome and agenda review
-3. Brief update on [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
+2. Brief update on [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
     - Attributes have been split into sub-tables
     - Decided on ISO 3 letter codes after working group vote
     - Feedback from Adrian Field regarding the need for an unstructured address field
