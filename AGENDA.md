@@ -38,13 +38,19 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 
 </details>
 
-## Meeting - 24 September 2024 - (1300 ET)
+## Meeting - 8 October 2024 - (1300 ET)
 
-Attendees: Jim Schoening, Otto Mora, Kim Duffy, Valerio Massimo Camaiani, Filippos Lymperopoulos
+Attendees: Otto Mora, Kim Duffy, Valerio Massimo Camaiani, Filippos Lymperopoulos
 
 1. Welcome and agenda review
-2. Brief update on [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
-    - Attributes have been split into sub-tables
+2. Discussion of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
+    - Agreed to proposal from Mike Parhill for fields with enumerations
+    - Agreed to split name attributes into sub-table as proposed by Adrian Field
+3. Began discussion on Proof of Age with example from the Privado ID schema explorer, and potential connection with the Proof of Personhood work
+4. Schema Discovery Process:
+   - Quick discussion on PRs contributed by Valerio and Filipos
+   - Agreed to use tags for categorization of schemas
+   - Discussion on potentially using the schemas repo for the DIF Hackathon
 
 ## Meeting - 10 September 2024 - (1300 ET)
 
@@ -56,6 +62,9 @@ Attendees: Otto Mora, Adrian Field
     - Suggestions from Adrian on how to structure the spec
     - Review of mapping of the basic person to Open ID connect core, Open ID for ID assurance, and ISO mdl
     - Decision to split the salutation and title into separate fields
+    - Accepted suggestion on "Name from Date" and "Address from Date"
+    - Agreed to remove "email verified" and "phone number verified" fields, as KYC issuer would confirm this data
+    - Agreed to correct enumeration fields for "nameType" and a few others that do no
 
 
 ## Meeting - 27 August 2024 - (1300 ET)
