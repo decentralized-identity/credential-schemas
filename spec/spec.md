@@ -1,6 +1,6 @@
-# credential-schemas 0.1 Editor's Draft
+# credential-schemas 0.1 Working Group Draft
 
-**Specification Status:** Pre-Draft
+**Specification Status:** Working Group draft (October 2024)
 
 **Latest Draft:**
 [identity.foundation/credential-schemas](https://identity.foundation/credential-schemas)
@@ -8,7 +8,9 @@
 **Ratified Versions:**
 
 **Editors:**
-~
+~ Otto Mora - @ottomorac (Privado ID)
+~ Adrian Field (One ID)
+~ Kim Hamilton Duffy (DIF)
 
 <!-- -->
 
@@ -20,6 +22,8 @@
 Except where otherwise noted, this work by the [Decentralized Identity Foundation](https://identity.foundation/) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0).
 
 ## Abstract
+
+This specification defines multiple standards for common use case verifiable credentials including KYC (basic person), AML, among others.
 
 ## Status of This Document
 
@@ -51,7 +55,29 @@ Abstract data model are fundamental in ensuring consistency and interoperability
 
 ![Abstract data model table representation](images/abstract-data-model.png "abstract data model table")
 
-_Credential Manifests_ are a resource format that defines preconditional
-requirements, Issuer style preferences, and other facets User Agents utilize to
-help articulate and select the inputs necessary for processing and issuance of a
-specified credential.
+### Formatting conventions: 
+
+Field names use "camelCase" and only the minimal fields are required, however required fields will be dependent on the implementer and use case.
+
+Country codes use the ISO 3166-1 alpha-3 codes (e.g. FRA, USA, CRC), this allows to accomodate use cases in which some countries are not fully recognized by the UN (example: Kosovo or Palestine) are represented with 3 letter codes in some standards such as [ICAO Doc 9303](https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf).
+
+#### Enumerations
+
+Given that the enumeration fields (for example in the "Basic Person" schema for fields such as nameType, identifierType, addressType, contactChannelType) may not accommodate all possible values, implementers are allowed to substitute these enumeration strings with an object that includes the value and a "enumDefinition" field which points to a custom enumeration. If the field value is just a string then the default enumeration is assumed.
+
+Please see below for an example of both possibilities.
+
+Enumeration field where the default enumeration is assumed:
+
+::: example Identifier with default enum
+  identifierType: "passport"
+:::
+
+Enumeration field where a custom enumeration is used:
+
+::: example Identifier with custom enum
+  identifierType: {
+      value: "digitalPassport",
+      enumDefinition: https://example.com/myPassportTypes
+   }
+:::
