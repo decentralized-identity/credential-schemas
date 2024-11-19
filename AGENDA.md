@@ -24,25 +24,93 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 <summary> Topics for upcoming meetings</summary>
 
 - topic 1 (to be discussed on this date)
-- topic 2 (to be discussed on this date)
+- Credential schema online platform
 - topic n. (tbd)
 
 </details>
 
 
 <details>
-<summary> Topics for Tuesday 30-Jul </summary>
+<summary> Topics for Tuesday 22-Oct </summary>
 
-- Quick review of "basic kyc schema" feedback received so far (10 mins)
-- Demo of Proposed Veramo Plugin for Schema Selector (Jim S). (20 mins)
-- Discussion around credential schema submission / discovery platform (topic suggested by Filippos Lymperopoulos and Crossmint team) (20 mins)
+- Review of "basic person schema" final review before initial draft is presented at IIW (15 mins)
+- Discussion around credential schema discovery process and potential discussion at IIW (15 mins)
 
 </details>
 
+## Meeting - 8 October 2024 - (1300 ET)
+
+Attendees: Otto Mora, Kim Duffy, Valerio Massimo Camaiani, Filippos Lymperopoulos
+
+1. Welcome and agenda review
+2. Discussion of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
+    - Agreed to proposal from Mike Parhill for fields with enumerations
+    - Agreed to split name attributes into sub-table as proposed by Adrian Field
+3. Began discussion on Proof of Age with example from the Privado ID schema explorer, and potential connection with the Proof of Personhood work
+4. Schema Discovery Process:
+   - Quick discussion on PRs contributed by Valerio and Filipos
+   - Agreed to use tags for categorization of schemas
+   - Discussion on potentially using the schemas repo for the DIF Hackathon
+
+## Meeting - 10 September 2024 - (1300 ET)
+
+Attendees: Otto Mora, Adrian Field
+
+1. Welcome and agenda review
+3. Review of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto and Adrian Field)
+    - Feedback from Adrian on various field names and structure of the names section
+    - Suggestions from Adrian on how to structure the spec
+    - Review of mapping of the basic person to Open ID connect core, Open ID for ID assurance, and ISO mdl
+    - Decision to split the salutation and title into separate fields
+    - Accepted suggestion on "Name from Date" and "Address from Date"
+    - Agreed to remove "email verified" and "phone number verified" fields, as KYC issuer would confirm this data
+    - Agreed to correct enumeration fields for "nameType" and a few others that do no
+
+
+## Meeting - 27 August 2024 - (1300 ET)
+
+Attendees: Jim Schoening, Otto Mora, Kim Duffy, Adrian Field, Valerio Massimo Camaiani, Filippos Lymperopoulos, Moises Jaramillo, Christopher Wilson (Guest)
+
+1. Welcome and agenda review
+2. Brief update on [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
+    - Attributes have been split into sub-tables
+    - Decided on ISO 3 letter codes after working group vote
+    - Feedback from Adrian Field regarding the need for an unstructured address field
+3. Reviewed updated presentation on [credential schemas discovery process](https://docs.google.com/presentation/d/1wksGUmAoN4jq36pyfhuMW6SZijujCzmY/edit?usp=sharing&ouid=112319009131764791841&rtpof=true&sd=true) - (Filipos)
+ - Discussed categorization proposal
+ - Positive feedback received from Kim Duffy
+4. Conversation with My Data Global on "Data Models" - Christopher Wilson and Jim Schoening
+
+
+## Meeting - 13 August 2024 - (1300 ET)
+
+Attendees: Jim Schoening, Otto Mora, Kim Duffy, Adrian Field, Valerio Massimo Camaiani, Filippos Lymperopoulos, Steven Frank (Switchchord),
+
+1. Welcome and agenda review
+2. Debrief on "schema selector" presentation for Veramo (Jim Schoening)
+3. Presentation on potential [credential schemas discovery process](https://docs.google.com/presentation/d/1wksGUmAoN4jq36pyfhuMW6SZijujCzmY/edit?usp=sharing&ouid=112319009131764791841&rtpof=true&sd=true)
+4. Brief update on [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema):
+    - Work in progress currently on the spec-up (Otto)
+    - Feedback regarding [EIDAS catalogue of attributes](https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/14402-European-digital-identity-framework-verification-of-electronic-attestation-of-attributes_en)
+6. Others
+
+## Meeting - 30 July 2024 - (1300 ET)
+
+Attendees: Jim Schoening, Otto Mora, Kim Duffy Adrian Field, Valerio Massimo Camaiani, Filippos Lymperopoulos, Steven Frank (Switchchord),
+
+1. Welcome and agenda review
+2. Reviewed basic identity schema, and feedback from Adrian Field from One ID
+    - Decided to call it the "Basic Person Schema"
+    - Feedback regarding various attributes including addressess, date of birth, and government identifier
+    - Decided to place address in an array object
+    - Discussed ISO 2 letter codes vs. 3 letter codes
+4. Reviewed "schema selector" presentation for Veramo (Jim Schoening)
+4. Reviewed suggestions from Crossmint team regarding a potential credential schemas directory
+5. 5. Others
 
 ## Meeting - 16 July 2024 - (1300 ET)
 
-Attendees: Jim Schoening, Otto Moro, Kim Duffy, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas, Cole Davis, Steven Frank (Switchchord)
+Attendees: Jim Schoening, Otto Mora, Kim Duffy, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas, Cole Davis, Steven Frank (Switchchord)
 
 1. Welcome and introductions
 2. Administrivia
@@ -57,7 +125,7 @@ Attendees: Jim Schoening, Otto Moro, Kim Duffy, Valerio Massimo Camaiani, Alfons
 
 ## Meeting - 2 July 2024 - (1300 ET)
 
-Attendees: Jim Schoening, Alex Hache, Otto Moro, Kim Duffy, Adrian Field, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas
+Attendees: Jim Schoening, Alex Hache, Otto Mora, Kim Duffy, Adrian Field, Valerio Massimo Camaiani, Alfonso Gomez Jordana Manas
 
 1. Welcome and introductions
 2. Administrivia
@@ -74,7 +142,7 @@ Attendees: Jim Schoening, Alex Hache, Otto Moro, Kim Duffy, Adrian Field, Valeri
 
 ## Meeting - 18 Jun 2024 - (1300 ET)
 
-Attendees: Jim Schoening, Alex Hache, Gerald Glickman, Alfonso Gomez Jordana Manas, Don Sheppard, Valerio Massimo Camaiani, Eric Scouten, Maria Teresa Aarao, Keith Kowal, Otto Moro, Kim Duffy, Limari Navarrette 
+Attendees: Jim Schoening, Alex Hache, Gerald Glickman, Alfonso Gomez Jordana Manas, Don Sheppard, Valerio Massimo Camaiani, Eric Scouten, Maria Teresa Aarao, Keith Kowal, Otto Mora, Kim Duffy, Limari Navarrette 
 
 1. Welcome and Procedural Considerations
 2. Introductions

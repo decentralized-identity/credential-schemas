@@ -1,4 +1,3 @@
-name: update CODEOWNERS
 
 on:
   pull_request:
