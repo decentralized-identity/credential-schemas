@@ -1,0 +1,25 @@
+{
+	"$id": "https://github.com/decentralized-identity/credential-schemas/blob/main/schemas/ExampleEntity/ExampleNameSchema.json",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "Example Name schema",
+	"description": "A schema capturing a human name",
+	"type": "object",
+	"properties": {
+		"credentialSubject": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "object",
+					"properties": {
+						"firstName": {
+							"type": "string"
+						},
+						"id": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	}
+}
