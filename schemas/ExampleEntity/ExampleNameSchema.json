@@ -8,18 +8,15 @@
 		"credentialSubject": {
 			"type": "object",
 			"properties": {
-				"name": {
-					"type": "object",
-					"properties": {
-						"firstName": {
-							"type": "string"
-						},
-						"id": {
-							"type": "string"
-						}
-					}
+				"firstName": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
 				}
-			}
+			},
+			"required": ["firstName"],
+			"additionalProperties": false
 		}
 	}
 }
