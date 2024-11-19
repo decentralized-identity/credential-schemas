@@ -24,7 +24,7 @@ The `ExampleEntity` schema defines the structure for a verifiable credential. It
 - **Nft**: This type includes the following fields:
   - `tokenId`: A string representing the token ID of the NFT.
   - `contractAddress`: A string representing the contract address of the NFT.
-  - `chain`: A string representing the blockchain chain of the NFT.
+  - `chain`: A string representing the blockchain network of the NFT.
 
 ## Schema Details
 
@@ -33,7 +33,7 @@ The `ExampleEntity` schema defines the structure for a verifiable credential. It
 - **Purpose**: To define a sample for future schemas.
 
 - **File**: `exampleJSONSchema.json`
-- **Standard**: JSON-Schama
+- **Standard**: JSON-Schema
 - **Purpose**: To define a sample for future schemas.
 
 
