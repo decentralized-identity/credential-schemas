@@ -1,4 +1,11 @@
-## Other Sections...
+## Usage Guidance
+
+### Batch Issuance
+
+Some proof mechanisms rely on batch issuance to prevent re-use of subject
+identifiers, with the goal of reducing linkability. If using these schemas
+within such contexts, bear in mind that the subject `id` property may
+store different identifier values.
 
 ## Appendix
 
