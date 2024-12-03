@@ -48,19 +48,19 @@ Review of "basic person schema" . Review of updates done:
 Attendees: Otto Mora, Kim Duffy, Adrian Field
 
 1. Welcome and agenda review
-2. Discussion of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema) Final review before initial draft is presented at IIW: (Otto)
-    - Implemented the names object
-
-Credential Schemas Work Item Proposed Agenda for 5-Nov :
-Updates of "basic person schema" after IIW (Otto) - 10 min :
-Migrated the place of birth date to the addresses array
-Fixed phone number field note
-Clarified name of object items
-Added nameToDate and addressToDate field to keep history of names
-Minor wording clarifications
-Debrief of Proof of Personhood discussion at IIW and W3C CCG (Kim) - 5 min
-Proof of Age proposal, feedback received at IIW (Otto) - 10 min
+2. Discussion of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
+    - Migrated the place of birth date to the addresses array
+    - Fixed phone number field note
+    - Clarified name of object items
+    - Added nameToDate and addressToDate field to keep history of names
+    - Minor wording clarifications
+3. Debrief of Proof of Personhood discussion at IIW and W3C CCG (Kim):
+4. Proof of Age proposal, feedback received at IIW (Otto):
 Other Items
+Updates of "basic person schema" after IIW (Otto) - 10 min :
+
+
+
 
 ## Meeting - 22 October 2024 - (1300 ET)
 
@@ -76,20 +76,11 @@ Attendees: Otto Mora, Kim Duffy, Adrian Field
     - Implemented the contact channels object
     - Moved the government identifiers to the identifiers object
     - Enumerations can be customized for specific use cases
+    - Additional feedback received from Adrian Field
 3. Discussion around credential schema discovery process and potential discussion at IIW (15 mins)
 4. Discussion Additional IIW Sessions we could hold (10 mins):
 - Proof of Age
 - Other Items
-
-## Meeting - 8 October 2024 - (1300 ET)
-
-Attendees: Otto Mora, Kim Duffy, Valerio Massimo Camaiani, Filippos Lymperopoulos
-
-1. Welcome and agenda review
-2. Discussion of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
-    - Agreed to proposal from Mike Parhill for fields with enumerations
-    - Agreed to split name attributes into sub-table as proposed by Adrian Field
-3. Began discussion on Proof of Age with example from the Privado ID schema explorer, and potential connection with the Proof of Personhood work
 
 ## Meeting - 8 October 2024 - (1300 ET)
 
