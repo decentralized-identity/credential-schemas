@@ -64,7 +64,7 @@ Updates of "basic person schema" after IIW (Otto) - 10 min :
 
 ## Meeting - 22 October 2024 - (1300 ET)
 
-Attendees: Otto Mora, Kim Duffy, Adrian Field
+Attendees: Otto Mora, Kim Duffy, Adrian Field, Filippos Lymperopoulos
 
 1. Welcome and agenda review
 2. Discussion of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema) Final review before initial draft is presented at IIW: (Otto)
@@ -77,10 +77,12 @@ Attendees: Otto Mora, Kim Duffy, Adrian Field
     - Moved the government identifiers to the identifiers object
     - Enumerations can be customized for specific use cases
     - Additional feedback received from Adrian Field
-3. Discussion around credential schema discovery process and potential discussion at IIW (15 mins)
-4. Discussion Additional IIW Sessions we could hold (10 mins):
-- Proof of Age
-- Other Items
+3. Discussion Additional IIW Sessions we could hold such as Proof of Age:
+    - Agreed to hold a session on a Proof of Age schema that supports both Age Verification and Age Estimation
+4. Discussion around credential schema discovery process (Filippos)
+   - Agreed to mention this during the IIW sessions
+5. Brief discussion around a future "assurance wrapper" for the basic person schema (Adrian)
+
 
 ## Meeting - 8 October 2024 - (1300 ET)
 
