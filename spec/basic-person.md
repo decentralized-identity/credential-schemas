@@ -101,6 +101,7 @@ Depending on the type of contact channel some formatting rules apply:
 #### Sample implementations of this schema standard
 
 - Privado ID (JSON-LD): [basic person](https://tools.privado.id/schemas/a6405ff0-ed9e-4bfb-bf75-6045aa4acd20)
+- Oasis [Lightweight Verifiable Credential Schema & Process](https://groups.oasis-open.org/higherlogic/ws/public/document?document_id=72395&wg_id=d518c57f-50d4-4694-aad8-018dc7d3f54c)
 
 ::: todo add links to schema implementations
   Need to add links to additional schema implementations in JSON-LD, SD-JWT and others
