@@ -43,6 +43,30 @@ Review of "basic person schema" . Review of updates done:
 
 </details>
 
+## Meeting - 3 December 2024 - (1300 ET)
+
+Attendees: Otto Mora, Valerio Camaiani, Don Sheppard, Kim Duffy
+
+1. Welcome and agenda review
+2. Discussion of Proof of Age Proposal and session in January to begin standardization process - (Otto)
+ - Decision on exact date on which to hold the event: 28-Jan
+3. Discussion on the "basic person schema" for KYC (Otto)
+ - Review feedback from W3C / Manu on field naming convention - https://github.com/decentralized-identity/credential-schemas/issues/23
+ - Review feedback from Manu regarding the identifierType: https://github.com/decentralized-identity/credential-schemas/issues/24
+
+
+## Meeting - 19 November 2024 - (1300 ET)
+
+Attendees: Otto Mora, Valerio Camaiani, Don Sheppard, Kim Duffy
+
+1. Welcome and agenda review
+2. Intro to Don Sheppard (new working group member from OASIS Light Weight Credentials Framework) discussion of collaboration between Oasis and DIF on the "basic person schema"
+ - Feedback regarding IANA attributes
+3. Discussion of Proof of Age Proposal and session in January to begin standardization process - (Otto)
+    - Feedback received at IIW, do we need to do special accommodations for the "single use" proof of age burner credentials, example provided from the TrueAge specification in California
+    - Proposal to add additional age verification method: "credit card check" based on feedback that [Mastercard provides age verification in 3D Secure](https://www.biometricupdate.com/202410/mastercard-launches-identity-attribute-verification-based-on-payment-card-data)
+4. Other Items: Co-Chair update (Jim S. leaving the group for now)
+
 ## Meeting - 5 November 2024 - (1300 ET)
 
 Attendees: Otto Mora, Kim Duffy, Adrian Field
@@ -54,10 +78,9 @@ Attendees: Otto Mora, Kim Duffy, Adrian Field
     - Clarified name of object items
     - Added nameToDate and addressToDate field to keep history of names
     - Minor wording clarifications
-3. Debrief of Proof of Personhood discussion at IIW and W3C CCG (Kim):
-4. Proof of Age proposal, feedback received at IIW (Otto):
-Other Items
-Updates of "basic person schema" after IIW (Otto) - 10 min :
+3. Debrief of Proof of Personhood discussion at IIW and W3C CCG (Kim)
+4. Proof of Age proposal, feedback received at IIW (Otto)
+5. Updates of "basic person schema" after IIW (Otto) 
 
 
 
