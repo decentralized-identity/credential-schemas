@@ -36,7 +36,76 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 - Review of "basic person schema" final review before initial draft is presented at IIW (15 mins)
 - Discussion around credential schema discovery process and potential discussion at IIW (15 mins)
 
+Credential Schemas Work Item Proposed Agenda for 22-Oct :
+Review of "basic person schema" . Review of updates done:
+
+
+
 </details>
+
+## Meeting - 3 December 2024 - (1300 ET)
+
+Attendees: Otto Mora, Valerio Camaiani, Don Sheppard, Kim Duffy
+
+1. Welcome and agenda review
+2. Discussion of Proof of Age Proposal and session in January to begin standardization process - (Otto)
+ - Decision on exact date on which to hold the event: 28-Jan
+3. Discussion on the "basic person schema" for KYC (Otto)
+ - Review feedback from W3C / Manu on field naming convention - https://github.com/decentralized-identity/credential-schemas/issues/23
+ - Review feedback from Manu regarding the identifierType: https://github.com/decentralized-identity/credential-schemas/issues/24
+
+
+## Meeting - 19 November 2024 - (1300 ET)
+
+Attendees: Otto Mora, Valerio Camaiani, Don Sheppard, Kim Duffy
+
+1. Welcome and agenda review
+2. Intro to Don Sheppard (new working group member from OASIS Light Weight Credentials Framework) discussion of collaboration between Oasis and DIF on the "basic person schema"
+ - Feedback regarding IANA attributes
+3. Discussion of Proof of Age Proposal and session in January to begin standardization process - (Otto)
+    - Feedback received at IIW, do we need to do special accommodations for the "single use" proof of age burner credentials, example provided from the TrueAge specification in California
+    - Proposal to add additional age verification method: "credit card check" based on feedback that [Mastercard provides age verification in 3D Secure](https://www.biometricupdate.com/202410/mastercard-launches-identity-attribute-verification-based-on-payment-card-data)
+4. Other Items: Co-Chair update (Jim S. leaving the group for now)
+
+## Meeting - 5 November 2024 - (1300 ET)
+
+Attendees: Otto Mora, Kim Duffy, Adrian Field
+
+1. Welcome and agenda review
+2. Discussion of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema): (Otto)
+    - Migrated the place of birth date to the addresses array
+    - Fixed phone number field note
+    - Clarified name of object items
+    - Added nameToDate and addressToDate field to keep history of names
+    - Minor wording clarifications
+3. Debrief of Proof of Personhood discussion at IIW and W3C CCG (Kim)
+4. Proof of Age proposal, feedback received at IIW (Otto)
+5. Updates of "basic person schema" after IIW (Otto) 
+
+
+
+
+## Meeting - 22 October 2024 - (1300 ET)
+
+Attendees: Otto Mora, Kim Duffy, Adrian Field, Filippos Lymperopoulos
+
+1. Welcome and agenda review
+2. Discussion of [basic identity schema](https://identity.foundation/credential-schemas/#basic-person-schema) Final review before initial draft is presented at IIW: (Otto)
+    - Implemented the names object
+    - Added the address and name from dates fields
+    - Added "previousAddress" type
+    - Removed "email and phone verified fields"
+    - Split the name and salutation
+    - Implemented the contact channels object
+    - Moved the government identifiers to the identifiers object
+    - Enumerations can be customized for specific use cases
+    - Additional feedback received from Adrian Field
+3. Discussion Additional IIW Sessions we could hold such as Proof of Age:
+    - Agreed to hold a session on a Proof of Age schema that supports both Age Verification and Age Estimation
+4. Discussion around credential schema discovery process (Filippos)
+   - Agreed to mention this during the IIW sessions
+5. Brief discussion around a future "assurance wrapper" for the basic person schema (Adrian)
+
 
 ## Meeting - 8 October 2024 - (1300 ET)
 
