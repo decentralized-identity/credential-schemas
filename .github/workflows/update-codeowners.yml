@@ -1,6 +1,5 @@
-# File: .github/workflows/codeowners.yaml
-
 name: Update CODEOWNERS
+
 on:
   pull_request:
     paths:
