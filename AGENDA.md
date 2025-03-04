@@ -23,25 +23,52 @@ Please note that we might not notice a pullrequest in time, but you are free to 
 <details>
 <summary> Topics for upcoming meetings</summary>
 
-- topic 1 (to be discussed on this date)
+- Community Credential contributions to repo (to be discussed on 4-March)
 - Credential schema online platform
+- AML credential schema
 - topic n. (tbd)
 
 </details>
 
 
-<details>
-<summary> Topics for Tuesday 22-Oct </summary>
+## Meeting - 11 February 2025 - (1300 ET)
 
-- Review of "basic person schema" final review before initial draft is presented at IIW (15 mins)
-- Discussion around credential schema discovery process and potential discussion at IIW (15 mins)
+Attendees: Otto Mora, Valerio Camaiani, Don Sheppard, Adrian Field
 
-Credential Schemas Work Item Proposed Agenda for 22-Oct :
-Review of "basic person schema" . Review of updates done:
+1. Welcome and agenda review
+2. Discussion of "Proof of Age" Schema - (Otto)
+    - Debrief on the session
+    - Update on Proof of Age Draft Schema (work in progress by Otto)
+    - Discussion of various ways of proving age by Adrian, Otto, Valerio, and Don: Exact age, Boolean "age over", partial (year only or year and month only), age range.
+3. Other items
 
 
+## Meeting - 28 January 2025 - (1300 ET)
 
-</details>
+- Workshop on Proof of Age no meeting this week.
+
+
+## Meeting - 14 January 2025 - (1300 ET)
+
+Attendees: Otto Mora, Valerio Camaiani, Don Sheppard, Kim Duffy
+
+1. Welcome and agenda review
+2. Discussion of Proof of Age Proposal and session in January to begin standardization process - (Otto)
+    - Update on out-reach / promotion
+    - Invitation sent to w3c ccg
+    - Privado ID will promote the event with a blog post - will be published this week
+    - Updates on potential participants
+3. Other items: Discussion on JWT
+
+## Meeting - 31 December 2024 - (1300 ET)
+
+Attendees: Otto Mora, Valerio Camaiani, Don Sheppard, Kim Duffy
+
+1. Working session for the DIF Proof of Age Schema Webinar:
+    - Discussion of Proof of Age Schema Working Session
+    - Public working session scheduled for 28-January to begin standardization process
+    - Privado ID will promote the event with a blog post
+    - Discussion on out-reach and potential participants to invite
 
 ## Meeting - 3 December 2024 - (1300 ET)
 
@@ -49,10 +76,10 @@ Attendees: Otto Mora, Valerio Camaiani, Don Sheppard, Kim Duffy
 
 1. Welcome and agenda review
 2. Discussion of Proof of Age Proposal and session in January to begin standardization process - (Otto)
- - Decision on exact date on which to hold the event: 28-Jan
+    - Decision on exact date on which to hold the event: 28-Jan
 3. Discussion on the "basic person schema" for KYC (Otto)
- - Review feedback from W3C / Manu on field naming convention - https://github.com/decentralized-identity/credential-schemas/issues/23
- - Review feedback from Manu regarding the identifierType: https://github.com/decentralized-identity/credential-schemas/issues/24
+    - Review feedback from W3C / Manu on field naming convention - https://github.com/decentralized-identity/credential-schemas/issues/23
+    - Review feedback from Manu regarding the identifierType: https://github.com/decentralized-identity/credential-schemas/issues/24
 
 
 ## Meeting - 19 November 2024 - (1300 ET)
