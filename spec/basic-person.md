@@ -1,6 +1,7 @@
 ### Basic Person Schema
 
 October 2024 - **Specification Status:** Working Group draft
+JSON Schema: [Basic Person Schema](https://github.com/decentralized-identity/credential-schemas/tree/main/dif-draft-schemas/basic-person-schema)
 
 #### Purpose: 
 The purpose of this credential schema specification is to define the fields required to identify an individual at a basic level for KYC purposes. The schema integrates fields from various standards including: [Open ID Connect](https://openid.net/specs/openid-connect-core-1_0.html) , [Open ID for Identity Assurance](https://openid.net/specs/openid-connect-4-identity-assurance-1_0.html) , and [EBSI for natural person](https://code.europa.eu/ebsi/json-schema/-/tree/main/schemas/vcdm1.1/multi-uni-pilot/verifiable-attestation-individual-id). Harmonization and mapping of the fields was done to facilitate interoperability with these standards.
@@ -100,6 +101,7 @@ Depending on the type of contact channel some formatting rules apply:
 
 #### Sample implementations of this schema standard
 
+- DIF: [Basic Person Schema](https://github.com/decentralized-identity/credential-schemas/tree/main/dif-draft-schemas/basic-person-schema)
 - Privado ID (JSON-LD): [basic person](https://tools.privado.id/schemas/a6405ff0-ed9e-4bfb-bf75-6045aa4acd20)
 - Oasis [Lightweight Verifiable Credential Schema & Process](https://groups.oasis-open.org/higherlogic/ws/public/document?document_id=72395&wg_id=d518c57f-50d4-4694-aad8-018dc7d3f54c)
 

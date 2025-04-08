@@ -11,6 +11,7 @@
 ~ Otto Mora - @ottomorac (Privado ID)
 ~ Adrian Field (One ID)
 ~ Kim Hamilton Duffy (DIF)
+~ Valerio Massimo Camaiani - @vmc-crossmint (Crossmint)
 
 <!-- -->
 
