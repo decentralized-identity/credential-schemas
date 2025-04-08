@@ -1,3 +1,13 @@
+# DIF Schemas Repository
+
+This repository, maintained by the Decentralized Identity Foundation (DIF), serves as a centralized hub where organizations and individuals can store, reference, search, and reuse credential schemas. It provides a collaborative platform that enables the community to work towards standardizing widely-adopted credential schema patterns. 
+
+It is organized into three distinct folders to manage schemas at different stages of maturity and standardization:
+
+- `community-schemas/`: Provides a space for individual entities to permanently store and reference their internal schemas. This allows entities to contribute their schemas, serving as a source for identifying patterns and candidates for future standardization.
+- `dif-draft-schemas/`: Houses schemas currently under review by the DIF Schemas Working Group, representing potential future standards.
+- `dif-recommended-schemas/`: Contains approved, standardized schemas that have completed the DIF review process. These schemas are immutable and serve as permanent references for the community.
+
 # DIF Credential Schemas Work Item
 
 This group meets every other week on Tuesdays at 10am PT / 1pm ET. Calendar link: https://calendar.app.google/MEvzr6ZfXv4HpuND6
