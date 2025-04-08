@@ -1,6 +1,7 @@
 ### Basic Person Schema
 
 October 2024 - **Specification Status:** Working Group draft
+
 JSON Schema: [Basic Person Schema](https://github.com/decentralized-identity/credential-schemas/tree/main/dif-draft-schemas/basic-person-schema)
 
 #### Purpose: 
