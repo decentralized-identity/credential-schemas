@@ -7,7 +7,7 @@ on:
       - "!.github/CODEOWNERS"  # except for the generated file itself
 jobs:
   update-codeowners:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     name: Update CODEOWNERS
     steps:
       - name: Checkout repo
