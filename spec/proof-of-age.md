@@ -66,9 +66,7 @@ Schema composed of 2 fields to express the user is over a given age threshold.
 - Schema Type Name: AgeRange
 
 Schema composed of 2 fields to indicate a user is in a given in age range for example: between "18 and 25 years of age", or between "40 and 65 years of age".
-
-Schema 
-
+ 
 | Property                 | Description                                                                                                                                                                                                                                                                       | Type & Format        | Definition / Comments                  |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|--------------------------------------------------------------|
 | minimumAge               | Minimum age of the user                                                                                                                                                                                                                    | integer              |                                                              |
