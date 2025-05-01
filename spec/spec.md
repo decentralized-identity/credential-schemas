@@ -64,7 +64,7 @@ Country codes use the ISO 3166-1 alpha-3 codes (e.g. FRA, USA, CRC), this allows
 
 #### Enumerations
 
-Given that the enumeration fields (for example in the "Basic Person" schema for fields such as nameType, identifierType, addressType, contactChannelType) may not accommodate all possible values, implementers are allowed to substitute these enumeration strings with an object that includes the value and a "enumDefinition" field which points to a custom enumeration. If the field value is just a string then the default enumeration is assumed.
+Given that the enumeration fields (for example in the "Basic Person" schema for fields such as nameType, identifierType, addressType, contactChannelType) may not accommodate all possible values, implementers are allowed to substitute or expands these enumeration strings with an object that includes the value and a "enumDefinition" field which points to a custom enumeration. If the field value is just a string then the default enumeration is assumed.
 
 Please see below for an example of both possibilities.
 
