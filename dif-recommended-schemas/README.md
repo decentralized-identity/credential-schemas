@@ -4,7 +4,7 @@ Welcome to the DIF Schemas repository. This shared repository acts as a common s
 
 ## DIF Recommended Schemas (Standardized Schemas)
 
-The schemas present in this folder are **recommended schemas** that have been approved by the DIF. They are the result of a standardization process that involves the DIF Schemas WG and other stakeholders. They can be used as **standard** schemas for interoperability and compliance.  
+The schemas present in this folder are **recommended schemas** that have been approved by the DIF. These schemas correspond to the "Final Approval" stage in the [DIF Work Item Lifecycle](https://github.com/decentralized-identity/org/blob/main/work-item-lifecycle.md) and have been approved by the Technical Steering Committee (TSC). They are the result of a standardization process that involves the DIF Schemas WG and other stakeholders. They can be used as **standard** schemas for interoperability and compliance.  
 
 ## Storage and Versioning
 

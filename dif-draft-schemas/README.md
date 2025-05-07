@@ -4,4 +4,5 @@ Welcome to the DIF Schemas repository. This shared repository acts as a common s
 
 ## DIF Draft Schemas and Standardization
 
-The schemas present in this folder are **draft schemas** that are currently being reviewed by the DIF Schemas WG. Will be moved to the [DIF Recommended Schemas](../dif-recommended-schemas) folder once approved. 
+The schemas present in this folder are **draft schemas** that are currently being reviewed by the DIF Schemas WG. This stage corresponds to the "Draft" and "Working Group Approved" stages of the [DIF Work Item Lifecycle](https://github.com/decentralized-identity/org/blob/main/work-item-lifecycle.md). Once approved by TSC, schemas will be moved to the [DIF Recommended Schemas](../dif-recommended-schemas) folder, representing the "Final Approval" stage.
+

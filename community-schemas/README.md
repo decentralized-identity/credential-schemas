@@ -8,12 +8,13 @@ This repository is structured to facilitate easy organization and retrieval of c
 
 - **Shared Repo:** The repository serves as a shared location where credential schemas are stored for common use. 
 - **Submitter Folders:** Schemas are organized in submitter folders. Each submitter will have their own folder, making it easy to locate schemas based on the entity that provided them.
+- **Working Group Exploration:** The `./schemasWorkingGroup` folder contains schemas being actively explored by the Credential Schemas Working Group.
 
 ## Community Schemas and DIF Standardization
 
-Please note that the schemas submitted to this `community-schemas` folder are **submissions** by individual entities and do not represent **DIF standard schemas**. 
+Please note that the schemas submitted to this `community-schemas` folder are **submissions** by individual entities and do not represent **DIF standard schemas**. The schemas in this repository, including those in the `./schemasWorkingGroup` folder, correspond to the ["Pre-Draft" stage](https://github.com/decentralized-identity/org/blob/main/work-item-lifecycle.md#71-pre-draft) in the DIF Work Item Lifecycle.
 
-The **Decentralized Identity Foundation (DIF)** will closely monitor the submissions made to this repository, with the intention of identifying schemas that may become standardized in the future. The **DIF curated** schemas are found in the [DIF Draft Schemas](../dif-draft-schemas) and [DIF Recommended Schemas](../dif-recommended-schemas) folders. The goal is to standardize specific schemas according to their comprehensive design and broad adoption in the ecosystem. While this standardization process may take time, it ensures alignment with best practices and long-term interoperability. T
+The **Decentralized Identity Foundation (DIF)** will closely monitor the submissions made to this repository, with the intention of identifying schemas that may become standardized in the future. The **DIF curated** schemas are found in the [DIF Draft Schemas](../dif-draft-schemas) and [DIF Recommended Schemas](../dif-recommended-schemas) folders. The goal is to standardize specific schemas according to their comprehensive design and broad adoption in the ecosystem. While this standardization process may take time, it ensures alignment with best practices and long-term interoperability. 
 
 ## Submission Process and Rules
 
