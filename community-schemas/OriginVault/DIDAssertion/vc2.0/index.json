@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.originvault.box/DIDAssertionCredentialV2_0.schema.json",
+  "title": "DID Assertion Credential",
+  "version": "2.0",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://schemas.originvault.box/context/did-assertion-v2.json"
+      ]
+    },
+    "id": { "type": "string", "format": "uri" },
+    "type": {
+      "type": "array",
+      "items": { "type": "string" },
+      "contains": { "const": "VerifiableCredential" }
+    },
+    "issuer": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uri" }
+      },
+      "required": ["id"]
+    },
+    "issuanceDate": { "type": "string", "format": "date-time" },
+    "validFrom": { "type": "string", "format": "date-time" },
+    "validUntil": { "type": "string", "format": "date-time" },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uri" },
+        "claimReviewed": { "type": "string" },
+        "author": { "type": "string", "format": "uri" },
+        "claimInterpreter": { "type": "string" },
+        "reviewAspect": { "type": "string" },
+        "firstAppearance": { "type": "string", "format": "date-time" },
+        "appearance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "timestamp": { "type": "string", "format": "date-time" },
+              "reviewStatus": {
+                "type": "string",
+                "enum": ["Verified", "Disputed", "Revoked"]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["@context", "id", "type", "issuer", "issuanceDate", "credentialSubject", "validFrom", "validUntil"]
+}
