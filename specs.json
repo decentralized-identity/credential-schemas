@@ -11,7 +11,7 @@
       "source": {
         "host": "github",
         "account": "decentralized-identity",
-        "repo": "template-for-DIF-work-items"
+        "repo": "credential-schemas"
       }
     }
   ]
