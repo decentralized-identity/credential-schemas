@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "ov": "https://schemas.originvault.box/terms#",
+    "id": "@id",
+    "type": "@type",
+    "issuer": {
+      "@id": "vc:issuer",
+      "@type": "@id"
+    },
+    "issuanceDate": {
+      "@id": "vc:issuanceDate",
+      "@type": "xsd:dateTime"
+    },
+    "expirationDate": {
+      "@id": "vc:expirationDate",
+      "@type": "xsd:dateTime"
+    },
+    "validFrom": {
+      "@id": "vc:validFrom",
+      "@type": "xsd:dateTime"
+    },
+    "validUntil": {
+      "@id": "vc:validUntil",
+      "@type": "xsd:dateTime"
+    },
+    "credentialSubject": {
+      "@id": "vc:credentialSubject",
+      "@type": "@id"
+    },
+    "claimReviewed": "schema:reviewAspect",
+    "author": {
+      "@id": "schema:author",
+      "@type": "@id"
+    },
+    "claimInterpreter": "ov:claimInterpreter",
+    "reviewAspect": "ov:reviewAspect",
+    "firstAppearance": {
+      "@id": "ov:firstAppearance",
+      "@type": "xsd:dateTime"
+    },
+    "appearance": {
+      "@id": "ov:appearance",
+      "@container": "@list"
+    },
+    "timestamp": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "reviewStatus": "schema:reviewRating"
+  }
+}
