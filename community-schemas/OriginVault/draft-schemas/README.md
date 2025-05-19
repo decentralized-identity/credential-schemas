@@ -1,24 +1,18 @@
-# DID Assertion Credential
+# OriginVault Draft Schemas
+
+This directory contains draft schemas developed by OriginVault for various credential types.
+
+## Available Schemas
+
+### DID Assertion Credential
 
 The **DID Assertion Credential** is a Verifiable Credential (VC) schema designed to assert, review, or validate claims about a decentralized identifier (DID). This can include claims such as **Trusted Creator**, **Verified Contributor**, or **Authentic Organization**.
 
-It is compatible with:
-- VC Data Model 1.1  
-- VC Data Model 2.0 (with validFrom / validUntil upgrade)
+For more details, see the [DID Assertion documentation](./didassertions/README.md).
 
----
+## Schema Development Process
 
-## 📖 Schema Overview
-
-| Field             | Type       | Description                                                                 |
-|-------------------|------------|-----------------------------------------------------------------------------|
-| `@context`       | array      | Context URIs, includes W3C and OriginVault namespaces                      |
-| `id`             | URI        | Unique identifier for the credential                                        |
-| `type`           | array      | Credential type (e.g., `["VerifiableCredential", "DIDAssertionCredential"]`) |
-| `issuer`        | object     | Entity issuing the credential (with `id` as DID)                           |
-| `issuanceDate`   | date-time  | Date the credential was issued                                              |
-| `expirationDate` / `validUntil` | date-time | Expiration date (v1.1) or validity end (v2.0)                          |
-| `credentialSubject` | object  | The DID subject and related claims                                          |
+All schemas in this directory are in draft status and may undergo changes before final release.
 
 ---
 

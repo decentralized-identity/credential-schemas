@@ -1,0 +1,66 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/DIDAssertion/index.json",
+  "title": "OriginVault DID Assertion",
+  "description": "A credential that asserts a claim about a subject",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/DIDAssertion/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": { 
+          "type": "string", 
+          "format": "uri",
+          "description": "The unique identifier for the subject, typically a URI."
+        },
+        "claimReviewed": { 
+          "type": "string",
+          "description": "A description of the claim that has been reviewed."
+        },
+        "author": { 
+          "type": "string", 
+          "format": "uri",
+          "description": "The URI of the author who made the claim."
+        },
+        "claimInterpreter": { 
+          "type": "string",
+          "description": "The entity responsible for interpreting the claim."
+        },
+        "reviewAspect": { 
+          "type": "string",
+          "description": "The specific aspect of the claim that was reviewed."
+        },
+        "firstAppearance": { 
+          "type": "string", 
+          "format": "date-time",
+          "description": "The date and time when the claim first appeared."
+        },
+        "appearance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "timestamp": { 
+                "type": "string", 
+                "format": "date-time",
+                "description": "The date and time of this appearance of the claim."
+              },
+              "reviewStatus": {
+                "type": "string",
+                "enum": ["Verified", "Disputed", "Revoked"],
+                "description": "The current review status of the claim."
+              }
+            }
+          }
+        }
+      },
+      "required": ["did", "claimReviewed", "author", "claimInterpreter", "reviewAspect", "firstAppearance", "appearance"]
+    }
+  },
+  "required": ["credentialSubject", "@context"]
+}
