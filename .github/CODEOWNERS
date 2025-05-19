@@ -8,8 +8,5 @@
 /dif-recommended-schemas/* @kimdhamilton @ottomorac @vmc-crossmint
 /community-schemas/Crossmint/* @vmc-crossmint @filipposl
 /community-schemas/ExampleEntity/* @vmc-crossmint @filipposl
-/community-schemas/OriginVault/<<<<<<< HEAD
-/community-schemas/OriginVault/* @originvault @lnispel
 /community-schemas/OriginVault/* @lnispel
-/community-schemas/OriginVault/>>>>>>> a4c3fc20761adac0f050db81dd3b5e1ac11328a7
 /community-schemas/schemasWorkingGroup/* @vmc-crossmint @ottomorac @kimdhamilton
