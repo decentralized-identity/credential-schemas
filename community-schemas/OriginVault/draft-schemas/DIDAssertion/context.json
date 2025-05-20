@@ -7,27 +7,6 @@
     "schema": "https://schema.org/",
     "ov": "https://schemas.originvault.box/terms#",
     "id": "@id",
-    "type": "@type",
-    "issuer": {
-      "@id": "vc:issuer",
-      "@type": "@id"
-    },
-    "issuanceDate": {
-      "@id": "vc:issuanceDate",
-      "@type": "xsd:dateTime"
-    },
-    "expirationDate": {
-      "@id": "vc:expirationDate",
-      "@type": "xsd:dateTime"
-    },
-    "validFrom": {
-      "@id": "vc:validFrom",
-      "@type": "xsd:dateTime"
-    },
-    "validUntil": {
-      "@id": "vc:validUntil",
-      "@type": "xsd:dateTime"
-    },
     "credentialSubject": {
       "@id": "vc:credentialSubject",
       "@type": "@id"
@@ -46,10 +25,6 @@
     "appearance": {
       "@id": "ov:appearance",
       "@container": "@list"
-    },
-    "timestamp": {
-      "@id": "schema:dateModified",
-      "@type": "xsd:dateTime"
     },
     "reviewStatus": "schema:reviewRating"
   }
