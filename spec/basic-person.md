@@ -62,6 +62,8 @@ The entry for the government identifier must be the unique government id or nati
 | identifierValue          | Identifier value (free form string value).                                                       | string         | required             |                                     |
 | identifierIssuingEntity  | Name of the entity that issues the document with the identifer. This could be a government entity such as the drivers license department of a jurisdiction, or the immigration department of a given country. It could also be a non-government entity such as a sports club or gym.                                                      | string         | required             |                                     |
 | issuingEntityCountry     | This is the country of the entity that issues the identifying document. It is a string representing the country in ISO 3166-1 alpha-3 codes (e.g. FRA, USA, CRC).                | string         | optional             |                                     |
+| documentExpirationDate   | Date in which the document expires or is subject to renewal                                                                                                                                                                                                                                                                                                                                                                                                     | string / date-time  |                                                                                                                                                                |   |
+
 
 #### Address Object
 
