@@ -19,58 +19,55 @@ Main schema for expressing an individual's age. It is composed of a proof of age
 
 For issuance date and expiration date fields please refer to the verifiable credentials data model [version 1.1](https://www.w3.org/TR/vc-data-model/) or [version 2.0](https://www.w3.org/TR/vc-data-model-2.0/) (we assume the usage of these fields).
 
-| Property              | Description                                                                                                                                                                    | Type & Format        | Definition / Comments                                        |
-|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|--------------------------------------------------------------|
-| id  \*                | Stores the DID of the subject that owns the credential                                                                                                                         | string               | Definition: https://www.w3.org/TR/vc-data-model/#identifiers |
-| proofOfAgeMethod \*             | Recommended values: "ageEstimation" or "ageVerification"                                                                                                                        | string / enumeration |                                                              |
-| verificationMethod \* | Verification method used. Recommended values for age verification: document scan, credit card check. Recommended values for age estimation: "facial scan", "voice check", "in person check". | string / enumeration |                                                              |
-| ageStatement \*   | Accepted schemas: "AgeDate", "AgeBoolean", and "AgeRange".                                                                                          | schema |   This could be implemented using the "anyOf" keyword when using json schemas.               |
-| probabilityOfCorrectness | Probability of correctness of the estimation. Number value between 0 and 100.                                                                                                                                                                        | number               |                                                              |
-| levelOfConfidence        | Level of confidence with which the verification has been completed allowed values: "asserted", "basic" (90%+), "standard" (99%+), "enhanced" (99.9%+) , and "strict" (99.99%+).  | string / enumeration   |   Refer to  [IS0/IEC 27566 – Age assurance systems](https://www.iso.org/standard/88143.html) - for more details.                    |
+| Property                 | Description                                                                                                                                                                                  | Type & Format        | Definition / Comments                                                                                          |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| id  \*                   | Stores the DID of the subject that owns the credential                                                                                                                                       | string               | Definition: https://www.w3.org/TR/vc-data-model-2.0/#identifiers                                               |
+| proofOfAgeMethod \*      | Recommended values: "ageEstimation" or "ageVerification"                                                                                                                                     | string / enumeration |                                                                                                                |
+| verificationMethod \*    | Verification method used. Recommended values for age verification: document scan, credit card check. Recommended values for age estimation: "facial scan", "voice check", "in person check". | string / enumeration |                                                                                                                |
+| ageStatement \*          | Accepted objects: "AgeDate", "AgeBoolean", and "AgeRange".                                                                                                                                   | object               | This could be implemented using the "anyOf" keyword when using json schemas.                                   |
+| probabilityOfCorrectness | Probability of correctness of the estimation. Number value between 0 and 100.                                                                                                                | number               |                                                                                                                |
+| levelOfConfidence        | Level of confidence with which the verification has been completed allowed values: "asserted", "basic" (90%+), "standard" (99%+), "enhanced" (99.9%+) , and "strict" (99.99%+).              | string / enumeration | Refer to  [IS0/IEC 27566 – Age assurance systems](https://www.iso.org/standard/88143.html) - for more details. |
 
 
 ::: note Key-on-required-or-optional-for-proof-of-age
   \* = Required field
 :::
 
-#### Age Date Schema
+#### Age Date Object
 
-- Schema Type Name: AgeDate
-
-Schema composed of 3 fields related to the invidual's birth date: Year, Month,and Day. The schema can represent an age statement in any of the following ways:
+Object composed of the following fields related to the invidual's birth date: Year, Month,and Day. The schema can represent an age statement in any of the following ways:
 
 - Year only (month and date values are null): e.g. 1952
 - Year and month (date value is null) e.g. Sept-1952
 - Full date e.g: 25-Sept-1952
 
 
-| Property  | Description                                                         | Type & Format | Definition / Comments |
-|-----------|---------------------------------------------------------------------|---------------|-----------------------|
-| year \* | Numeric value for the individual's birth year e.g 1952. | integer       |                       |
-| month | Numeric value for the individual's birth month (Allowed values: 1 to 12). Examples: 9 for September, 10 for October. | integer       |                       |
-| day | Numeric value for the individual's date of birth during their birth month e.g. 25 for 25-Sept-1952. | integer       |                       |
+| Property | Description                                                                                                          | Type & Format     | Definition / Comments                          |
+| -------- | -------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------- |
+| type \*  | type of object schema, expected value "AgeDate"                                                                      | string / constant | https://www.w3.org/TR/vc-data-model-2.0/#types |
+| year \*  | Numeric value for the individual's birth year e.g 1952.                                                              | integer           |                                                |
+| month    | Numeric value for the individual's birth month (Allowed values: 1 to 12). Examples: 9 for September, 10 for October. | integer           |                                                |
+| day      | Numeric value for the individual's date of birth during their birth month e.g. 25 for 25-Sept-1952.                  | integer           |                                                |
 
-#### Boolean Age Statement Schema
+#### Boolean Age Statement Object
 
-- Schema Type Name: AgeBoolean
+Object used to express the user is over a given age threshold.
 
-Schema composed of 2 fields to express the user is over a given age threshold.
+| Property        | Description                                                                                                                                                                                            | Type & Format     | Definition / Comments                          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ---------------------------------------------- |
+| type \*         | type of object schema, expected value "AgeBoolean"                                                                                                                                                     | string / constant | https://www.w3.org/TR/vc-data-model-2.0/#types |
+| ageOver \*      | Boolean value indicating if the credential holder is older than the value indicated in ageThreshold (if 'true'). Otherwise the credential holder is assumed to be below, i.e. "ageBelow" (if 'false'). | boolean           |                                                |
+| ageThreshold \* | Numeric value of the age threshold being expressed (in years).                                                                                                                                         | integer           |                                                |
 
-| Property  | Description                                                         | Type & Format | Definition / Comments |
-|-----------------|---------------------------------------------------------------------|---------------|-----------------------|
-| ageOver \*      | Boolean value indicating if the credential holder is older than the value indicated in ageThreshold (if 'true'). Otherwise the credential holder is assumed to be below, i.e. "ageBelow" (if 'false'). | boolean       |                       |
-| ageThreshold \* | Numeric value of the age threshold being expressed (in years). | integer       |                       |
+#### Age Range Statement Object
 
-#### Age Range Statement Schema
-
-- Schema Type Name: AgeRange
-
-Schema composed of 2 fields to indicate a user is in a given in age range for example: between "18 and 25 years of age", or between "40 and 65 years of age".
+Object used to indicate a user is in a given in age range for example: between "18 and 25 years of age", or between "40 and 65 years of age".
  
-| Property                 | Description                                                                                                                                                                                                                                                                       | Type & Format        | Definition / Comments                  |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|--------------------------------------------------------------|
-| minimumAge               | Minimum age of the user                                                                                                                                                                                                                    | integer              |                                                              |
-| maximumAge               | Maximum age of the user                                                                                                                                                                                                                    | integer              |                                                              |
+| Property   | Description                                      | Type & Format     | Definition / Comments                          |
+| ---------- | ------------------------------------------------ | ----------------- | ---------------------------------------------- |
+| type \*    | type of object schema, expected value "AgeRange" | string / constant | https://www.w3.org/TR/vc-data-model-2.0/#types |
+| minimumAge | Minimum age of the user                          | integer           |                                                |
+| maximumAge | Maximum age of the user                          | integer           |                                                |
 
 #### Credential Issuance Patterns Guidance
 
