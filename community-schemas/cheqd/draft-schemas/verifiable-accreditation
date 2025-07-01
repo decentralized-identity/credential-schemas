@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:d938f973-49c2-4a0d-b4fd-99ab94b1979a?resourceName=VerifiableAccreditation&resourceType=JSONSchemaValidator2020",
+  "title": "Verifiable Accreditation",
+  "description": "A schema defining the structure of a Verifiable Accreditation Credential, used to assert that an entity is accredited to issue specific types of Verifiable Credentials.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://resolver.cheqd.net/1.0/identifiers/did:cheqd:mainnet:did:cheqd:mainnet:d938f973-49c2-4a0d-b4fd-99ab94b1979a?resourceName=VerifiableAttestation&resourceType=JSONSchemaValidator2020"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "credentialSubject": {
+          "description": "Describes the subject of the credential and the accreditations granted to them.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "A unique identifier for the subject of the Verifiable Accreditation.",
+              "type": "string",
+              "format": "uri"
+            },
+            "accreditedFor": {
+              "description": "A list of accreditation claims specifying what the subject is authorised to issue.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "schemaId": {
+                    "description": "The schema identifier that the subject is accredited to issue, registered in a trusted schema registry.",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "types": {
+                    "description": "The VC types the subject is authorised to issue under this accreditation.",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "limitJurisdiction": {
+                    "description": "Jurisdictions where the accreditation is valid.",
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "required": ["schemaId", "types"]
+              }
+            }
+          },
+          "required": ["id", "accreditedFor"]
+        },
+        "credentialStatus": {
+          "description": "Revocation or status information for this credential.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "A unique URI for the credential status service.",
+              "type": "string",
+              "format": "uri"
+            },
+            "type": {
+              "description": "The status type used for the credential.",
+              "type": "string",
+              "const": "AccreditationStatusEntry"
+            }
+          },
+          "required": ["id", "type"]
+        }
+      },
+      "required": ["credentialSubject"]
+    }
+  ]
+}
