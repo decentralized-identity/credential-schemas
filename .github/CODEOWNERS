@@ -9,4 +9,5 @@
 /community-schemas/Crossmint/* @vmc-crossmint @filipposl
 /community-schemas/ExampleEntity/* @vmc-crossmint @filipposl
 /community-schemas/OriginVault/* @lnispel
+/community-schemas/cheqd/* @tweeddalex @ankurdotb
 /community-schemas/schemasWorkingGroup/* @vmc-crossmint @ottomorac @kimdhamilton
