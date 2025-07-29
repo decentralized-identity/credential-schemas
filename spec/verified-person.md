@@ -165,7 +165,7 @@ Please see below for how the Verified Person maps to the [Open ID Connect for Id
 | msisdn                                 | telephone                     | [Contact Point](#contact-point-object)                 | Can be represented as an contact point object with type "personalPhone".                                                            |
 | also_known_as                          | alsoKnownAs                   | [Name](#name-object)                                   |                                                                                                                                     |
 
-##### Mapping to Open ID for Identity Assurance
+##### Mapping to EBSI for Natural Person
 
 Please see below for how the Verified Person maps to the [EBSI for Natural Person](https://code.europa.eu/ebsi/json-schema/-/tree/main/schemas/vcdm1.1/multi-uni-pilot/verifiable-attestation-individual-id) standard.
 
@@ -206,7 +206,7 @@ Please see below for how the Verified Person maps to the [ISO Mobile Drivers Lic
 | hair_color                     | -                             | -                                                          |                                                                                                                                 |
 | birth_place                    | placeOfBirth                  | [Address](#address-object)                                 | Can be represented as an address object with type "placeOfBirth".                                                               |
 | resident_address               | Address Object                | [Address](#address-object)                                 | Can be represented as an address object with type "primaryAddress" or "homeAddress".                                            |
-| portrait_cap-  ture_date       | -                             | -                                                          |                                                                                                                                 |
+| portrait_capture_date          | -                             | -                                                          |                                                                                                                                 |
 | age_in_years                   | -                             | -                                                          |                                                                                                                                 |
 | age_birth_ year                |                               |                                                            |                                                                                                                                 |
 | age_over_NN                    | -                             | -                                                          |                                                                                                                                 |
@@ -214,13 +214,13 @@ Please see below for how the Verified Person maps to the [ISO Mobile Drivers Lic
 | nationality                    | nationality                   | [Verified Person](verified-person-abstract-data-model)     | Nationality array object in the verified person object contains an array of country codes for the nationalities of the subject. |
 | resident_city                  | locality                      | [Address](#address-object)                                 | Can be represented as an address object with type "primaryAddress" or "homeAddress"; and then use the locality field.           |
 | resident_state                 | region                        | [Address](#address-object)                                 | Can be represented as an address object with type "primaryAddress" or "homeAddress"; and then use the region field.             |
-| resident_ postal_code          | postalCode                    | [Address](#address-object)                                 | Can be represented as an address object with type "primaryAddress" or "homeAddress"; and then use the postalCode field.         |
-| biometric_ template_xx         | -                             | -                                                          |                                                                                                                                 |
+| resident_postal_code           | postalCode                    | [Address](#address-object)                                 | Can be represented as an address object with type "primaryAddress" or "homeAddress"; and then use the postalCode field.         |
+| biometric_template_xx          | -                             | -                                                          |                                                                                                                                 |
 | family_name_national_character | familyName                    | [Name](#name-object)                                       | There is no restriction on using Latin only characters for names. This is an implementer's decision.                            |
 | given_name_national_character  | givenName                     | [Name](#name-object)                                       | There is no restriction on using Latin only characters for names. This is an implementer's decision.                            |
 | signature_ usual_mark          | -                             | -                                                          |                                                                                                                                 |
-| online_token_ xxxx             | -                             | -                                                          |                                                                                                                                 |
-| online_url_ xxxx               | -                             | -                                                          |                                                                                                                                 |
+| online_token_xxxx              | -                             | -                                                          |                                                                                                                                 |
+| online_url_xxxx                | -                             | -                                                          |                                                                                                                                 |
 
 #### Sample implementations of this schema standard
 
