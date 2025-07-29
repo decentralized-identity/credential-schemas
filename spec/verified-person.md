@@ -226,7 +226,7 @@ Please see below for how the Verified Person maps to the [ISO Mobile Drivers Lic
 
 - DIF: [Verified Person Schema](https://github.com/decentralized-identity/credential-schemas/tree/main/dif-draft-schemas/basic-person-schema)
 - Privado ID (JSON-LD): [basic person](https://tools.privado.id/schemas/a6405ff0-ed9e-4bfb-bf75-6045aa4acd20)
-- Oasis [Lightweight Verifiable Credential Schema & Process](https://groups.oasis-open.org/higherlogic/ws/public/document?document_id=72395&wg_id=d518c57f-50d4-4694-aad8-018dc7d3f54c)
+- Oasis [Lightweight Verifiable Credential Schema & Process](https://docs.oasis-open.org/lvcsp/lvcs/v1.0/cs01/lvcs-v1.0-cs01.pdf)
 
 ::: todo add links to schema implementations
   Need to add links to additional schema implementations in JSON-LD, SD-JWT and others
