@@ -24,7 +24,11 @@ Except where otherwise noted, this work by the [Decentralized Identity Foundatio
 
 ## Abstract
 
-This specification defines multiple standards for common use case verifiable credentials including KYC (basic person), AML, among others.
+This specification defines multiple standards for common use case verifiable credentials including KYC (verified person), proof of age, AML, among others.
+
+## Contribute your own schemas!
+
+If you would like to contribute your own schemas to DIF's public repository please see our [community schemas repo](https://github.com/decentralized-identity/credential-schemas/tree/main/community-schemas). Your organization can contribute any credential schemas and the working group; we will periodically evaluate which schemas can be selected for standardization into this more formal specification.
 
 ## Status of This Document
 
@@ -64,20 +68,20 @@ Country codes use the ISO 3166-1 alpha-3 codes (e.g. FRA, USA, CRC), this allows
 
 #### Enumerations
 
-Given that the enumeration fields (for example in the "Basic Person" schema for fields such as nameType, identifierType, addressType, contactChannelType) may not accommodate all possible values, implementers are allowed to substitute or expands these enumeration strings with an object that includes the value and a "enumDefinition" field which points to a custom enumeration. If the field value is just a string then the default enumeration is assumed.
+Given that the enumeration fields (for example in the "Verified Person" schema for fields such as name type, identifier type, address type, contactChannel type) may not accommodate all possible values, implementers are allowed to substitute or expands these enumeration strings with an object that includes the value and a "enumDefinition" field which points to a custom enumeration. If the field value is just a string then the default enumeration is assumed.
 
 Please see below for an example of both possibilities.
 
 Enumeration field where the default enumeration is assumed:
 
 ::: example Identifier with default enum
-  identifierType: "passport"
+  type: "passport"
 :::
 
 Enumeration field where a custom enumeration is used:
 
 ::: example Identifier with custom enum
-  identifierType: {
+  type: {
       value: "digitalPassport",
       enumDefinition: https://example.com/myPassportTypes
    }
