@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/proof-of-presence-credential/schema.json",
+  "title": "OriginVault Proof Of Presence Credential",
+  "description": "A credential proving that a subject (person or device) was present at a specific location and time using Schema.org standards.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/proof-of-presence-credential/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": { 
+          "type": "string", 
+          "format": "uri", 
+          "description": "Identifier of the subject that was present." 
+        },
+        "schema:location": {
+          "type": "object",
+          "properties": {
+            "@type": { "const": "Place" },
+            "schema:geo": {
+              "type": "object",
+              "properties": {
+                "@type": { "const": "GeoCoordinates" },
+                "schema:latitude": { "type": "number" },
+                "schema:longitude": { "type": "number" },
+                "schema:geoRadius": { "type": "number" }
+              },
+              "required": ["schema:latitude", "schema:longitude"],
+              "additionalProperties": false
+            },
+            "schema:name": {
+              "type": "string",
+              "description": "Name of the location."
+            },
+            "schema:address": {
+              "type": "object",
+              "properties": {
+                "schema:addressCountry": { "type": "string" },
+                "schema:addressLocality": { "type": "string" },
+                "schema:addressRegion": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": ["@type", "schema:geo"],
+          "additionalProperties": false,
+          "description": "Place object expressing geographic coordinates and location details."
+        },
+        "schema:startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the presence was recorded."
+        },
+        "schema:endDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the presence ended (if applicable)."
+        },
+        "schema:measurementTechnique": {
+          "type": "string",
+          "description": "Method used to verify presence (e.g., GPS, WiFi, Bluetooth, manual check-in)."
+        },
+        "schema:agent": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "DID or URI of the person/device present."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "enum": ["Person", "Device"],
+                  "default": "Person"
+                },
+                "schema:@id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "Name of the person or device."
+                },
+                "schema:identifier": {
+                  "type": "object",
+                  "properties": {
+                    "schema:propertyID": { "type": "string" },
+                    "schema:value": { "type": "string" }
+                  },
+                  "required": ["schema:propertyID", "schema:value"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["@type", "schema:@id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The person or device that was present."
+        },
+        "schema:identifier": {
+          "type": "object",
+          "properties": {
+            "schema:propertyID": { "type": "string" },
+            "schema:value": { "type": "string" }
+          },
+          "required": ["schema:propertyID", "schema:value"],
+          "additionalProperties": false,
+          "description": "Structured identifier for the presence event."
+        }
+      },
+      "required": ["id", "schema:location", "schema:startDate"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 
