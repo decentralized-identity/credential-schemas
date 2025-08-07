@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/website/schema.json",
+  "title": "WebSite Schema",
+  "description": "A JSON Schema for the WebSite credential that represents websites using schema.org vocabulary.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/website/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "The unique identifier for the website, typically a URI."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "The name or title of the website."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "A description of the website."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of the website."
+        },
+        "schema:author": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the author of the website."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the author."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the author."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The author of the website."
+        },
+        "schema:creator": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the creator of the website."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the creator."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the creator."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The creator of the website."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the website was created."
+        },
+        "schema:datePublished": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the website was published."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the website was last modified."
+        },
+        "schema:genre": {
+          "type": "string",
+          "description": "The genre of the website."
+        },
+        "schema:keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Keywords or tags associated with the website."
+        },
+        "schema:license": {
+          "type": "string",
+          "format": "uri",
+          "description": "The license under which the website is distributed."
+        },
+        "schema:copyrightHolder": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the copyright holder."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the copyright holder."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the copyright holder."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The copyright holder of the website."
+        },
+        "schema:copyrightYear": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100,
+          "description": "The year of copyright."
+        },
+        "schema:inLanguage": {
+          "type": "string",
+          "description": "The language of the website (ISO 639-1 code)."
+        },
+        "schema:isAccessibleForFree": {
+          "type": "boolean",
+          "description": "Whether the website is accessible for free."
+        },
+        "schema:thumbnailUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of a thumbnail image for the website."
+        },
+        "schema:image": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of an image representing the website."
+        },
+        "schema:abstract": {
+          "type": "string",
+          "description": "An abstract or summary of the website."
+        },
+        "schema:interactionStatistic": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:interactionType": {
+                "type": "string",
+                "description": "The type of interaction being measured."
+              },
+              "schema:userInteractionCount": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "The number of user interactions."
+              }
+            },
+            "required": ["schema:interactionType", "schema:userInteractionCount"],
+            "additionalProperties": false
+          },
+          "description": "Statistics about user interactions with the website."
+        },
+        "schema:hasPart": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Array of URIs of web pages that are parts of this website."
+        },
+        "schema:isPartOf": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URI of a larger website of which this is a part."
+        },
+        "schema:mainEntity": {
+          "type": "string",
+          "format": "uri",
+          "description": "The main entity described on the website."
+        },
+        "schema:about": {
+          "type": "string",
+          "format": "uri",
+          "description": "The subject matter of the website."
+        },
+        "schema:audience": {
+          "type": "object",
+          "properties": {
+            "schema:audienceType": {
+              "type": "string",
+              "description": "The type of audience the website is intended for."
+            },
+            "schema:geographicArea": {
+              "type": "string",
+              "description": "The geographic area the website serves."
+            }
+          },
+          "additionalProperties": false
+        },
+        "schema:breadcrumb": {
+          "type": "string",
+          "description": "A breadcrumb trail for the website."
+        },
+        "schema:lastReviewed": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the website was last reviewed."
+        },
+        "schema:reviewedBy": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the reviewer."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the reviewer."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the reviewer."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The reviewer of the website."
+        },
+        "schema:significantLink": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Significant links on the website."
+        },
+        "schema:specialty": {
+          "type": "string",
+          "description": "The specialty of the website."
+        }
+      },
+      "required": ["id", "schema:name"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 
