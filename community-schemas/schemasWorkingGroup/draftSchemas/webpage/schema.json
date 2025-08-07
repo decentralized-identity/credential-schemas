@@ -1,0 +1,332 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/webpage/schema.json",
+  "title": "WebPage Schema",
+  "description": "A JSON Schema for the WebPage credential that represents web pages using schema.org vocabulary.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/webpage/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "The unique identifier for the web page, typically a URI."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "The name or title of the web page."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "A description of the web page."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of the web page."
+        },
+        "schema:author": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the author of the web page."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the author."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the author."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The author of the web page."
+        },
+        "schema:creator": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the creator of the web page."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the creator."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the creator."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The creator of the web page."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the web page was created."
+        },
+        "schema:datePublished": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the web page was published."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the web page was last modified."
+        },
+        "schema:genre": {
+          "type": "string",
+          "description": "The genre of the web page."
+        },
+        "schema:keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Keywords or tags associated with the web page."
+        },
+        "schema:license": {
+          "type": "string",
+          "format": "uri",
+          "description": "The license under which the web page is distributed."
+        },
+        "schema:copyrightHolder": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the copyright holder."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the copyright holder."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the copyright holder."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The copyright holder of the web page."
+        },
+        "schema:copyrightYear": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100,
+          "description": "The year of copyright."
+        },
+        "schema:inLanguage": {
+          "type": "string",
+          "description": "The language of the web page (ISO 639-1 code)."
+        },
+        "schema:isAccessibleForFree": {
+          "type": "boolean",
+          "description": "Whether the web page is accessible for free."
+        },
+        "schema:thumbnailUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of a thumbnail image for the web page."
+        },
+        "schema:image": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of an image representing the web page."
+        },
+        "schema:abstract": {
+          "type": "string",
+          "description": "An abstract or summary of the web page."
+        },
+        "schema:interactionStatistic": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:interactionType": {
+                "type": "string",
+                "description": "The type of interaction being measured."
+              },
+              "schema:userInteractionCount": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "The number of user interactions."
+              }
+            },
+            "required": ["schema:interactionType", "schema:userInteractionCount"],
+            "additionalProperties": false
+          },
+          "description": "Statistics about user interactions with the web page."
+        },
+        "schema:isPartOf": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URI of the website of which this page is a part."
+        },
+        "schema:mainEntity": {
+          "type": "string",
+          "format": "uri",
+          "description": "The main entity described on the web page."
+        },
+        "schema:about": {
+          "type": "string",
+          "format": "uri",
+          "description": "The subject matter of the web page."
+        },
+        "schema:breadcrumb": {
+          "type": "string",
+          "description": "A breadcrumb trail for the web page."
+        },
+        "schema:lastReviewed": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the web page was last reviewed."
+        },
+        "schema:reviewedBy": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the reviewer."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the reviewer."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the reviewer."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The reviewer of the web page."
+        },
+        "schema:significantLink": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Significant links on the web page."
+        },
+        "schema:specialty": {
+          "type": "string",
+          "description": "The specialty of the web page."
+        },
+        "schema:primaryImageOfPage": {
+          "type": "string",
+          "format": "uri",
+          "description": "The primary image of the web page."
+        },
+        "schema:relatedLink": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Related links on the web page."
+        },
+        "schema:speakable": {
+          "type": "object",
+          "properties": {
+            "schema:cssSelector": {
+              "type": "string",
+              "description": "CSS selector for speakable content."
+            },
+            "schema:xpath": {
+              "type": "string",
+              "description": "XPath for speakable content."
+            }
+          },
+          "additionalProperties": false
+        },
+        "schema:wordCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of words in the web page."
+        },
+        "schema:characterCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of characters in the web page."
+        },
+        "schema:pageStart": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "The page on which the work starts."
+        },
+        "schema:pageEnd": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "The page on which the work ends."
+        },
+        "schema:pagination": {
+          "type": "string",
+          "description": "Any description of pages that is not separated into pageStart and pageEnd."
+        },
+        "schema:isFamilyFriendly": {
+          "type": "boolean",
+          "description": "Whether the web page is family friendly."
+        },
+        "schema:dateLastReviewed": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the web page was last reviewed."
+        },
+        "schema:mainContentOfPage": {
+          "type": "string",
+          "description": "The main content of the web page."
+        },
+        "schema:significantLinks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "The most significant URLs on the page."
+        }
+      },
+      "required": ["id", "schema:name"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 

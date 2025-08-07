@@ -1,0 +1,398 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/blog/schema.json",
+  "title": "Blog Schema",
+  "description": "A JSON Schema for the Blog credential that represents blogs using schema.org vocabulary.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/blog/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "The unique identifier for the blog, typically a URI."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "The name or title of the blog."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "A description of the blog."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of the blog."
+        },
+        "schema:author": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the author of the blog."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the author."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the author."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The author of the blog."
+        },
+        "schema:creator": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the creator of the blog."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the creator."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the creator."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The creator of the blog."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the blog was created."
+        },
+        "schema:datePublished": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the blog was published."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the blog was last modified."
+        },
+        "schema:genre": {
+          "type": "string",
+          "description": "The genre of the blog."
+        },
+        "schema:keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Keywords or tags associated with the blog."
+        },
+        "schema:license": {
+          "type": "string",
+          "format": "uri",
+          "description": "The license under which the blog is distributed."
+        },
+        "schema:copyrightHolder": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the copyright holder."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the copyright holder."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the copyright holder."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The copyright holder of the blog."
+        },
+        "schema:copyrightYear": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100,
+          "description": "The year of copyright."
+        },
+        "schema:inLanguage": {
+          "type": "string",
+          "description": "The language of the blog (ISO 639-1 code)."
+        },
+        "schema:isAccessibleForFree": {
+          "type": "boolean",
+          "description": "Whether the blog is accessible for free."
+        },
+        "schema:thumbnailUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of a thumbnail image for the blog."
+        },
+        "schema:image": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of an image representing the blog."
+        },
+        "schema:abstract": {
+          "type": "string",
+          "description": "An abstract or summary of the blog."
+        },
+        "schema:interactionStatistic": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:interactionType": {
+                "type": "string",
+                "description": "The type of interaction being measured."
+              },
+              "schema:userInteractionCount": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "The number of user interactions."
+              }
+            },
+            "required": ["schema:interactionType", "schema:userInteractionCount"],
+            "additionalProperties": false
+          },
+          "description": "Statistics about user interactions with the blog."
+        },
+        "schema:isPartOf": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URI of a larger website of which this blog is a part."
+        },
+        "schema:hasPart": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Array of URIs of blog posts that are parts of this blog."
+        },
+        "schema:mainEntity": {
+          "type": "string",
+          "format": "uri",
+          "description": "The main entity described on the blog."
+        },
+        "schema:about": {
+          "type": "string",
+          "format": "uri",
+          "description": "The subject matter of the blog."
+        },
+        "schema:breadcrumb": {
+          "type": "string",
+          "description": "A breadcrumb trail for the blog."
+        },
+        "schema:lastReviewed": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the blog was last reviewed."
+        },
+        "schema:reviewedBy": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the reviewer."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the reviewer."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the reviewer."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The reviewer of the blog."
+        },
+        "schema:significantLink": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Significant links on the blog."
+        },
+        "schema:specialty": {
+          "type": "string",
+          "description": "The specialty of the blog."
+        },
+        "schema:blogPost": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Array of URIs of blog posts in this blog."
+        },
+        "schema:blogPosts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Array of URIs of blog posts in this blog (alternative to blogPost)."
+        },
+        "schema:issn": {
+          "type": "string",
+          "description": "The International Standard Serial Number (ISSN) of the blog."
+        },
+        "schema:issueNumber": {
+          "type": "string",
+          "description": "The issue number of the blog."
+        },
+        "schema:volumeNumber": {
+          "type": "string",
+          "description": "The volume number of the blog."
+        },
+        "schema:publisher": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the publisher."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the publisher."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the publisher."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The publisher of the blog."
+        },
+        "schema:editor": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the editor."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the editor."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the editor."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The editor of the blog."
+        },
+        "schema:audience": {
+          "type": "object",
+          "properties": {
+            "schema:audienceType": {
+              "type": "string",
+              "description": "The type of audience the blog is intended for."
+            },
+            "schema:geographicArea": {
+              "type": "string",
+              "description": "The geographic area the blog serves."
+            }
+          },
+          "additionalProperties": false
+        },
+        "schema:wordCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The total number of words across all blog posts."
+        },
+        "schema:characterCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The total number of characters across all blog posts."
+        },
+        "schema:numberOfItems": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of blog posts in the blog."
+        },
+        "schema:isFamilyFriendly": {
+          "type": "boolean",
+          "description": "Whether the blog is family friendly."
+        },
+        "schema:dateLastReviewed": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the blog was last reviewed."
+        },
+        "schema:mainContentOfPage": {
+          "type": "string",
+          "description": "The main content of the blog."
+        },
+        "schema:significantLinks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "The most significant URLs on the blog."
+        }
+      },
+      "required": ["id", "schema:name"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 
