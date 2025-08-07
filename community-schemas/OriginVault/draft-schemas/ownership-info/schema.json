@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/ownership-info/schema.json",
+  "title": "OriginVault Ownership Info Credential",
+  "description": "A credential that provides structured information about ownership of products or services, based on Schema.org OwnershipInfo type.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/ownership-info/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "Identifier for the ownership relationship."
+        },
+        "schema:acquiredFrom": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "DID or URI of the entity from which the product was acquired."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "enum": ["Person", "Organization"],
+                  "default": "Organization"
+                },
+                "schema:@id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "Name of the entity."
+                },
+                "schema:identifier": {
+                  "type": "object",
+                  "properties": {
+                    "schema:propertyID": { "type": "string" },
+                    "schema:value": { "type": "string" }
+                  },
+                  "required": ["schema:propertyID", "schema:value"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["@type", "schema:@id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The organization or person from which the product was acquired."
+        },
+        "schema:ownedFrom": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time of obtaining the product."
+        },
+        "schema:ownedThrough": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time of giving up ownership on the product."
+        },
+        "schema:typeOfGood": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "URI reference to the product or service."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "enum": ["Product", "Service"],
+                  "description": "Type of the good being owned."
+                },
+                "schema:@id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "Name of the product or service."
+                },
+                "schema:identifier": {
+                  "type": "object",
+                  "properties": {
+                    "schema:propertyID": { "type": "string" },
+                    "schema:value": { "type": "string" }
+                  },
+                  "required": ["schema:propertyID", "schema:value"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["@type", "schema:@id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The product or service that this ownership info refers to."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the ownership credential was first created."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the ownership credential was last updated."
+        },
+        "schema:agent": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "DID or URI of the current owner."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "enum": ["Person", "Organization"],
+                  "default": "Person"
+                },
+                "schema:@id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "Name of the current owner."
+                },
+                "schema:identifier": {
+                  "type": "object",
+                  "properties": {
+                    "schema:propertyID": { "type": "string" },
+                    "schema:value": { "type": "string" }
+                  },
+                  "required": ["schema:propertyID", "schema:value"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["@type", "schema:@id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The current owner of the product or service."
+        },
+        "schema:identifier": {
+          "type": "object",
+          "properties": {
+            "schema:propertyID": { "type": "string" },
+            "schema:value": { "type": "string" }
+          },
+          "required": ["schema:propertyID", "schema:value"],
+          "additionalProperties": false,
+          "description": "Structured identifier for the ownership relationship."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Name or title of the ownership relationship."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Description of the ownership details."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL reference to the ownership documentation."
+        }
+      },
+      "required": ["id", "schema:ownedFrom", "schema:typeOfGood"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 

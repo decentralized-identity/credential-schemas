@@ -1,0 +1,107 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/did-assertion/schema.json",
+  "title": "OriginVault DID Assertion",
+  "description": "A credential that asserts a claim about a subject using Schema.org review standards.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/did-assertion/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": { 
+          "type": "string", 
+          "format": "uri",
+          "description": "The unique identifier for the subject, typically a URI."
+        },
+        "schema:reviewAspect": { 
+          "type": "string",
+          "description": "A description of the claim that has been reviewed."
+        },
+        "schema:author": { 
+          "type": "string", 
+          "format": "uri",
+          "description": "The URI of the author who made the claim."
+        },
+        "schema:reviewer": { 
+          "type": "string",
+          "description": "The entity responsible for interpreting the claim."
+        },
+        "schema:review": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:dateCreated": { 
+                "type": "string", 
+                "format": "date-time",
+                "description": "The date and time of this review of the claim."
+              },
+              "schema:reviewRating": {
+                "type": "object",
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": ["Rating"],
+                    "default": "Rating"
+                  },
+                  "schema:ratingValue": {
+                    "type": "string",
+                    "enum": ["Verified", "Disputed", "Revoked"],
+                    "description": "The current review status of the claim."
+                  },
+                  "schema:bestRating": {
+                    "type": "string",
+                    "const": "Verified",
+                    "description": "The best possible rating."
+                  },
+                  "schema:worstRating": {
+                    "type": "string",
+                    "const": "Revoked",
+                    "description": "The worst possible rating."
+                  }
+                },
+                "required": ["@type", "schema:ratingValue"],
+                "additionalProperties": false
+              },
+              "schema:text": {
+                "type": "string",
+                "description": "Additional details about the review."
+              }
+            },
+            "required": ["schema:dateCreated", "schema:reviewRating"],
+            "additionalProperties": false
+          },
+          "description": "Array of review events for this claim."
+        },
+        "schema:dateCreated": { 
+          "type": "string", 
+          "format": "date-time",
+          "description": "The date and time when the claim first appeared."
+        },
+        "schema:dateModified": { 
+          "type": "string", 
+          "format": "date-time",
+          "description": "The date and time when the claim was last modified."
+        },
+        "schema:identifier": {
+          "type": "object",
+          "properties": {
+            "schema:propertyID": { "type": "string" },
+            "schema:value": { "type": "string" }
+          },
+          "required": ["schema:propertyID", "schema:value"],
+          "additionalProperties": false,
+          "description": "Structured identifier for the assertion."
+        }
+      },
+      "required": ["id", "schema:reviewAspect", "schema:author", "schema:reviewer", "schema:dateCreated", "schema:review"]
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+}
