@@ -1,4 +1,4 @@
-# DID Assertion Credential (OriginVault)
+# DID Assertion (OriginVault)
 
 A credential that asserts a claim about a subject using Schema.org review standards. This credential provides a structured way to make and verify claims about entities using Schema.org review patterns.
 

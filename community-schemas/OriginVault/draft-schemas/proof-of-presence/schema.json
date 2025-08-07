@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/proof-of-presence-credential/schema.json",
-  "title": "OriginVault Proof Of Presence Credential",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/proof-of-presence/schema.json",
+  "title": "OriginVault Proof of Presence",
   "description": "A credential proving that a subject (person or device) was present at a specific location and time using Schema.org standards.",
   "type": "object",
   "properties": {
     "@context": {
       "type": "string",
       "format": "uri",
-      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/proof-of-presence-credential/context.json"
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/proof-of-presence/context.json"
     },
     "credentialSubject": {
       "type": "object",

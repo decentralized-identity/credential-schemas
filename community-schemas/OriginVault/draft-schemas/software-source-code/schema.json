@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/software-source-code/schema.json",
+  "title": "OriginVault Software Source Code Credential",
+  "description": "A credential describing software source code, aligned with Schema.org SoftwareSourceCode type.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/software-source-code/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "Identifier for the software source code (e.g., repository URL or DID)."
+        },
+        "schema:codeRepository": {
+          "type": "string",
+          "format": "uri",
+          "description": "Link to the repository where the code is located."
+        },
+        "schema:codeSampleType": {
+          "type": "string",
+          "description": "Type of code sample (e.g., full, snippet, template)."
+        },
+        "schema:programmingLanguage": {
+          "type": "string",
+          "description": "Programming language of the source code."
+        },
+        "schema:runtimePlatform": {
+          "type": "string",
+          "description": "Runtime platform or interpreter dependency."
+        },
+        "schema:targetProduct": {
+          "type": "string",
+          "format": "uri",
+          "description": "Target operating system or product for the code."
+        },
+        "schema:softwareVersion": {
+          "type": "string",
+          "description": "Version of the software."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the source code was first created."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the source code was last modified."
+        },
+        "schema:agent": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "DID or URI of the author/maintainer."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "enum": ["Person", "Organization"],
+                  "default": "Person"
+                },
+                "schema:@id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "schema:name": { "type": "string" }
+              },
+              "required": ["@type", "schema:@id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Author or maintainer of the source code."
+        },
+        "schema:identifier": {
+          "type": "object",
+          "properties": {
+            "schema:propertyID": { "type": "string" },
+            "schema:value": { "type": "string" }
+          },
+          "required": ["schema:propertyID", "schema:value"],
+          "additionalProperties": false,
+          "description": "Structured identifier for the source code."
+        },
+        "schema:name": { "type": "string", "description": "Name of the project or code." },
+        "schema:description": { "type": "string", "description": "Description of the source code." },
+        "schema:url": { "type": "string", "format": "uri", "description": "Canonical URL of the code." }
+      },
+      "required": ["id", "schema:codeRepository", "schema:programmingLanguage", "schema:dateCreated"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 
