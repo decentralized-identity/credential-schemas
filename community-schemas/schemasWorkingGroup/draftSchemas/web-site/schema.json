@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/website/schema.json",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/web-site/schema.json",
   "title": "WebSite Schema",
   "description": "A JSON Schema for the WebSite credential that represents websites using schema.org vocabulary.",
   "type": "object",
@@ -8,7 +8,7 @@
     "@context": {
       "type": "string",
       "format": "uri",
-      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/website/context.json"
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/web-site/context.json"
     },
     "credentialSubject": {
       "type": "object",
