@@ -1,27 +1,25 @@
 # Basic Person Schema
 
-This document provides an overview of the `BasicPersonSchema`. The schema is defined in the `BasicPerson.schema.json` file and follows the JSON Schema standard.
+This document provides an overview of the `VerifiedPersonSchema`. The schema is defined in the `VerifiedPerson.schema.json` file and follows the JSON Schema standard.
 
 ## Overview
-The `BasicPersonSchema` defines the structure for a verifiable credential used for KYC purposes. It includes the following main components:
+The `VerifiedPersonSchema` defines the structure for a verifiable credential used for KYC purposes. It includes the following main components:
 
 - **CredentialSubject**: The actual content of the credential:
   - `id`: A string representing the unique identifier of the subject.
-  - `issuanceDate`: A string representing the issuance date of the credential.
-  - `expirationDate`: A string representing the expiration date of the credential.
-  - `names`: An array of name objects representing the names of the credential subject.
-  - `dateOfBirth`: A string representing the date of birth of the credential subject.
-  - `addresses`: An array of address objects associated with the credential subject.
+  - `name`: An array of name objects representing the names of the credential subject.
+  - `birthDate`: A string representing the date of birth of the credential subject.
+  - `address`: An array of address objects associated with the credential subject.
   - `sex`: A string representing the biological sex of the individual at birth.
   - `gender`: A string representing the gender the credential subject identifies as.
-  - `nationalities`: An array of strings representing the subject's nationalities.
-  - `identifiers`: An array of identifier objects for the credential subject.
-  - `contactChannels`: An array of contact channel objects for the credential subject.
-  - `customFields`: A free-form array to capture additional fields not covered by the main schema.
+  - `nationality`: An array of strings representing the subject's nationalities.
+  - `contactPoint`: An array of contact channel objects for the credential subject.
+  - `identificationEvidence`: An array of identifier objects for the credential subject.
+  - `customField`: A free-form array to capture additional fields not covered by the main schema.
 
 ## Specification Status
-- **Status**: Working Group Draft (October 2024)
-- **Latest Draft**: [identity.foundation/credential-schemas/#basic-person-schema](https://identity.foundation/credential-schemas/#basic-person-schema)
+- **Status**: Working Group Draft (July 2025)
+- **Latest Draft**: [identity.foundation/credential-schemas/#basic-person-schema](https://identity.foundation/credential-schemas/#verified-person-schema)
 - **Ratified Versions**: None
 
 
@@ -47,8 +45,8 @@ This is a draft specification being developed within the Decentralized Identity 
 - **Claim**: An assertion made about a Subject. Used as an umbrella term for Credential, Assertion, Attestation, etc.
 
 ## Schema Details
-- **File**: `BasicPerson.schema.json`
-- **Standard**: JSON-Schema Draft 2020-12 (https://json-schema.org/draft/2020-12)
+- **File**: `VerifiedPerson.schema.json`
+- **Standard**: Verifiable Credential 2.0 in JSON schema format (https://www.w3.org/2022/credentials/v2/json-schema-credential-schema.json)
 - **Purpose**: To define the fields required to identify an individual at a basic level for KYC purposes.
 - **Use cases**: Mainly for financial services, but also applicable in telecommunications and any sector requiring identity verification.
 
