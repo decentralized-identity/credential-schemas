@@ -1,4 +1,4 @@
-# Basic Person Schema
+# Verified Person Schema
 
 This document provides an overview of the `VerifiedPersonSchema`. The schema is defined in the `VerifiedPerson.schema.json` file and follows the JSON Schema standard.
 
