@@ -1,0 +1,25 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/Crossmint/crossmintAccademy/course-completion-certificate.schema.json",
+	"title": "Course completion",
+	"description": "Describes the course completed and the assigned grade",
+	"type": "object",
+	"properties": {
+		"credentialSubject": {
+			"type": "object",
+			"properties": {
+				"course": {
+					"type": "string"
+				},
+				"grade": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				}
+			},
+			"required": ["course", "grade"],
+			"additionalProperties": false
+		}
+	}
+}
