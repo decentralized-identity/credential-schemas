@@ -1,0 +1,73 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "type": "@type",
+    "credentialSubject": {
+      "@id": "vc:credentialSubject",
+      "@type": "@id"
+    },
+    "identifier": { 
+      "@id": "schema:identifier", 
+      "@type": "@id" 
+    },
+    "uploadDate": { 
+      "@id": "schema:uploadDate", 
+      "@type": "xsd:dateTime" 
+    },
+    "agent": { 
+      "@id": "schema:agent", 
+      "@type": "@id" 
+    },
+    "contentUrl": { 
+      "@id": "schema:contentUrl", 
+      "@type": "@id" 
+    },
+    "encodingFormat": "schema:encodingFormat",
+    "contentSize": "schema:contentSize",
+    "name": "schema:name",
+    "description": "schema:description",
+    "dateCreated": { 
+      "@id": "schema:dateCreated", 
+      "@type": "xsd:dateTime" 
+    },
+    "dateModified": { 
+      "@id": "schema:dateModified", 
+      "@type": "xsd:dateTime" 
+    },
+    "uploadAction": {
+      "@id": "schema:CreateAction",
+      "@type": "@id"
+    },
+    "object": {
+      "@id": "schema:object",
+      "@type": "@id"
+    },
+    "target": {
+      "@id": "schema:target",
+      "@type": "@id"
+    },
+    "startTime": {
+      "@id": "schema:startTime",
+      "@type": "xsd:dateTime"
+    },
+    "endTime": {
+      "@id": "schema:endTime",
+      "@type": "xsd:dateTime"
+    },
+    "actionStatus": {
+      "@id": "schema:actionStatus",
+      "@type": "@id"
+    },
+    "result": {
+      "@id": "schema:result",
+      "@type": "@id"
+    },
+    "propertyID": "schema:propertyID",
+    "value": "schema:value"
+  }
+} 

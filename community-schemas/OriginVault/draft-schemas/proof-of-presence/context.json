@@ -1,0 +1,53 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "type": "@type",
+    "credentialSubject": { 
+      "@id": "vc:credentialSubject", 
+      "@type": "@id" 
+    },
+    "location": { 
+      "@id": "schema:location", 
+      "@type": "@id" 
+    },
+    "latitude": "schema:latitude",
+    "longitude": "schema:longitude",
+    "geoRadius": "schema:geoRadius",
+    "startDate": { 
+      "@id": "schema:startDate", 
+      "@type": "xsd:dateTime" 
+    },
+    "endDate": { 
+      "@id": "schema:endDate", 
+      "@type": "xsd:dateTime" 
+    },
+    "measurementTechnique": "schema:measurementTechnique",
+    "agent": {
+      "@id": "schema:agent",
+      "@type": "@id"
+    },
+    "geo": { 
+      "@id": "schema:geo", 
+      "@type": "@id" 
+    },
+    "name": "schema:name",
+    "address": {
+      "@id": "schema:address",
+      "@type": "@id"
+    },
+    "addressCountry": "schema:addressCountry",
+    "addressLocality": "schema:addressLocality",
+    "addressRegion": "schema:addressRegion",
+    "identifier": { 
+      "@id": "schema:identifier", 
+      "@type": "@id" 
+    },
+    "propertyID": "schema:propertyID",
+    "value": "schema:value"
+  }
+} 

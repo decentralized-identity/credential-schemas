@@ -1,0 +1,46 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "type": "@type",
+    "credentialSubject": {
+      "@id": "vc:credentialSubject",
+      "@type": "@id"
+    },
+    "reviewAspect": "schema:reviewAspect",
+    "author": {
+      "@id": "schema:author",
+      "@type": "@id"
+    },
+    "review": {
+      "@id": "schema:review",
+      "@container": "@list"
+    },
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "reviewRating": {
+      "@id": "schema:reviewRating",
+      "@type": "@id"
+    },
+    "ratingValue": "schema:ratingValue",
+    "bestRating": "schema:bestRating",
+    "worstRating": "schema:worstRating",
+    "text": "schema:text",
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "identifier": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
+    "propertyID": "schema:propertyID",
+    "value": "schema:value"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/contributor/schema.json",
+  "title": "OriginVault Contributor Credential",
+  "description": "A credential that attests to a secondary contributor to a CreativeWork or Event, based on Schema.org contributor property.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/contributor/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "Identifier for the contribution relationship."
+        },
+        "schema:contributor": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "DID or URI of the contributor."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "enum": ["Person", "Organization"],
+                  "default": "Person"
+                },
+                "schema:@id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "Name of the contributor."
+                },
+                "schema:identifier": {
+                  "type": "object",
+                  "properties": {
+                    "schema:propertyID": { "type": "string" },
+                    "schema:value": { "type": "string" }
+                  },
+                  "required": ["schema:propertyID", "schema:value"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["@type", "schema:@id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The secondary contributor to the CreativeWork or Event."
+        },
+        "schema:contributorRole": {
+          "type": "string",
+          "description": "Role of the contributor (e.g., 'Editor', 'Reviewer', 'Translator')."
+        },
+        "schema:contributorType": {
+          "type": "string",
+          "description": "Type of contribution (e.g., 'Technical', 'Creative', 'Administrative')."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the contribution was first recorded."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the contribution was last updated."
+        },
+        "schema:agent": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "DID or URI of the entity that issued this credential."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "enum": ["Person", "Organization"],
+                  "default": "Organization"
+                },
+                "schema:@id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "schema:name": { "type": "string" }
+              },
+              "required": ["@type", "schema:@id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Entity that issued this contributor credential."
+        },
+        "schema:identifier": {
+          "type": "object",
+          "properties": {
+            "schema:propertyID": { "type": "string" },
+            "schema:value": { "type": "string" }
+          },
+          "required": ["schema:propertyID", "schema:value"],
+          "additionalProperties": false,
+          "description": "Structured identifier for the contribution."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Name or title of the contribution."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Description of the contribution made."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL reference to the contribution or related content."
+        }
+      },
+      "required": ["id", "schema:contributor", "schema:dateCreated"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 
