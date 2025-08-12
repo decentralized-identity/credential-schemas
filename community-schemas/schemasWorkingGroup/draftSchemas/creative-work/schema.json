@@ -1,0 +1,736 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/creative-work/schema.json",
+  "title": "CreativeWork Schema",
+  "description": "A JSON Schema for the CreativeWork credential that represents creative works using schema.org vocabulary.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/creative-work/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "The unique identifier for the creative work, typically a URI."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "The name or title of the creative work."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "A description of the creative work."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL where the creative work can be accessed."
+        },
+        "schema:author": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the author of the creative work."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the author."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the author."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The author of the creative work."
+        },
+        "schema:creator": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the creator of the creative work."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the creator."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the creator."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The creator of the creative work."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the creative work was created."
+        },
+        "schema:datePublished": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the creative work was published."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the creative work was last modified."
+        },
+        "schema:genre": {
+          "type": "string",
+          "description": "The genre of the creative work."
+        },
+        "schema:keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Keywords or tags associated with the creative work."
+        },
+        "schema:license": {
+          "type": "string",
+          "format": "uri",
+          "description": "The license under which the creative work is distributed."
+        },
+        "schema:copyrightHolder": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the copyright holder."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the copyright holder."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the copyright holder."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The copyright holder of the creative work."
+        },
+        "schema:copyrightYear": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100,
+          "description": "The year of copyright."
+        },
+        "schema:inLanguage": {
+          "type": "string",
+          "description": "The language of the creative work (ISO 639-1 code)."
+        },
+        "schema:isAccessibleForFree": {
+          "type": "boolean",
+          "description": "Whether the creative work is accessible for free."
+        },
+        "schema:fileFormat": {
+          "type": "string",
+          "description": "The file format of the creative work."
+        },
+        "schema:contentSize": {
+          "type": "string",
+          "description": "The size of the creative work content."
+        },
+        "schema:encodingFormat": {
+          "type": "string",
+          "description": "The encoding format of the creative work."
+        },
+        "schema:thumbnailUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of a thumbnail image for the creative work."
+        },
+        "schema:image": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of an image representing the creative work."
+        },
+        "schema:isPartOf": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URI of a larger creative work of which this is a part."
+        },
+        "schema:hasPart": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Array of URIs of creative works that are parts of this work."
+        },
+        "schema:citation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Citations or references used in the creative work."
+        },
+        "schema:abstract": {
+          "type": "string",
+          "description": "An abstract or summary of the creative work."
+        },
+        "schema:wordCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of words in the creative work."
+        },
+        "schema:characterCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of characters in the creative work."
+        },
+        "schema:pageCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of pages in the creative work."
+        },
+        "schema:duration": {
+          "type": "string",
+          "description": "The duration of the creative work (for time-based media)."
+        },
+        "schema:interactionStatistic": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:interactionType": {
+                "type": "string",
+                "description": "The type of interaction being measured."
+              },
+              "schema:userInteractionCount": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "The number of user interactions."
+              }
+            },
+            "required": ["schema:interactionType", "schema:userInteractionCount"],
+            "additionalProperties": false
+          },
+          "description": "Statistics about user interactions with the creative work."
+        },
+        "schema:about": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the subject matter."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the subject matter."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the subject matter."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The subject matter of the content."
+        },
+        "schema:accessMode": {
+          "type": "string",
+          "description": "The human sensory perceptual system or cognitive faculty through which a person may process or perceive information."
+        },
+        "schema:accessModeSufficient": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of single or combined accessModes that are sufficient to understand all the intellectual content of a resource."
+        },
+        "schema:accessibilityAPI": {
+          "type": "string",
+          "description": "Indicates that the resource is compatible with the referenced accessibility API."
+        },
+        "schema:accessibilityControl": {
+          "type": "string",
+          "description": "Identifies input methods that are sufficient to fully control the described resource."
+        },
+        "schema:accessibilityFeature": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Content features of the resource, such as accessible media, alternatives and supported enhancements for accessibility."
+        },
+        "schema:accessibilityHazard": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A characteristic of the described resource that is physiologically dangerous to some users."
+        },
+        "schema:accessibilitySummary": {
+          "type": "string",
+          "description": "A human-readable summary of specific accessibility features or deficiencies."
+        },
+        "schema:accountablePerson": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the accountable person."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the accountable person."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the accountable person."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Specifies the Person that is legally accountable for the CreativeWork."
+        },
+        "schema:aggregateRating": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the aggregate rating."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:ratingValue": {
+                  "type": "number",
+                  "description": "The rating value."
+                },
+                "schema:reviewCount": {
+                  "type": "integer",
+                  "description": "The number of reviews."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "The overall rating, based on a collection of reviews or ratings, of the item."
+        },
+        "schema:alternativeHeadline": {
+          "type": "string",
+          "description": "A secondary title of the CreativeWork."
+        },
+        "schema:commentCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of comments this CreativeWork has received."
+        },
+        "schema:contentLocation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the content location."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the content location."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the content location."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The location depicted or described in the content."
+        },
+        "schema:contentRating": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The content rating as text."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:ratingValue": {
+                  "type": "string",
+                  "description": "The rating value."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "Official rating of a piece of content."
+        },
+        "schema:contributor": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the contributor."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the contributor."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the contributor."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "A secondary contributor to the CreativeWork."
+        },
+        "schema:copyrightNotice": {
+          "type": "string",
+          "description": "Text of a notice appropriate for describing the copyright aspects of this Creative Work."
+        },
+        "schema:countryOfOrigin": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the country of origin."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the country of origin."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the country of origin."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The country of origin of something, including products as well as creative works."
+        },
+        "schema:creativeWorkStatus": {
+          "type": "string",
+          "description": "The status of a creative work in terms of its stage in a lifecycle."
+        },
+        "schema:editor": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the editor."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the editor."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the editor."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Specifies the Person who edited the CreativeWork."
+        },
+        "schema:expires": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date the content expires and is no longer useful or available."
+        },
+        "schema:headline": {
+          "type": "string",
+          "description": "Headline of the article."
+        },
+        "schema:isFamilyFriendly": {
+          "type": "boolean",
+          "description": "Indicates whether this content is family friendly."
+        },
+        "schema:locationCreated": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the location where the work was created."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the location where the work was created."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the location where the work was created."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The location where the CreativeWork was created."
+        },
+        "schema:mainEntity": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the main entity."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the main entity."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the main entity."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Indicates the primary entity described in some page or other CreativeWork."
+        },
+        "schema:producer": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the producer."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the producer."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the producer."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The person or organization who produced the work."
+        },
+        "schema:publisher": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the publisher."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the publisher."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the publisher."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The publisher of the creative work."
+        },
+        "schema:review": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "The URI of the review."
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The URI of the review."
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "The name of the review."
+                  }
+                },
+                "required": ["id"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "description": "A review of the item."
+        },
+        "schema:text": {
+          "type": "string",
+          "description": "The textual content of this CreativeWork."
+        },
+        "schema:timeRequired": {
+          "type": "string",
+          "description": "Approximate or typical time it usually takes to work with or through the content of this work."
+        },
+        "schema:typicalAgeRange": {
+          "type": "string",
+          "description": "The typical expected age range, e.g. '7-9', '11-'."
+        },
+        "schema:version": {
+          "oneOf": [
+            {
+              "type": "number",
+              "description": "The version number."
+            },
+            {
+              "type": "string",
+              "description": "The version as text."
+            }
+          ],
+          "description": "The version of the CreativeWork."
+        },
+        "schema:alternateName": {
+          "type": "string",
+          "description": "An alias for the item."
+        },
+        "schema:identifier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The identifier as text."
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The identifier as URI."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the identifier."
+                },
+                "schema:value": {
+                  "type": "string",
+                  "description": "The value of the identifier."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "The identifier property represents any kind of identifier for any kind of Thing."
+        },
+        "schema:mainEntityOfPage": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the main entity of page."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the main entity of page."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the main entity of page."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described."
+        },
+        "schema:sameAs": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of a reference Web page that unambiguously indicates the item's identity."
+        }
+      },
+      "required": ["id", "schema:name"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 

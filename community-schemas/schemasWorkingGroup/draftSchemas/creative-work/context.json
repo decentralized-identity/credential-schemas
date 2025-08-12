@@ -1,0 +1,444 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "type": "@type",
+    "credentialSubject": {
+      "@id": "vc:credentialSubject",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "author": {
+      "@id": "schema:author",
+      "@type": "@id"
+    },
+    "creator": {
+      "@id": "schema:creator",
+      "@type": "@id"
+    },
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "datePublished": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:dateTime"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "genre": "schema:genre",
+    "keywords": {
+      "@id": "schema:keywords",
+      "@container": "@list"
+    },
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+    "copyrightHolder": {
+      "@id": "schema:copyrightHolder",
+      "@type": "@id"
+    },
+    "copyrightYear": {
+      "@id": "schema:copyrightYear",
+      "@type": "xsd:integer"
+    },
+    "inLanguage": "schema:inLanguage",
+    "isAccessibleForFree": {
+      "@id": "schema:isAccessibleForFree",
+      "@type": "xsd:boolean"
+    },
+    "fileFormat": "schema:fileFormat",
+    "contentSize": "schema:contentSize",
+    "encodingFormat": "schema:encodingFormat",
+    "thumbnailUrl": {
+      "@id": "schema:thumbnailUrl",
+      "@type": "@id"
+    },
+    "image": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "isPartOf": {
+      "@id": "schema:isPartOf",
+      "@type": "@id"
+    },
+    "hasPart": {
+      "@id": "schema:hasPart",
+      "@container": "@list"
+    },
+    "citation": {
+      "@id": "schema:citation",
+      "@container": "@list"
+    },
+    "abstract": "schema:abstract",
+    "wordCount": {
+      "@id": "schema:wordCount",
+      "@type": "xsd:integer"
+    },
+    "characterCount": {
+      "@id": "schema:characterCount",
+      "@type": "xsd:integer"
+    },
+    "pageCount": {
+      "@id": "schema:pageCount",
+      "@type": "xsd:integer"
+    },
+    "duration": "schema:duration",
+    "interactionStatistic": {
+      "@id": "schema:interactionStatistic",
+      "@container": "@list"
+    },
+    "interactionType": "schema:interactionType",
+    "userInteractionCount": {
+      "@id": "schema:userInteractionCount",
+      "@type": "xsd:integer"
+    },
+    "about": {
+      "@id": "schema:about",
+      "@type": "@id"
+    },
+    "accessMode": "schema:accessMode",
+    "accessModeSufficient": {
+      "@id": "schema:accessModeSufficient",
+      "@container": "@list"
+    },
+    "accessibilityAPI": "schema:accessibilityAPI",
+    "accessibilityControl": "schema:accessibilityControl",
+    "accessibilityFeature": {
+      "@id": "schema:accessibilityFeature",
+      "@container": "@list"
+    },
+    "accessibilityHazard": {
+      "@id": "schema:accessibilityHazard",
+      "@container": "@list"
+    },
+    "accessibilitySummary": "schema:accessibilitySummary",
+    "accountablePerson": {
+      "@id": "schema:accountablePerson",
+      "@type": "@id"
+    },
+    "acquireLicensePage": {
+      "@id": "schema:acquireLicensePage",
+      "@type": "@id"
+    },
+    "aggregateRating": {
+      "@id": "schema:aggregateRating",
+      "@type": "@id"
+    },
+    "alternativeHeadline": "schema:alternativeHeadline",
+    "archivedAt": {
+      "@id": "schema:archivedAt",
+      "@type": "@id"
+    },
+    "assesses": {
+      "@id": "schema:assesses",
+      "@type": "@id"
+    },
+    "associatedMedia": {
+      "@id": "schema:associatedMedia",
+      "@type": "@id"
+    },
+    "audio": {
+      "@id": "schema:audio",
+      "@type": "@id"
+    },
+    "award": {
+      "@id": "schema:award",
+      "@container": "@list"
+    },
+    "character": {
+      "@id": "schema:character",
+      "@type": "@id"
+    },
+    "comment": {
+      "@id": "schema:comment",
+      "@container": "@list"
+    },
+    "commentCount": {
+      "@id": "schema:commentCount",
+      "@type": "xsd:integer"
+    },
+    "conditionsOfAccess": "schema:conditionsOfAccess",
+    "contentLocation": {
+      "@id": "schema:contentLocation",
+      "@type": "@id"
+    },
+    "contentRating": {
+      "@id": "schema:contentRating",
+      "@type": "@id"
+    },
+    "contentReferenceTime": {
+      "@id": "schema:contentReferenceTime",
+      "@type": "xsd:dateTime"
+    },
+    "contributor": {
+      "@id": "schema:contributor",
+      "@type": "@id"
+    },
+    "copyrightNotice": "schema:copyrightNotice",
+    "countryOfOrigin": {
+      "@id": "schema:countryOfOrigin",
+      "@type": "@id"
+    },
+    "creativeWorkStatus": "schema:creativeWorkStatus",
+    "creditText": "schema:creditText",
+    "discussionUrl": {
+      "@id": "schema:discussionUrl",
+      "@type": "@id"
+    },
+    "editEIDR": "schema:editEIDR",
+    "editor": {
+      "@id": "schema:editor",
+      "@type": "@id"
+    },
+    "educationalAlignment": {
+      "@id": "schema:educationalAlignment",
+      "@type": "@id"
+    },
+    "educationalLevel": "schema:educationalLevel",
+    "educationalUse": "schema:educationalUse",
+    "encoding": {
+      "@id": "schema:encoding",
+      "@type": "@id"
+    },
+    "exampleOfWork": {
+      "@id": "schema:exampleOfWork",
+      "@type": "@id"
+    },
+    "expires": {
+      "@id": "schema:expires",
+      "@type": "xsd:dateTime"
+    },
+    "funder": {
+      "@id": "schema:funder",
+      "@type": "@id"
+    },
+    "funding": {
+      "@id": "schema:funding",
+      "@type": "@id"
+    },
+    "headline": "schema:headline",
+    "interactivityType": "schema:interactivityType",
+    "interpretedAsClaim": {
+      "@id": "schema:interpretedAsClaim",
+      "@type": "@id"
+    },
+    "isBasedOn": {
+      "@id": "schema:isBasedOn",
+      "@type": "@id"
+    },
+    "isFamilyFriendly": {
+      "@id": "schema:isFamilyFriendly",
+      "@type": "xsd:boolean"
+    },
+    "learningResourceType": "schema:learningResourceType",
+    "locationCreated": {
+      "@id": "schema:locationCreated",
+      "@type": "@id"
+    },
+    "mainEntity": {
+      "@id": "schema:mainEntity",
+      "@type": "@id"
+    },
+    "maintainer": {
+      "@id": "schema:maintainer",
+      "@type": "@id"
+    },
+    "material": {
+      "@id": "schema:material",
+      "@container": "@list"
+    },
+    "materialExtent": {
+      "@id": "schema:materialExtent",
+      "@type": "@id"
+    },
+    "mentions": {
+      "@id": "schema:mentions",
+      "@type": "@id"
+    },
+    "offers": {
+      "@id": "schema:offers",
+      "@type": "@id"
+    },
+    "pattern": "schema:pattern",
+    "position": {
+      "@id": "schema:position",
+      "@type": "xsd:integer"
+    },
+    "producer": {
+      "@id": "schema:producer",
+      "@type": "@id"
+    },
+    "provider": {
+      "@id": "schema:provider",
+      "@type": "@id"
+    },
+    "publication": {
+      "@id": "schema:publication",
+      "@type": "@id"
+    },
+    "publisher": {
+      "@id": "schema:publisher",
+      "@type": "@id"
+    },
+    "publisherImprint": {
+      "@id": "schema:publisherImprint",
+      "@type": "@id"
+    },
+    "publishingPrinciples": {
+      "@id": "schema:publishingPrinciples",
+      "@type": "@id"
+    },
+    "recordedAt": {
+      "@id": "schema:recordedAt",
+      "@type": "@id"
+    },
+    "releasedEvent": {
+      "@id": "schema:releasedEvent",
+      "@type": "@id"
+    },
+    "review": {
+      "@id": "schema:review",
+      "@container": "@list"
+    },
+    "schemaVersion": "schema:schemaVersion",
+    "sdDatePublished": {
+      "@id": "schema:sdDatePublished",
+      "@type": "xsd:date"
+    },
+    "sdLicense": {
+      "@id": "schema:sdLicense",
+      "@type": "@id"
+    },
+    "sdPublisher": {
+      "@id": "schema:sdPublisher",
+      "@type": "@id"
+    },
+    "size": {
+      "@id": "schema:size",
+      "@type": "@id"
+    },
+    "sourceOrganization": {
+      "@id": "schema:sourceOrganization",
+      "@type": "@id"
+    },
+    "spatial": {
+      "@id": "schema:spatial",
+      "@type": "@id"
+    },
+    "spatialCoverage": {
+      "@id": "schema:spatialCoverage",
+      "@type": "@id"
+    },
+    "sponsor": {
+      "@id": "schema:sponsor",
+      "@type": "@id"
+    },
+    "teaches": {
+      "@id": "schema:teaches",
+      "@type": "@id"
+    },
+    "temporal": {
+      "@id": "schema:temporal",
+      "@type": "xsd:dateTime"
+    },
+    "temporalCoverage": {
+      "@id": "schema:temporalCoverage",
+      "@type": "xsd:dateTime"
+    },
+    "text": "schema:text",
+    "thumbnail": {
+      "@id": "schema:thumbnail",
+      "@type": "@id"
+    },
+    "timeRequired": "schema:timeRequired",
+    "translationOfWork": {
+      "@id": "schema:translationOfWork",
+      "@type": "@id"
+    },
+    "translator": {
+      "@id": "schema:translator",
+      "@type": "@id"
+    },
+    "typicalAgeRange": "schema:typicalAgeRange",
+    "usageInfo": {
+      "@id": "schema:usageInfo",
+      "@type": "@id"
+    },
+    "version": "schema:version",
+    "video": {
+      "@id": "schema:video",
+      "@type": "@id"
+    },
+    "workExample": {
+      "@id": "schema:workExample",
+      "@type": "@id"
+    },
+    "workTranslation": {
+      "@id": "schema:workTranslation",
+      "@type": "@id"
+    },
+    "alternateName": "schema:alternateName",
+    "identifier": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
+    "mainEntityOfPage": {
+      "@id": "schema:mainEntityOfPage",
+      "@type": "@id"
+    },
+    "potentialAction": {
+      "@id": "schema:potentialAction",
+      "@type": "@id"
+    },
+    "sameAs": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "subjectOf": {
+      "@id": "schema:subjectOf",
+      "@type": "@id"
+    },
+    "CreativeWork": "schema:CreativeWork",
+    "Person": "schema:Person",
+    "Organization": "schema:Organization",
+    "Place": "schema:Place",
+    "Country": "schema:Country",
+    "Rating": "schema:Rating",
+    "AggregateRating": "schema:AggregateRating",
+    "Comment": "schema:Comment",
+    "Review": "schema:Review",
+    "Offer": "schema:Offer",
+    "Demand": "schema:Demand",
+    "MediaObject": "schema:MediaObject",
+    "AudioObject": "schema:AudioObject",
+    "VideoObject": "schema:VideoObject",
+    "ImageObject": "schema:ImageObject",
+    "Clip": "schema:Clip",
+    "MusicRecording": "schema:MusicRecording",
+    "Event": "schema:Event",
+    "PublicationEvent": "schema:PublicationEvent",
+    "Grant": "schema:Grant",
+    "DefinedTerm": "schema:DefinedTerm",
+    "AlignmentObject": "schema:AlignmentObject",
+    "Claim": "schema:Claim",
+    "QuantitativeValue": "schema:QuantitativeValue",
+    "SizeSpecification": "schema:SizeSpecification",
+    "InteractionCounter": "schema:InteractionCounter",
+    "Audience": "schema:Audience",
+    "Product": "schema:Product",
+    "Duration": "schema:Duration",
+    "WebPage": "schema:WebPage",
+    "CreativeWorkSeries": "schema:CreativeWorkSeries",
+    "CreativeWorkSeason": "schema:CreativeWorkSeason"
+  }
+} 

@@ -1,0 +1,787 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/media-object/schema.json",
+  "title": "MediaObject Schema",
+  "description": "A JSON Schema for the MediaObject credential that represents media objects using schema.org vocabulary.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/media-object/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "The unique identifier for the media object, typically a URI."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "The name or title of the media object."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "A description of the media object."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of the media object."
+        },
+        "schema:contentUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Actual bytes of the media object, for example the image file or video file."
+        },
+        "schema:embedUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "A URL pointing to a player for a specific video."
+        },
+        "schema:encodingFormat": {
+          "type": "string",
+          "description": "Media type typically expressed using a MIME format."
+        },
+        "schema:contentSize": {
+          "type": "string",
+          "description": "File size in (mega/kilo)bytes."
+        },
+        "schema:bitrate": {
+          "type": "string",
+          "description": "The bitrate of the media object."
+        },
+        "schema:duration": {
+          "type": "string",
+          "description": "The duration of the item in ISO 8601 duration format."
+        },
+        "schema:uploadDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date when this media object was uploaded to this site."
+        },
+        "schema:startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The startTime of something."
+        },
+        "schema:endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The endTime of something."
+        },
+        "schema:height": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The height as text."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:value": {
+                  "type": "number",
+                  "description": "The height value."
+                },
+                "schema:unitCode": {
+                  "type": "string",
+                  "description": "The unit of measurement."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "The height of the item."
+        },
+        "schema:width": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The width as text."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:value": {
+                  "type": "number",
+                  "description": "The width value."
+                },
+                "schema:unitCode": {
+                  "type": "string",
+                  "description": "The unit of measurement."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "The width of the item."
+        },
+        "schema:caption": {
+          "type": "string",
+          "description": "The caption for this object."
+        },
+        "schema:playerType": {
+          "type": "string",
+          "description": "Player type required—for example, Flash or Silverlight."
+        },
+        "schema:requiresSubscription": {
+          "type": "boolean",
+          "description": "Indicates if use of the media requires a subscription."
+        },
+        "schema:regionsAllowed": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the region."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the region."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the region."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The regions where the media is allowed."
+        },
+        "schema:eligibleRegion": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "The URI of the eligible region."
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The URI of the eligible region."
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "The name of the eligible region."
+                  }
+                },
+                "required": ["id"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "description": "The regions where the media is eligible."
+        },
+        "schema:ineligibleRegion": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "The URI of the ineligible region."
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The URI of the ineligible region."
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "The name of the ineligible region."
+                  }
+                },
+                "required": ["id"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "description": "The regions where the media is not eligible."
+        },
+        "schema:associatedArticle": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the associated article."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the associated article."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the associated article."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "A NewsArticle associated with the Media Object."
+        },
+        "schema:encodesCreativeWork": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the encoded creative work."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the encoded creative work."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the encoded creative work."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The CreativeWork encoded by this media object."
+        },
+        "schema:productionCompany": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the production company."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the production company."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the production company."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The production company or studio responsible for the item."
+        },
+        "schema:musicBy": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the music creator."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the music creator."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the music creator."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The composer of the soundtrack."
+        },
+        "schema:author": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the author of the media object."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the author."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the author."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The author of the media object."
+        },
+        "schema:creator": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the creator of the media object."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the creator."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the creator."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The creator of the media object."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the media object was created."
+        },
+        "schema:datePublished": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the media object was published."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the media object was last modified."
+        },
+        "schema:genre": {
+          "type": "string",
+          "description": "The genre of the media object."
+        },
+        "schema:keywords": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Keywords or tags associated with the media object."
+        },
+        "schema:license": {
+          "type": "string",
+          "format": "uri",
+          "description": "The license under which the media object is distributed."
+        },
+        "schema:inLanguage": {
+          "type": "string",
+          "description": "The language of the media object (ISO 639-1 code)."
+        },
+        "schema:isAccessibleForFree": {
+          "type": "boolean",
+          "description": "Whether the media object is accessible for free."
+        },
+        "schema:thumbnailUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of a thumbnail image for the media object."
+        },
+        "schema:image": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of an image representing the media object."
+        },
+        "schema:abstract": {
+          "type": "string",
+          "description": "An abstract or summary of the media object."
+        },
+        "schema:interactionStatistic": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:interactionType": {
+                "type": "string",
+                "description": "The type of interaction being measured."
+              },
+              "schema:userInteractionCount": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "The number of user interactions."
+              }
+            },
+            "required": ["schema:interactionType", "schema:userInteractionCount"],
+            "additionalProperties": false
+          },
+          "description": "Statistics about user interactions with the media object."
+        },
+        "schema:isPartOf": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URI of a larger creative work of which this media object is a part."
+        },
+        "schema:mainEntity": {
+          "type": "string",
+          "format": "uri",
+          "description": "The main entity described by this media object."
+        },
+        "schema:mainEntityOfPage": {
+          "type": "string",
+          "format": "uri",
+          "description": "Indicates a page for which this thing is the main entity being described."
+        },
+        "schema:about": {
+          "type": "string",
+          "format": "uri",
+          "description": "The subject matter of the media object."
+        },
+        "schema:copyrightHolder": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the copyright holder."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the copyright holder."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the copyright holder."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The party holding the legal copyright to the media object."
+        },
+        "schema:copyrightYear": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100,
+          "description": "The year during which the claimed copyright for the media object was first asserted."
+        },
+        "schema:copyrightNotice": {
+          "type": "string",
+          "description": "Text of a notice appropriate for describing the copyright aspects of this media object."
+        },
+        "schema:contentRating": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The content rating as text."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:ratingValue": {
+                  "type": "string",
+                  "description": "The rating value."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "Official rating of the media object."
+        },
+        "schema:commentCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of comments this media object has received."
+        },
+        "schema:aggregateRating": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the aggregate rating."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:ratingValue": {
+                  "type": "number",
+                  "description": "The rating value."
+                },
+                "schema:reviewCount": {
+                  "type": "integer",
+                  "description": "The number of reviews."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "The overall rating, based on a collection of reviews or ratings, of the media object."
+        },
+        "schema:publisher": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the publisher."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the publisher."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the publisher."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The publisher of the media object."
+        },
+        "schema:expires": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date the media object expires and is no longer useful or available."
+        },
+        "schema:version": {
+          "oneOf": [
+            {
+              "type": "number",
+              "description": "The version number."
+            },
+            {
+              "type": "string",
+              "description": "The version as text."
+            }
+          ],
+          "description": "The version of the media object."
+        },
+        "schema:text": {
+          "type": "string",
+          "description": "The textual content of this media object."
+        },
+        "schema:thumbnail": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the thumbnail image."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the thumbnail image."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the thumbnail image."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Thumbnail image for the media object."
+        },
+        "schema:timeRequired": {
+          "type": "string",
+          "description": "Approximate or typical time it usually takes to work with or through the media object."
+        },
+        "schema:typicalAgeRange": {
+          "type": "string",
+          "description": "The typical expected age range, e.g. '7-9', '11-'."
+        },
+        "schema:usageInfo": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the usage info."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the usage info."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the usage info."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Information about the usage of the media object."
+        },
+        "schema:accessMode": {
+          "type": "string",
+          "description": "The human sensory perceptual system or cognitive faculty through which a person may process or perceive information."
+        },
+        "schema:accessModeSufficient": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "A list of single or combined accessModes that are sufficient to understand all the intellectual content of the media object."
+        },
+        "schema:accessibilityAPI": {
+          "type": "string",
+          "description": "Indicates that the media object is compatible with the referenced accessibility API."
+        },
+        "schema:accessibilityControl": {
+          "type": "string",
+          "description": "Identifies input methods that are sufficient to fully control the media object."
+        },
+        "schema:accessibilityFeature": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Content features of the media object, such as accessible media, alternatives and supported enhancements for accessibility."
+        },
+        "schema:accessibilityHazard": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "A characteristic of the media object that is physiologically dangerous to some users."
+        },
+        "schema:accessibilitySummary": {
+          "type": "string",
+          "description": "A human-readable summary of specific accessibility features or deficiencies."
+        },
+        "schema:isFamilyFriendly": {
+          "type": "boolean",
+          "description": "Whether the media object is family friendly."
+        },
+        "schema:alternateName": {
+          "type": "string",
+          "description": "An alias for the media object."
+        },
+        "schema:identifier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The identifier as text."
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The identifier as URI."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the identifier."
+                },
+                "schema:value": {
+                  "type": "string",
+                  "description": "The value of the identifier."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "The identifier property represents any kind of identifier for the media object."
+        },
+        "schema:sameAs": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of a reference Web page that unambiguously indicates the media object's identity."
+        },
+        "schema:potentialAction": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the potential action."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the potential action."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the potential action."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Indicates a potential Action, which describes an idealized action in which this media object would play an 'object' role."
+        },
+        "schema:subjectOf": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the subject."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the subject."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the subject."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "A CreativeWork or Event about this media object."
+        }
+      },
+      "required": ["id", "schema:name"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 

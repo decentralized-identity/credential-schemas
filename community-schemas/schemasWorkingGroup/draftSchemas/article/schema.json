@@ -1,0 +1,867 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/article/schema.json",
+  "title": "Article Schema",
+  "description": "A JSON Schema for the Article credential that represents articles using schema.org vocabulary.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/article/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "The unique identifier for the article, typically a URI."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "The name or title of the article."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "A description of the article."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL where the article can be accessed."
+        },
+        "schema:author": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the author of the article."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the author."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the author."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The author of the article."
+        },
+        "schema:creator": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the creator of the article."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the creator."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the creator."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The creator of the article."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the article was created."
+        },
+        "schema:datePublished": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the article was published."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the article was last modified."
+        },
+        "schema:genre": {
+          "type": "string",
+          "description": "The genre of the article."
+        },
+        "schema:keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Keywords or tags associated with the article."
+        },
+        "schema:license": {
+          "type": "string",
+          "format": "uri",
+          "description": "The license under which the article is distributed."
+        },
+        "schema:copyrightHolder": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the copyright holder."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the copyright holder."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the copyright holder."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The copyright holder of the article."
+        },
+        "schema:copyrightYear": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100,
+          "description": "The year of copyright."
+        },
+        "schema:inLanguage": {
+          "type": "string",
+          "description": "The language of the article (ISO 639-1 code)."
+        },
+        "schema:isAccessibleForFree": {
+          "type": "boolean",
+          "description": "Whether the article is accessible for free."
+        },
+        "schema:thumbnailUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of a thumbnail image for the article."
+        },
+        "schema:image": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of an image representing the article."
+        },
+        "schema:isPartOf": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URI of a larger creative work of which this article is a part."
+        },
+        "schema:hasPart": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Array of URIs of creative works that are parts of this article."
+        },
+        "schema:citation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Citations or references used in the article."
+        },
+        "schema:abstract": {
+          "type": "string",
+          "description": "An abstract or summary of the article."
+        },
+        "schema:wordCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of words in the article."
+        },
+        "schema:characterCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of characters in the article."
+        },
+        "schema:pageCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of pages in the article."
+        },
+        "schema:duration": {
+          "type": "string",
+          "description": "The duration of the article (for time-based media)."
+        },
+        "schema:interactionStatistic": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:interactionType": {
+                "type": "string",
+                "description": "The type of interaction being measured."
+              },
+              "schema:userInteractionCount": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "The number of user interactions."
+              }
+            },
+            "required": ["schema:interactionType", "schema:userInteractionCount"],
+            "additionalProperties": false
+          },
+          "description": "Statistics about user interactions with the article."
+        },
+        "schema:about": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the subject matter."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the subject matter."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the subject matter."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The subject matter of the article."
+        },
+        "schema:accessMode": {
+          "type": "string",
+          "description": "The human sensory perceptual system or cognitive faculty through which a person may process or perceive information."
+        },
+        "schema:accessModeSufficient": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of single or combined accessModes that are sufficient to understand all the intellectual content of a resource."
+        },
+        "schema:accessibilityAPI": {
+          "type": "string",
+          "description": "Indicates that the resource is compatible with the referenced accessibility API."
+        },
+        "schema:accessibilityControl": {
+          "type": "string",
+          "description": "Identifies input methods that are sufficient to fully control the described resource."
+        },
+        "schema:accessibilityFeature": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Content features of the resource, such as accessible media, alternatives and supported enhancements for accessibility."
+        },
+        "schema:accessibilityHazard": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A characteristic of the described resource that is physiologically dangerous to some users."
+        },
+        "schema:accessibilitySummary": {
+          "type": "string",
+          "description": "A human-readable summary of specific accessibility features or deficiencies."
+        },
+        "schema:accountablePerson": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the accountable person."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the accountable person."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the accountable person."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Specifies the Person that is legally accountable for the Article."
+        },
+        "schema:aggregateRating": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the aggregate rating."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:ratingValue": {
+                  "type": "number",
+                  "description": "The rating value."
+                },
+                "schema:reviewCount": {
+                  "type": "integer",
+                  "description": "The number of reviews."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "The overall rating, based on a collection of reviews or ratings, of the item."
+        },
+        "schema:alternativeHeadline": {
+          "type": "string",
+          "description": "A secondary title of the Article."
+        },
+        "schema:commentCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of comments this Article has received."
+        },
+        "schema:contentLocation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the content location."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the content location."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the content location."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The location depicted or described in the content."
+        },
+        "schema:contentRating": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The content rating as text."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:ratingValue": {
+                  "type": "string",
+                  "description": "The rating value."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "Official rating of a piece of content."
+        },
+        "schema:contributor": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the contributor."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the contributor."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the contributor."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "A secondary contributor to the Article."
+        },
+        "schema:copyrightNotice": {
+          "type": "string",
+          "description": "Text of a notice appropriate for describing the copyright aspects of this Article."
+        },
+        "schema:countryOfOrigin": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the country of origin."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the country of origin."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the country of origin."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The country of origin of something, including products as well as creative works."
+        },
+        "schema:creativeWorkStatus": {
+          "type": "string",
+          "description": "The status of a creative work in terms of its stage in a lifecycle."
+        },
+        "schema:editor": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the editor."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the editor."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the editor."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Specifies the Person who edited the Article."
+        },
+        "schema:expires": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date the content expires and is no longer useful or available."
+        },
+        "schema:headline": {
+          "type": "string",
+          "description": "Headline of the article."
+        },
+        "schema:isFamilyFriendly": {
+          "type": "boolean",
+          "description": "Indicates whether this content is family friendly."
+        },
+        "schema:locationCreated": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the location where the work was created."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the location where the work was created."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the location where the work was created."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The location where the Article was created."
+        },
+        "schema:mainEntity": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the main entity."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the main entity."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the main entity."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Indicates the primary entity described in some page or other CreativeWork."
+        },
+        "schema:producer": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the producer."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the producer."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the producer."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The person or organization who produced the work."
+        },
+        "schema:publisher": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the publisher."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the publisher."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the publisher."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The publisher of the article."
+        },
+        "schema:review": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "The URI of the review."
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The URI of the review."
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "The name of the review."
+                  }
+                },
+                "required": ["id"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "description": "A review of the item."
+        },
+        "schema:text": {
+          "type": "string",
+          "description": "The textual content of this Article."
+        },
+        "schema:timeRequired": {
+          "type": "string",
+          "description": "Approximate or typical time it usually takes to work with or through the content of this work."
+        },
+        "schema:typicalAgeRange": {
+          "type": "string",
+          "description": "The typical expected age range, e.g. '7-9', '11-'."
+        },
+        "schema:version": {
+          "oneOf": [
+            {
+              "type": "number",
+              "description": "The version number."
+            },
+            {
+              "type": "string",
+              "description": "The version as text."
+            }
+          ],
+          "description": "The version of the Article."
+        },
+        "schema:alternateName": {
+          "type": "string",
+          "description": "An alias for the item."
+        },
+        "schema:identifier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The identifier as text."
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The identifier as URI."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the identifier."
+                },
+                "schema:value": {
+                  "type": "string",
+                  "description": "The value of the identifier."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "The identifier property represents any kind of identifier for any kind of Thing."
+        },
+        "schema:mainEntityOfPage": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the main entity of page."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the main entity of page."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the main entity of page."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described."
+        },
+        "schema:sameAs": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of a reference Web page that unambiguously indicates the item's identity."
+        },
+        "schema:subjectOf": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the subject."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the subject."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the subject."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "A CreativeWork or Event about this Thing."
+        },
+        "schema:articleBody": {
+          "type": "string",
+          "description": "The actual body of the article."
+        },
+        "schema:articleSection": {
+          "type": "string",
+          "description": "Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports, Lifestyle, etc."
+        },
+        "schema:backstory": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The backstory as text."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the backstory."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the backstory."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "For an Article, typically a NewsArticle, the backstory property provides a textual summary giving a brief explanation of why and how an article was created."
+        },
+        "schema:pageEnd": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "description": "The page number on which the work ends."
+            },
+            {
+              "type": "string",
+              "description": "The page on which the work ends, e.g. 'xvi'."
+            }
+          ],
+          "description": "The page on which the work ends; for example '138' or 'xvi'."
+        },
+        "schema:pageStart": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "description": "The page number on which the work starts."
+            },
+            {
+              "type": "string",
+              "description": "The page on which the work starts, e.g. 'xiii'."
+            }
+          ],
+          "description": "The page on which the work starts; for example '135' or 'xiii'."
+        },
+        "schema:pagination": {
+          "type": "string",
+          "description": "Any description of pages that is not separated into pageStart and pageEnd."
+        },
+        "schema:sharedContent": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the shared content."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the shared content."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the shared content."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "A CreativeWork such as an image, video, or audio clip shared as part of this posting."
+        },
+        "schema:speakable": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the speakable specification."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the speakable specification."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the speakable specification."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion."
+        }
+      },
+      "required": ["id", "schema:name"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 

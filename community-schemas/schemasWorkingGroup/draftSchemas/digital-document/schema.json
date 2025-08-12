@@ -1,0 +1,1062 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/digital-document/schema.json",
+  "title": "DigitalDocument Schema",
+  "description": "A JSON Schema for the DigitalDocument credential that represents digital documents with permission controls using schema.org vocabulary.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/digital-document/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "The unique identifier for the digital document, typically a URI."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "The name or title of the digital document."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "A description of the digital document."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL where the digital document can be accessed."
+        },
+        "schema:author": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the author of the digital document."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the author."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the author."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The author of the digital document."
+        },
+        "schema:creator": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the creator of the digital document."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the creator."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the creator."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The creator of the digital document."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the digital document was created."
+        },
+        "schema:datePublished": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the digital document was published."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the digital document was last modified."
+        },
+        "schema:genre": {
+          "type": "string",
+          "description": "The genre of the digital document."
+        },
+        "schema:keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Keywords or tags associated with the digital document."
+        },
+        "schema:license": {
+          "type": "string",
+          "format": "uri",
+          "description": "The license under which the digital document is distributed."
+        },
+        "schema:copyrightHolder": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the copyright holder."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the copyright holder."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the copyright holder."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The copyright holder of the digital document."
+        },
+        "schema:copyrightYear": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100,
+          "description": "The year of copyright."
+        },
+        "schema:inLanguage": {
+          "type": "string",
+          "description": "The language of the digital document (ISO 639-1 code)."
+        },
+        "schema:isAccessibleForFree": {
+          "type": "boolean",
+          "description": "Whether the digital document is accessible for free."
+        },
+        "schema:thumbnailUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of a thumbnail image for the digital document."
+        },
+        "schema:image": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of an image representing the digital document."
+        },
+        "schema:isPartOf": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URI of a larger creative work of which this digital document is a part."
+        },
+        "schema:hasPart": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Array of URIs of creative works that are parts of this digital document."
+        },
+        "schema:citation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Citations or references used in the digital document."
+        },
+        "schema:abstract": {
+          "type": "string",
+          "description": "An abstract or summary of the digital document."
+        },
+        "schema:wordCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of words in the digital document."
+        },
+        "schema:characterCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of characters in the digital document."
+        },
+        "schema:pageCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of pages in the digital document."
+        },
+        "schema:duration": {
+          "type": "string",
+          "description": "The duration of the digital document (for time-based media)."
+        },
+        "schema:interactionStatistic": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:interactionType": {
+                "type": "string",
+                "description": "The type of interaction being measured."
+              },
+              "schema:userInteractionCount": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "The number of user interactions."
+              }
+            },
+            "required": ["schema:interactionType", "schema:userInteractionCount"],
+            "additionalProperties": false
+          },
+          "description": "Statistics about user interactions with the digital document."
+        },
+        "schema:about": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the subject matter."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the subject matter."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the subject matter."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The subject matter of the content."
+        },
+        "schema:accessMode": {
+          "type": "string",
+          "description": "The human sensory perceptual system or cognitive faculty through which a person may process or perceive information."
+        },
+        "schema:accessModeSufficient": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of single or combined accessModes that are sufficient to understand all the intellectual content of a resource."
+        },
+        "schema:accessibilityAPI": {
+          "type": "string",
+          "description": "Indicates that the resource is compatible with the referenced accessibility API."
+        },
+        "schema:accessibilityControl": {
+          "type": "string",
+          "description": "Identifies input methods that are sufficient to fully control the described resource."
+        },
+        "schema:accessibilityFeature": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Content features of the resource, such as accessible media, alternatives and supported enhancements for accessibility."
+        },
+        "schema:accessibilityHazard": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A characteristic of the described resource that is physiologically dangerous to some users."
+        },
+        "schema:accessibilitySummary": {
+          "type": "string",
+          "description": "A human-readable summary of specific accessibility features or deficiencies."
+        },
+        "schema:accountablePerson": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the accountable person."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the accountable person."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the accountable person."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Specifies the Person that is legally accountable for the DigitalDocument."
+        },
+        "schema:aggregateRating": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the aggregate rating."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:ratingValue": {
+                  "type": "number",
+                  "description": "The rating value."
+                },
+                "schema:reviewCount": {
+                  "type": "integer",
+                  "description": "The number of reviews."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "The overall rating, based on a collection of reviews or ratings, of the item."
+        },
+        "schema:alternativeHeadline": {
+          "type": "string",
+          "description": "A secondary title of the DigitalDocument."
+        },
+        "schema:commentCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of comments this DigitalDocument has received."
+        },
+        "schema:contentLocation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the content location."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the content location."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the content location."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The location depicted or described in the content."
+        },
+        "schema:contentRating": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The content rating as text."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:ratingValue": {
+                  "type": "string",
+                  "description": "The rating value."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "Official rating of a piece of content."
+        },
+        "schema:contributor": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the contributor."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the contributor."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the contributor."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "A secondary contributor to the DigitalDocument."
+        },
+        "schema:copyrightNotice": {
+          "type": "string",
+          "description": "Text of a notice appropriate for describing the copyright aspects of this DigitalDocument."
+        },
+        "schema:countryOfOrigin": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the country of origin."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the country of origin."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the country of origin."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The country of origin of something, including products as well as creative works."
+        },
+        "schema:creativeWorkStatus": {
+          "type": "string",
+          "description": "The status of a creative work in terms of its stage in a lifecycle."
+        },
+        "schema:editor": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the editor."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the editor."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the editor."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Specifies the Person who edited the DigitalDocument."
+        },
+        "schema:expires": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date the content expires and is no longer useful or available."
+        },
+        "schema:headline": {
+          "type": "string",
+          "description": "Headline of the digital document."
+        },
+        "schema:isFamilyFriendly": {
+          "type": "boolean",
+          "description": "Indicates whether this content is family friendly."
+        },
+        "schema:locationCreated": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the location where the work was created."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the location where the work was created."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the location where the work was created."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The location where the DigitalDocument was created."
+        },
+        "schema:mainEntity": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the main entity."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the main entity."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the main entity."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Indicates the primary entity described in some page or other CreativeWork."
+        },
+        "schema:producer": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the producer."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the producer."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the producer."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The person or organization who produced the work."
+        },
+        "schema:publisher": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the publisher."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the publisher."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the publisher."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The publisher of the digital document."
+        },
+        "schema:review": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "The URI of the review."
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The URI of the review."
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "The name of the review."
+                  }
+                },
+                "required": ["id"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "description": "A review of the item."
+        },
+        "schema:text": {
+          "type": "string",
+          "description": "The textual content of this DigitalDocument."
+        },
+        "schema:timeRequired": {
+          "type": "string",
+          "description": "Approximate or typical time it usually takes to work with or through the content of this work."
+        },
+        "schema:typicalAgeRange": {
+          "type": "string",
+          "description": "The typical expected age range, e.g. '7-9', '11-'."
+        },
+        "schema:version": {
+          "oneOf": [
+            {
+              "type": "number",
+              "description": "The version number."
+            },
+            {
+              "type": "string",
+              "description": "The version as text."
+            }
+          ],
+          "description": "The version of the DigitalDocument."
+        },
+        "schema:alternateName": {
+          "type": "string",
+          "description": "An alias for the item."
+        },
+        "schema:identifier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The identifier as text."
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The identifier as URI."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the identifier."
+                },
+                "schema:value": {
+                  "type": "string",
+                  "description": "The value of the identifier."
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "description": "The identifier property represents any kind of identifier for any kind of Thing."
+        },
+        "schema:mainEntityOfPage": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the main entity of page."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the main entity of page."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the main entity of page."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described."
+        },
+        "schema:sameAs": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of a reference Web page that unambiguously indicates the item's identity."
+        },
+        "schema:subjectOf": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the subject."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the subject."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the subject."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "A CreativeWork or Event about this Thing."
+        },
+        "schema:fileFormat": {
+          "type": "string",
+          "description": "The file format of the digital document."
+        },
+        "schema:contentSize": {
+          "type": "string",
+          "description": "The size of the digital document content."
+        },
+        "schema:encodingFormat": {
+          "type": "string",
+          "description": "The encoding format of the digital document."
+        },
+        "schema:thumbnail": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the thumbnail."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the thumbnail."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the thumbnail."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Thumbnail image for the digital document."
+        },
+        "schema:hasDigitalDocumentPermission": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "The URI of the digital document permission."
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The URI of the permission."
+                  },
+                  "schema:permissionType": {
+                    "type": "string",
+                    "description": "The type of permission granted."
+                  },
+                  "schema:permissionScope": {
+                    "type": "string",
+                    "description": "The scope of the permission."
+                  },
+                  "schema:permissionDuration": {
+                    "type": "string",
+                    "description": "The duration of the permission."
+                  },
+                  "schema:permissionExpires": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the permission expires."
+                  },
+                  "schema:permissionGrantedTo": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "The URI of the entity granted permission."
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The URI of the entity granted permission."
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "The name of the entity granted permission."
+                          }
+                        },
+                        "required": ["id"],
+                        "additionalProperties": false
+                      }
+                    ],
+                    "description": "The entity to whom permission was granted."
+                  },
+                  "schema:permissionGrantedBy": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "The URI of the entity that granted permission."
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The URI of the entity that granted permission."
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "The name of the entity that granted permission."
+                          }
+                        },
+                        "required": ["id"],
+                        "additionalProperties": false
+                      }
+                    ],
+                    "description": "The entity that granted the permission."
+                  },
+                  "schema:permissionGrantedAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the permission was granted."
+                  },
+                  "schema:permissionRevokedAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the permission was revoked."
+                  },
+                  "schema:permissionRevokedBy": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "The URI of the entity that revoked permission."
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The URI of the entity that revoked permission."
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "The name of the entity that revoked permission."
+                          }
+                        },
+                        "required": ["id"],
+                        "additionalProperties": false
+                      }
+                    ],
+                    "description": "The entity that revoked the permission."
+                  },
+                  "schema:permissionRevocationReason": {
+                    "type": "string",
+                    "description": "The reason for revoking the permission."
+                  },
+                  "schema:permissionConditions": {
+                    "type": "string",
+                    "description": "Conditions attached to the permission."
+                  },
+                  "schema:permissionRestrictions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Restrictions on the permission."
+                  },
+                  "schema:permissionAllowedActions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Actions allowed by the permission."
+                  },
+                  "schema:permissionDeniedActions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Actions denied by the permission."
+                  },
+                  "schema:permissionGeographicScope": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Geographic scope of the permission."
+                  },
+                  "schema:permissionTimeScope": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "The URI of the time scope."
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The URI of the time scope."
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "The name of the time scope."
+                          }
+                        },
+                        "required": ["id"],
+                        "additionalProperties": false
+                      }
+                    ],
+                    "description": "Time scope of the permission."
+                  },
+                  "schema:permissionUsageLimit": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Usage limit for the permission."
+                  },
+                  "schema:permissionUsageCount": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Current usage count for the permission."
+                  },
+                  "schema:permissionWatermark": {
+                    "type": "string",
+                    "description": "Watermark applied to the document due to permission."
+                  },
+                  "schema:permissionEncryption": {
+                    "type": "string",
+                    "description": "Encryption applied to the document due to permission."
+                  },
+                  "schema:permissionAuditTrail": {
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "The URI of the audit entry."
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uri",
+                              "description": "The URI of the audit entry."
+                            },
+                            "schema:auditAction": {
+                              "type": "string",
+                              "description": "The action performed."
+                            },
+                            "schema:auditTimestamp": {
+                              "type": "string",
+                              "format": "date-time",
+                              "description": "When the action was performed."
+                            },
+                            "schema:auditActor": {
+                              "oneOf": [
+                                {
+                                  "type": "string",
+                                  "format": "uri",
+                                  "description": "The URI of the actor."
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "format": "uri",
+                                      "description": "The URI of the actor."
+                                    },
+                                    "schema:name": {
+                                      "type": "string",
+                                      "description": "The name of the actor."
+                                    }
+                                  },
+                                  "required": ["id"],
+                                  "additionalProperties": false
+                                }
+                              ],
+                              "description": "The entity that performed the action."
+                            },
+                            "schema:auditDetails": {
+                              "type": "string",
+                              "description": "Details about the action performed."
+                            }
+                          },
+                          "required": ["id", "schema:auditAction", "schema:auditTimestamp"],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "description": "Audit trail for permission usage."
+                  }
+                },
+                "required": ["id", "schema:permissionType", "schema:permissionGrantedTo", "schema:permissionGrantedBy", "schema:permissionGrantedAt"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "description": "Digital document permissions associated with this document."
+        }
+      },
+      "required": ["id", "schema:name"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 

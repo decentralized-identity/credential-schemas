@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/text/schema.json",
+  "title": "Text Schema",
+  "description": "A JSON Schema for the Text credential that represents textual content using schema.org vocabulary.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/text/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "The unique identifier for the text content, typically a URI."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "The name or title of the text content."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "A description of the text content."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL where the text content can be accessed."
+        },
+        "schema:author": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the author of the text content."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the author."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the author."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The author of the text content."
+        },
+        "schema:creator": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the creator of the text content."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the creator."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the creator."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The creator of the text content."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the text content was created."
+        },
+        "schema:datePublished": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the text content was published."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the text content was last modified."
+        },
+        "schema:genre": {
+          "type": "string",
+          "description": "The genre of the text content."
+        },
+        "schema:keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Keywords or tags associated with the text content."
+        },
+        "schema:license": {
+          "type": "string",
+          "format": "uri",
+          "description": "The license under which the text content is distributed."
+        },
+        "schema:copyrightHolder": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "The URI of the copyright holder."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URI of the copyright holder."
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "The name of the copyright holder."
+                }
+              },
+              "required": ["id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "The copyright holder of the text content."
+        },
+        "schema:copyrightYear": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100,
+          "description": "The year of copyright."
+        },
+        "schema:inLanguage": {
+          "type": "string",
+          "description": "The language of the text content (ISO 639-1 code)."
+        },
+        "schema:isAccessibleForFree": {
+          "type": "boolean",
+          "description": "Whether the text content is accessible for free."
+        },
+        "schema:thumbnailUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of a thumbnail image for the text content."
+        },
+        "schema:image": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of an image representing the text content."
+        },
+        "schema:abstract": {
+          "type": "string",
+          "description": "An abstract or summary of the text content."
+        },
+        "schema:interactionStatistic": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:interactionType": {
+                "type": "string",
+                "description": "The type of interaction being measured."
+              },
+              "schema:userInteractionCount": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "The number of user interactions."
+              }
+            },
+            "required": ["schema:interactionType", "schema:userInteractionCount"],
+            "additionalProperties": false
+          },
+          "description": "Statistics about user interactions with the text content."
+        },
+        "schema:isPartOf": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URI of a larger creative work of which this text is a part."
+        },
+        "schema:hasPart": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "Array of URIs of text segments that are parts of this text."
+        },
+        "schema:citation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Citations or references used in the text content."
+        },
+        "schema:wordCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of words in the text content."
+        },
+        "schema:characterCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of characters in the text content."
+        },
+        "schema:pageCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of pages in the text content."
+        },
+        "schema:duration": {
+          "type": "string",
+          "description": "The duration of the text content (for time-based media)."
+        },
+        "schema:text": {
+          "type": "string",
+          "description": "The actual text content."
+        },
+        "schema:textFormat": {
+          "type": "string",
+          "description": "The format of the text content (e.g., plain text, HTML, Markdown)."
+        },
+        "schema:encodingFormat": {
+          "type": "string",
+          "description": "The encoding format of the text content."
+        },
+        "schema:fileFormat": {
+          "type": "string",
+          "description": "The file format of the text content."
+        },
+        "schema:contentSize": {
+          "type": "string",
+          "description": "The size of the text content."
+        },
+        "schema:isFamilyFriendly": {
+          "type": "boolean",
+          "description": "Whether the text content is family friendly."
+        },
+        "schema:dateLastReviewed": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the text content was last reviewed."
+        },
+        "schema:mainContentOfPage": {
+          "type": "string",
+          "description": "The main content of the text."
+        },
+        "schema:significantLinks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "The most significant URLs in the text content."
+        },
+        "schema:accessMode": {
+          "type": "string",
+          "description": "The human sensory perceptual system or cognitive faculty through which a person may process or perceive information."
+        },
+        "schema:accessibilityAPI": {
+          "type": "string",
+          "description": "Indicates that the resource is compatible with the referenced accessibility API."
+        },
+        "schema:accessibilityControl": {
+          "type": "string",
+          "description": "Identifies input methods that are sufficient to fully control the described resource."
+        },
+        "schema:accessibilityFeature": {
+          "type": "string",
+          "description": "Content features of the resource, such as accessible media, alternatives and supported enhancements for accessibility."
+        },
+        "schema:accessibilityHazard": {
+          "type": "string",
+          "description": "A characteristic of the described resource that is physiologically dangerous to some users."
+        },
+        "schema:accessibilitySummary": {
+          "type": "string",
+          "description": "A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata."
+        }
+      },
+      "required": ["id", "schema:name"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 
