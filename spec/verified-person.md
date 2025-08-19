@@ -2,7 +2,7 @@
 
 July 2025 - **Specification Status:** Working Group draft
 
-JSON Schema: [Verified Person Schema](https://github.com/decentralized-identity/credential-schemas/tree/main/dif-draft-schemas/basic-person-schema)
+JSON Schema: [Verified Person Schema](https://github.com/decentralized-identity/credential-schemas/tree/main/dif-draft-schemas/verified-person-schema)
 
 #### Purpose: 
 The purpose of this credential schema specification is to define the fields required to identify an individual at a basic level for KYC purposes. The schema integrates fields from various standards including: [Open ID Connect](https://openid.net/specs/openid-connect-core-1_0.html) , [Open ID for Identity Assurance](https://openid.net/specs/openid-connect-4-identity-assurance-1_0.html) , [EBSI for natural person](https://code.europa.eu/ebsi/json-schema/-/tree/main/schemas/vcdm1.1/multi-uni-pilot/verifiable-attestation-individual-id), and [ISO Mobile Drivers License (ISO/IEC 18013-5:2021)](https://www.iso.org/standard/69084.html). Harmonization and mapping of the fields was done to facilitate interoperability with these standards (see the [mapping section](#mapping-of-the-verified-person-fields-to-various-standards) for details). We also leverage [Schema.org](https://schema.org/Person) as a vocabulary / ontology of terms.
@@ -108,7 +108,7 @@ The Contact Point Object records the various contact methods of the credential s
 | type   \*  | Type of contact point recommended values (non-exhaustive list): personalEmail, workEmail, personalPhone, homePhone, workPhone, otherPhone. It could also include social media or other handles: facebook, linkedIn, x, github, farcaster, etc. | string / enumeration | https://schema.org/contactType |
 | email      | Email address, value MUST conform to the RFC 5322 [RFC5322] addr-spec syntax                                                                                                                                                                   | email                | https://schema.org/email       |
 | telephone  | Phone number: phone number values must be formatted according to ITU-T recommendation [E.164], e.g., "1999550123" or "50688785073".                                                                                                            | number               | https://schema.org/telephone   |
-| url        | URL, used for contact points that refer to websites and similar.  https://schema.org/url                                                                                                                                                       | URL                  | https://schema.org/url         |
+| url        | URL, used for contact points that refer to websites and similar.                                                                                                                                                      | URL                  | https://schema.org/url         |
 | identifier | Identifier used for the contact method (for contact points that are not emails, phone numbers, or URLs).                                                                                                                                       | string               | https://schema.org/identifier  |
 
 ::: note contact point object note
