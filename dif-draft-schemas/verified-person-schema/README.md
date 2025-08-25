@@ -18,7 +18,7 @@ The `VerifiedPersonSchema` defines the structure for a verifiable credential use
   - `customField`: A free-form array to capture additional fields not covered by the main schema.
 
 ## Specification Status
-- **Status**: Working Group Draft (July 2025)
+- **Status**: Working Group Approved (August 2025)
 - **Latest Draft**: [identity.foundation/credential-schemas/#basic-person-schema](https://identity.foundation/credential-schemas/#verified-person-schema)
 - **Ratified Versions**: None
 

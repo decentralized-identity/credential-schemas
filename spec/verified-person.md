@@ -1,6 +1,6 @@
 ### Verified Person Schema
 
-July 2025 - **Specification Status:** Working Group draft
+August 2025 - **Specification Status:** Working Group Approved
 
 JSON Schema: [Verified Person Schema](https://github.com/decentralized-identity/credential-schemas/tree/main/dif-draft-schemas/verified-person-schema)
 
@@ -12,12 +12,16 @@ The purpose of this credential schema specification is to define the fields requ
 Use cases: Mainly for financial services, but can also be used in telecommunications, and any sector requiring identity verification for customer onboarding, transaction verification, and regulatory compliance, enabling streamlined and standardized data handling for KYC procedures.
 
 ::: note Verified Person Note
-  The schema excludes assurance levels and the verification process by which the data was obtained.
+  The schema excludes assurance levels and the verification process by which the data was obtained. In addition "trust frameworks" through which the trustworthiness of issuers can be determined are outside the scope of this specification.
 :::
 
 For issuance date and expiration date fields please refer to the verifiable credentials data model [version 1.1](https://www.w3.org/TR/vc-data-model/) or [version 2.0](https://www.w3.org/TR/vc-data-model-2.0/) (we assume the usage of these fields).
 
 #### Verified Person Abstract Data Model
+
+::: note verified person note
+  \* = Required field
+:::
 
 | Property                       | Description                                                                                                                                                                                         | Type & Format      | Definition / Comments                                                                                                               |
 | :----------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -33,12 +37,14 @@ For issuance date and expiration date fields please refer to the verifiable cred
 | identificationEvidence (array) | Evidence of identifiers of the credential subject including government identifiers.                                                                                                                 | Array              | Structured into an array of objects (see the definition of the [Identification Evidence object](#identification-evidence-object) ). |
 | customField (array)            | These are custom fields that can be issued by the credential issuer for any other field not accounted in the main schema. This is a free form array which can be utilized by the credential issuer. | object             | The suggested usage is an array of objects containing "propertyName" and "propertyValue" on each entry.                             |
 
-::: note verified person note
-  \* = Required field
-:::
+
 
 #### Name Object
 The Name Object records the name(s) of the credential subject. The type of name is indicated by the nameType property. There must be at least one entry corresponding to the user's legal name type "legalName". 
+
+::: note name object note
+  \* = Required field
+:::
 
 | Property        | Description                                                                                                                                                                                                                                                                                                                                                 | Type  & Format       | Definition / Comments                          |
 | :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------- | :--------------------------------------------- |
@@ -52,13 +58,14 @@ The Name Object records the name(s) of the credential subject. The type of name 
 | startDate       | Start date at which this name was first used. This could be used to keep a history of various names used by the credential subject.                                                                                                                                                                                                                         | string / date-time   | https://schema.org/startDate                   |
 | endDate         | End date at which this name was used. This could be used to keep a history of various names used by the credential subject.                                                                                                                                                                                                                                 | string / date-time   | https://schema.org/endDate                     |
 
-::: note name object note
-  \* = Required field
-:::
 
 #### Identification Evidence Object
 The Identification Evidence Object records the identifier(s) of the credential subject. The type of identifier is indicated by the identifierType property. The object can record both government and non-government identifiers, however there must be at least one entry corresponding to the credential subject's government identifier, this could be any form of government issued identifier such as passport, national id document, tax id, drivers license, or social service number (ssn, social issurance number, or health service id).
 The entry for the government identifier must be the unique government id or national identifier of the credential subject issued by that jurisdiction.
+
+::: note identification evidence object note
+  \* = Required field
+:::
 
 | Property               | Description                                                                                                                                                                                                                                                                                                                                                                  | Type & Format        | Definition / Comments                          |
 | :--------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------- | :--------------------------------------------- |
@@ -68,9 +75,6 @@ The entry for the government identifier must be the unique government id or nati
 | country                | This is the country of the entity that issues the identifying document. It is a string representing the country in ISO 3166-1 alpha-3 codes (e.g. FRA, USA, CRC).                                                                                                                                                                                                            | string               | https://schema.org/addressCountry              |
 | documentExpirationDate | Date in which the document expires or is subject to renewal                                                                                                                                                                                                                                                                                                                  | string / date-time   | https://schema.org/expires                     |
 
-::: note identification evidence object note
-  \* = Required field
-:::
 
 #### Address Object
 
@@ -78,6 +82,9 @@ The Address Object records the address(es) of the credential subject.The type of
 The object can record a variety of address types, however there must be at least one object entry corresponding to the credential subject's place of birth (identified by the type "placeOfBirth"), the address defines the place where the credential subject is born. For the place of birth, not all fields in the object are required however the country code is mandatory.
 This object is an extension of [schema.org/PostalAddress](https://schema.org/PostalAddress), with additional fields for unstructured addresses and start and end dates in order to accommodate for a historical address record.
 
+::: note address object note
+  \* = Required field
+:::
 
 | Property            | Description                                                                                                                               | Type & Format        | Definition / Comments                          |
 | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------- | :------------------- | :--------------------------------------------- |
@@ -92,15 +99,15 @@ This object is an extension of [schema.org/PostalAddress](https://schema.org/Pos
 | startDate           | Start date at which this address was first used. This could be used to keep a history of various addresses used by the credential subject | string / date-time   | https://schema.org/startDate                   |
 | endDate             | End date at which this address was last used. This could be used to keep a history of various addresses used by the credential subject    | string / date-time   | https://schema.org/endDate                     |
 
-::: note address object note
-  \* = Required field
-:::
-
 #### Contact Point Object
 The Contact Point Object records the various contact methods of the credential subject (email, phone, others). The type of contact is indicated by the type property. This object is leveraging [schema.org/ContactPoint](https://schema.org/ContactPoint) so any fields in that specification are valid; for simplicity however we are only referencing a subset of the fields in that specification relevant for KYC use cases.
 
 ::: note contact point verification
   It is assumed that the credential issuer will have verified that the credential subject is in possession of the contact point(s), the details of how this verification is done are outside the scope of this specification.
+:::
+
+::: note contact point object note
+  \* = Required field
 :::
 
 | Property   | Description                                                                                                                                                                                                                                    | Type  & Format       | Definition / Comments          |
@@ -111,9 +118,7 @@ The Contact Point Object records the various contact methods of the credential s
 | url        | URL, used for contact points that refer to websites and similar.                                                                                                                                                      | URL                  | https://schema.org/url         |
 | identifier | Identifier used for the contact method (for contact points that are not emails, phone numbers, or URLs).                                                                                                                                       | string               | https://schema.org/identifier  |
 
-::: note contact point object note
-  \* = Required field
-:::
+
 
 #### Mapping of the Verified Person fields to various standards
 

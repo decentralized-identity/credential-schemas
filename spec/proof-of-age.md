@@ -1,6 +1,6 @@
 ### Proof of Age Schema
 
-April 2025 - **Specification Status:** editors draft WORK IN PROGRESS
+August 2025 - **Specification Status:** Working Group Approved
 
 #### Purpose: 
 The objective is to generate a general purpose age schema which should allow for both “age estimation” (several assurance methods to be used) as well as “age verification”.
@@ -13,11 +13,17 @@ The objective is to generate a general purpose age schema which should allow for
   - Police clearance / Criminal background or similar use cases in child care contexts
 :::
 
+![proof of age fields overview diagram](images/proof-of-age.png)
+
 #### Proof of Age Abstract Data Model
 
 Main schema for expressing an individual's age. It is composed of a proof of age method field, details on the verification method used, and an age statement field which allows for various schemas for expressing an individual's age. It also includes fields for correctness and level of confidence which are relevant for the age estimation use cases.
 
 For issuance date and expiration date fields please refer to the verifiable credentials data model [version 1.1](https://www.w3.org/TR/vc-data-model/) or [version 2.0](https://www.w3.org/TR/vc-data-model-2.0/) (we assume the usage of these fields).
+
+::: note Proof of Age Required Fields Note
+  \* = Required field
+:::
 
 | Property                 | Description                                                                                                                                                                                  | Type & Format        | Definition / Comments                                                                                          |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -28,11 +34,6 @@ For issuance date and expiration date fields please refer to the verifiable cred
 | probabilityOfCorrectness | Probability of correctness of the estimation. Number value between 0 and 100.                                                                                                                | number               |                                                                                                                |
 | levelOfConfidence        | Level of confidence with which the verification has been completed allowed values: "asserted", "basic" (90%+), "standard" (99%+), "enhanced" (99.9%+) , and "strict" (99.99%+).              | string / enumeration | Refer to  [IS0/IEC 27566 – Age assurance systems](https://www.iso.org/standard/88143.html) - for more details. |
 
-
-::: note Key-on-required-or-optional-for-proof-of-age
-  \* = Required field
-:::
-
 #### Age Date Object
 
 Object composed of the following fields related to the invidual's birth date: Year, Month,and Day. The schema can represent an age statement in any of the following ways:
@@ -41,6 +42,9 @@ Object composed of the following fields related to the invidual's birth date: Ye
 - Year and month (date value is null) e.g. Sept-1952
 - Full date e.g: 25-Sept-1952
 
+::: note Proof of Age Date Object Required Fields
+  \* = Required field
+:::
 
 | Property | Description                                                                                                          | Type & Format     | Definition / Comments                          |
 | -------- | -------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------- |
@@ -51,7 +55,11 @@ Object composed of the following fields related to the invidual's birth date: Ye
 
 #### Boolean Age Statement Object
 
-Object used to express the user is over a given age threshold.
+Object used to express the user is over or under a given age threshold. For example: "over 18", or "under 21". 
+
+::: note Proof of Age Statement Object Required Fields
+  \* = Required field
+:::
 
 | Property        | Description                                                                                                                                                                                            | Type & Format     | Definition / Comments                          |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ---------------------------------------------- |
@@ -61,8 +69,12 @@ Object used to express the user is over a given age threshold.
 
 #### Age Range Statement Object
 
-Object used to indicate a user is in a given in age range for example: between "18 and 25 years of age", or between "40 and 65 years of age".
+Object used to indicate a user is in a given in age range for example: between "18 and 25 years of age", or between "40 and 65 years of age". The age values in the range are inclusive of the minimumAge and maximumAge values.
  
+ ::: note Proof of Age Range Statement Required Fields
+  \* = Required field
+:::
+
 | Property   | Description                                      | Type & Format     | Definition / Comments                          |
 | ---------- | ------------------------------------------------ | ----------------- | ---------------------------------------------- |
 | type \*    | type of object schema, expected value "AgeRange" | string / constant | https://www.w3.org/TR/vc-data-model-2.0/#types |
@@ -77,7 +89,8 @@ Object used to indicate a user is in a given in age range for example: between "
 
 #### Sample implementations of this schema standard
 
-- Privado ID (JSON-LD): pending
+- DIF: [Proof of Age Schema](https://github.com/decentralized-identity/credential-schemas/tree/main/dif-draft-schemas/proof-of-age-schema)
+
 
 ::: todo add links to schema implementations
   Need to add links to additional schema implementations in JSON-LD, SD-JWT and others

@@ -1,6 +1,6 @@
-# credential-schemas 0.1 Working Group Draft
+# credential-schemas 1.0 Working Group Approved Spec
 
-**Specification Status:** Working Group draft (October 2024)
+**Specification Status:** Working Group Approved Spec (August 2025)
 
 **Latest Draft:**
 [identity.foundation/credential-schemas](https://identity.foundation/credential-schemas)
