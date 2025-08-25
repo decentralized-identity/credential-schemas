@@ -1,0 +1,122 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "type": "@type",
+    "credentialSubject": {
+      "@id": "vc:credentialSubject",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "headline": "schema:headline",
+    "description": "schema:description",
+    "url": "schema:url",
+    "author": {
+      "@id": "schema:author",
+      "@type": "@id"
+    },
+    "creator": {
+      "@id": "schema:creator",
+      "@type": "@id"
+    },
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "datePublished": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:dateTime"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "genre": "schema:genre",
+    "keywords": {
+      "@id": "schema:keywords",
+      "@container": "@list"
+    },
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+    "inLanguage": "schema:inLanguage",
+    "isAccessibleForFree": {
+      "@id": "schema:isAccessibleForFree",
+      "@type": "xsd:boolean"
+    },
+    "thumbnailUrl": {
+      "@id": "schema:thumbnailUrl",
+      "@type": "@id"
+    },
+    "image": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "articleBody": "schema:articleBody",
+    "articleSection": "schema:articleSection",
+    "pageStart": {
+      "@id": "schema:pageStart",
+      "@type": "xsd:integer"
+    },
+    "pageEnd": {
+      "@id": "schema:pageEnd",
+      "@type": "xsd:integer"
+    },
+    "pagination": "schema:pagination",
+    "wordCount": {
+      "@id": "schema:wordCount",
+      "@type": "xsd:integer"
+    },
+    "characterCount": {
+      "@id": "schema:characterCount",
+      "@type": "xsd:integer"
+    },
+    "isPartOf": {
+      "@id": "schema:isPartOf",
+      "@type": "@id"
+    },
+    "mainEntityOfPage": {
+      "@id": "schema:mainEntityOfPage",
+      "@type": "@id"
+    },
+    "mainEntity": {
+      "@id": "schema:mainEntity",
+      "@type": "@id"
+    },
+    "about": {
+      "@id": "schema:about",
+      "@type": "@id"
+    },
+    "sharedContent": {
+      "@id": "schema:sharedContent",
+      "@type": "@id"
+    },
+    "commentCount": {
+      "@id": "schema:commentCount",
+      "@type": "xsd:integer"
+    },
+    "interactionStatistic": {
+      "@id": "schema:interactionStatistic",
+      "@container": "@list"
+    },
+    "interactionType": "schema:interactionType",
+    "userInteractionCount": {
+      "@id": "schema:userInteractionCount",
+      "@type": "xsd:integer"
+    },
+    "BlogPosting": "schema:BlogPosting",
+    "Article": "schema:Article",
+    "SocialMediaPosting": "schema:SocialMediaPosting",
+    "CreativeWork": "schema:CreativeWork",
+    "Blog": "schema:Blog",
+    "WebPage": "schema:WebPage",
+    "Person": "schema:Person",
+    "Organization": "schema:Organization",
+    "ImageObject": "schema:ImageObject"
+  }
+} 
