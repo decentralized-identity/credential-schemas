@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OpenVerifiable/draft-schemas/VerifiableEndorsement/schema.json",
+  "title": "Verifiable Endorsement",
+  "description": "Schema for Verifiable Endorsements that provide social proof, reviews, and recommendations",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OpenVerifiable/draft-schemas/VerifiableEndorsement/context.json"
+    },
+    "credentialSubject": {
+      "description": "Describes the subject of the endorsement and the endorsements provided for them.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "A unique identifier for the subject of the endorsement.",
+          "type": "string",
+          "format": "uri"
+        },
+        "@type": {
+          "type": "string",
+          "enum": ["Person", "Organization", "CreativeWork", "Product", "Service"],
+          "description": "Type of the endorsed entity"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the endorsed entity"
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Description of the endorsed entity"
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the endorsed entity"
+        },
+        "endorsedFor": {
+          "description": "A list of endorsement claims specifying what the subject is endorsed for.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "endorsementType": {
+                "type": "string",
+                "enum": ["socialMediaHandle", "skill", "expertise", "product", "service", "content", "organization", "review", "recommendation"],
+                "description": "Type of endorsement being provided"
+              },
+              "endorsedValue": {
+                "type": "string",
+                "description": "The specific value being endorsed (e.g., social media handle, skill name, product name)"
+              },
+              "platform": {
+                "type": "string",
+                "description": "Platform or context where the endorsement applies (e.g., 'Twitter', 'LinkedIn', 'GitHub', 'Professional')"
+              },
+              "platformUrl": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL of the platform or context"
+              },
+              "category": {
+                "type": "string",
+                "description": "Category or domain of the endorsement (e.g., 'Technology', 'Healthcare', 'Education')"
+              },
+              "confidence": {
+                "type": "string",
+                "enum": ["high", "medium", "low"],
+                "description": "Confidence level of the endorser in this endorsement"
+              },
+              "rating": {
+                "type": "object",
+                "properties": {
+                  "schema:ratingValue": {
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 5,
+                    "description": "Numeric rating value (1-5 scale)"
+                  },
+                  "schema:bestRating": {
+                    "type": "number",
+                    "default": 5,
+                    "description": "Best possible rating value"
+                  },
+                  "schema:worstRating": {
+                    "type": "number",
+                    "default": 1,
+                    "description": "Worst possible rating value"
+                  }
+                },
+                "required": ["schema:ratingValue"]
+              },
+              "reviewText": {
+                "type": "string",
+                "description": "Text of the review or endorsement"
+              },
+              "reviewDate": {
+                "type": "string",
+                "format": "date",
+                "description": "Date when the review was written"
+              },
+              "validFrom": {
+                "type": "string",
+                "format": "date-time",
+                "description": "When this endorsement becomes valid"
+              },
+              "validUntil": {
+                "type": "string",
+                "format": "date-time",
+                "description": "When this endorsement expires"
+              },
+              "limitJurisdiction": {
+                "description": "Jurisdictions where the endorsement is valid.",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  }
+                ]
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "Reference to supporting evidence"
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "Type of evidence"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Description of the evidence"
+                    }
+                  },
+                  "required": ["type"]
+                }
+              }
+            },
+            "required": ["endorsementType", "endorsedValue"]
+          }
+        }
+      },
+      "required": ["id", "endorsedFor"]
+    }
+  },
+  "required": ["credentialSubject", "@context"]
+}
