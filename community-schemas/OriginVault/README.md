@@ -50,18 +50,53 @@ Each directory contains schemas and contexts for a specific version of a schema.
 ```
 community-schemas/
 ├── OriginVault/
+│   ├── draft-schemas/
+│   │   ├── content-registration/
+│   │   ├── proof-of-presence/
+│   │   ├── proof-of-upload/
+│   │   ├── user-registration/
+│   │   ├── did-assertion/
+│   │   ├── software-source-code/
+│   │   ├── software-application/
+│   │   ├── interaction-counter/
+│   │   ├── action-access-specification/
+│   │   ├── contributor/
+│   │   └── ownership-info/
 │   ├── DIDAttestation/
-│       ├── v1.1/
-│           ├── schema.json
-│           ├── context.json
-│           ├── README.md
-│       ├── v2.0/
-│           ├── schema.json
-│           ├── context.json
-│           ├── README.md
+│   │   ├── v1.1/
+│   │   ├── v2.0/
 │   ├── README.md
 │   └── ...
 ```
+
+---
+
+### 🚧 Draft Schemas
+
+These schemas are actively evolving. Refer to each directory for detailed documentation:
+
+- **Content Registration** (`draft-schemas/content-registration/`)  
+  Registers digital content on OriginVault, anchoring its hash, registration date, and registrant.
+- **Proof of Presence** (`draft-schemas/proof-of-presence/`)  
+  Proves that a subject (person or device) was present at a specific geographic location and time.
+- **Proof of Upload** (`draft-schemas/proof-of-upload/`)  
+  Attests that a content item was uploaded to a storage location at a given time, including file metadata.
+- **User Registration** (`draft-schemas/user-registration/`)  
+  Records user registration events using Schema.org RegisterAction and Person representations.
+- **DID Assertion** (`draft-schemas/did-assertion/`)  
+  Provides a structured way to assert claims about entities using Schema.org review patterns.
+- **Software Source Code** (`draft-schemas/software-source-code/`)  
+  Describes repositories, languages, runtime platforms, and maintainers of code.
+- **Software Application** (`draft-schemas/software-application/`)  
+  Describes software applications, versions, platforms, and publishers.
+- **Interaction Counter** (`draft-schemas/interaction-counter/`)  
+  Counts user interactions such as likes, views, and downloads.
+- **Action Access Specification** (`draft-schemas/action-access-specification/`)  
+  Defines platform, time, region, and subscription prerequisites for actions.
+- **Contributor** (`draft-schemas/contributor/`)  
+  Attests to secondary contributors to CreativeWorks or Events using Schema.org contributor property.
+- **Ownership Info** (`draft-schemas/ownership-info/`)  
+  Provides structured ownership information for products and services using Schema.org OwnershipInfo type.
 
 ---
 

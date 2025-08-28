@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/software-application/schema.json",
+  "title": "OriginVault Software Application Credential",
+  "description": "A credential describing a software application, aligned with Schema.org SoftwareApplication type.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/software-application/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "Identifier for the software application (e.g., product page URL, DID)."
+        },
+        "schema:applicationCategory": {
+          "type": "string",
+          "description": "Category of the application (e.g., Game, Productivity)."
+        },
+        "schema:operatingSystem": {
+          "type": "string",
+          "description": "Operating system(s) supported by the application."
+        },
+        "schema:softwareVersion": {
+          "type": "string",
+          "description": "Current version of the application."
+        },
+        "schema:downloadUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to download the application."
+        },
+        "schema:image": {
+          "type": "string",
+          "format": "uri",
+          "description": "Application icon or promotional image."
+        },
+        "schema:offers": {
+          "type": "string",
+          "format": "uri",
+          "description": "Offer or pricing information reference."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the application was first released."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the application was last updated."
+        },
+        "schema:agent": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "DID or URI of the publisher/developer."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "enum": ["Person", "Organization"],
+                  "default": "Organization"
+                },
+                "schema:@id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "schema:name": { "type": "string" }
+              },
+              "required": ["@type", "schema:@id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Publisher or developer of the application."
+        },
+        "schema:identifier": {
+          "type": "object",
+          "properties": {
+            "schema:propertyID": { "type": "string" },
+            "schema:value": { "type": "string" }
+          },
+          "required": ["schema:propertyID", "schema:value"],
+          "additionalProperties": false,
+          "description": "Structured identifier for the application."
+        },
+        "schema:name": { "type": "string", "description": "Name of the application." },
+        "schema:description": { "type": "string", "description": "Description of the application." },
+        "schema:url": { "type": "string", "format": "uri", "description": "Canonical URL of the application." }
+      },
+      "required": ["id", "schema:applicationCategory", "schema:operatingSystem", "schema:softwareVersion"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 
