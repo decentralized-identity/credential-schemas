@@ -1,0 +1,151 @@
+{
+	"$schema": "https://www.w3.org/2022/credentials/v2/json-schema-credential-schema.json",
+	"$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/dif-draft-schemas/proof-of-age-schema/ProofOfAge.schema.json",
+	"title": "DIF Proof of Age Schema (August 2025)",
+	"description": "A JSON Schema for the proof of age credential as specified in the DIF Credential Schemas spec.",
+	"type": "object",
+	"version": "1.0",
+
+	"properties": {
+		"credentialSubject": {
+			"description": "Stores the data of the credential",
+			"title": "Credential subject",
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"description": "Stores the DID of the subject that owns the credential."
+				},
+				"proofOfAgeMethod": {
+					"type": "string",
+					"enum": ["ageEstimation", "ageVerification"],
+					"description": "Recommended values: “ageEstimation” or “ageVerification”."
+				},
+				"verificationMethod": {
+					"description": "Verification method used. Recommended values for age verification: document scan, credit card check. Recommended values for age estimation: “facial scan”, “voice check”, “in person check”.",
+					"anyOf": [
+						{
+							"type": "string",
+							"enum": ["documentScan", "creditCardCheck", "facialScan", "voiceCheck","inPersonCheck"]
+						},
+						{
+							"$ref": "#/$defs/CustomEnum"
+						}
+					]
+				},
+				"ageStatement": {
+					"description": "Accepted objects: “AgeDate”, “AgeBoolean”, and “AgeRange”.",
+					"anyOf": [
+						{
+							"$ref": "#/$defs/AgeDate"
+						},
+						{
+							"$ref": "#/$defs/AgeBoolean"
+						},
+						{
+							"$ref": "#/$defs/AgeRange"
+						}
+					]
+				},
+				"probabilityOfCorrectness": {
+					"type": "integer",
+					"description": "Probability of correctness of the estimation. Number value between 0 and 100."
+				},
+				"levelOfConfidence": {
+					"type": "string",
+					"enum": ["asserted", "basic", "standard", "enhanced","strict"],
+					"description": "Level of confidence with which the verification has been completed. Refer to IS0/IEC 27566 - Age assurance systems - for more details."
+				}
+			},
+			"required": ["id", "proofOfAgeMethod", "verificationMethod", "ageStatement"]
+		}
+	},
+
+	"required": ["credentialSubject"],
+
+	"$defs": {
+		"CustomEnum": {
+			"type": "object",
+			"description": "Custom enumeration object.",
+			"additionalProperties": false,
+			"properties": {
+				"value": {
+					"type": "string"
+				},
+				"enumDefinition": {
+					"type": "string",
+					"format": "uri"
+				}
+			},
+			"required": ["value", "enumDefinition"]
+		},
+
+		"AgeDate": {
+			"type": "object",
+			"additionalProperties": false,
+			"description": "Object composed of the following fields related to the invidual’s birth date: Year, Month,and Day",
+			"properties": {
+				"type": {
+					"description": "type of object schema, expected value “AgeDate”.",
+					"type": "string"
+				},
+				"year": {
+					"type": "integer",
+					"description": "Numeric value for the individual’s birth year e.g 1952."
+				},
+				"month": {
+					"type": "integer",
+					"description": "Numeric value for the individual’s birth month (Allowed values: 1 to 12)."
+				},
+				"day": {
+					"type": "integer",
+					"description": "Numeric value for the individual’s date of birth during their birth month."
+				}
+			},
+			"required": ["type","year"]
+		},
+
+		"AgeBoolean": {
+			"type": "object",
+			"additionalProperties": false,
+			"description": "Object used to express the user is over or under a given age threshold. For example: “over 18”, or “under 21”",
+			"properties": {
+				"type": {
+					"description": "type of object schema, expected value “AgeBoolean”.",
+					"type": "string"
+				},
+				"ageOver": {
+					"type": "boolean",
+					"description": "Boolean value indicating if the credential holder is older than the value indicated in ageThreshold (if ‘true’). Otherwise the credential holder is assumed to be below, i.e. “ageBelow” (if ‘false’)."
+				},
+				"ageThreshold": {
+					"type": "integer",
+					"description": "Numeric value of the age threshold being expressed (in years)."
+				}
+			},
+			"required": ["type","ageOver","ageThreshold"]
+		},
+
+		"AgeRange": {
+			"type": "object",
+			"additionalProperties": false,
+			"description": "Object used to indicate a user is in a given in age range for example: between “18 and 25 years of age”, or between “40 and 65 years of age”.",
+			"properties": {
+				"type": {
+					"description": "type of object schema, expected value “AgeRange”.",
+					"type": "string"
+				},
+				"minimumAge": {
+					"type": "integer",
+					"description": "Minimum age of the user."
+				},
+				"maximumAge": {
+					"type": "integer",
+					"description": "Maximum age of the user."
+				}
+			},
+			"required": ["type"]
+		}
+
+	}
+}

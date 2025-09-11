@@ -1,10 +1,10 @@
 {
 	"$schema": "https://www.w3.org/2022/credentials/v2/json-schema-credential-schema.json",
 	"$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/dif-draft-schemas/verified-person-schema/VerifiedPerson.schema.json",
-	"title": "DIF Basic Person Schema (July 2024 Draft)",
-	"description": "A JSON Schema for the Basic Person credential as specified in the DIF Credential Schemas, v0.1 Working Draft (October 2024).",
+	"title": "DIF Verified Person Schema (August 2025)",
+	"description": "A JSON Schema for the verified person credential as specified in the DIF Credential Schemas spec.",
 	"type": "object",
-	"version": "0.2",
+	"version": "1.0",
 
 	"properties": {
 		"credentialSubject": {
