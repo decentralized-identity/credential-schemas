@@ -8,6 +8,7 @@
 /dif-recommended-schemas/* @kimdhamilton @ottomorac @vmc-crossmint
 /community-schemas/Crossmint/* @vmc-crossmint @filipposl
 /community-schemas/ExampleEntity/* @vmc-crossmint @filipposl
+/community-schemas/OpenVerifiable/* @lnispel
 /community-schemas/OriginVault/* @lnispel
 /community-schemas/VelocityNetwork/* @vmc-crossmint @ottomorac @sloops77
 /community-schemas/cheqd/* @tweeddalex @ankurdotb
