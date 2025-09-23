@@ -188,45 +188,6 @@
           "type": "string",
           "description": "An abstract or summary of the article."
         },
-        "schema:wordCount": {
-          "type": "integer",
-          "minimum": 0,
-          "description": "The number of words in the article."
-        },
-        "schema:characterCount": {
-          "type": "integer",
-          "minimum": 0,
-          "description": "The number of characters in the article."
-        },
-        "schema:pageCount": {
-          "type": "integer",
-          "minimum": 0,
-          "description": "The number of pages in the article."
-        },
-        "schema:duration": {
-          "type": "string",
-          "description": "The duration of the article (for time-based media)."
-        },
-        "schema:interactionStatistic": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "schema:interactionType": {
-                "type": "string",
-                "description": "The type of interaction being measured."
-              },
-              "schema:userInteractionCount": {
-                "type": "integer",
-                "minimum": 0,
-                "description": "The number of user interactions."
-              }
-            },
-            "required": ["schema:interactionType", "schema:userInteractionCount"],
-            "additionalProperties": false
-          },
-          "description": "Statistics about user interactions with the article."
-        },
         "schema:about": {
           "oneOf": [
             {

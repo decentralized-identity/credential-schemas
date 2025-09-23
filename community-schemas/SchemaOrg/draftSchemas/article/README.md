@@ -45,11 +45,6 @@ The credential includes the following key properties:
 - `schema:hasPart`: Array of URIs of creative works that are parts of this article
 - `schema:citation`: Citations or references used in the article
 - `schema:abstract`: Abstract or summary of the article
-- `schema:wordCount`: Number of words in the article
-- `schema:characterCount`: Number of characters in the article
-- `schema:pageCount`: Number of pages in the article
-- `schema:duration`: Duration of the article (for time-based media)
-- `schema:interactionStatistic`: Statistics about user interactions with the article
 
 ### Accessibility Properties
 - `schema:accessMode`: The human sensory perceptual system or cognitive faculty through which a person may process or perceive information
