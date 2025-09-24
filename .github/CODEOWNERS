@@ -10,6 +10,7 @@
 /community-schemas/ExampleEntity/* @vmc-crossmint @filipposl
 /community-schemas/OpenVerifiable/* @lnispel
 /community-schemas/OriginVault/* @lnispel
+/community-schemas/SchemaOrg/* @lnispel
 /community-schemas/VelocityNetwork/* @vmc-crossmint @ottomorac @sloops77
 /community-schemas/cheqd/* @tweeddalex @ankurdotb
 /community-schemas/schemasWorkingGroup/* @vmc-crossmint @ottomorac @kimdhamilton
