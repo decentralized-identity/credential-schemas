@@ -13,11 +13,6 @@ The objective is to generate a general purpose age schema which should allow for
   - Police clearance / Criminal background or similar use cases in child care contexts
 :::
 
-::: todo proof of age issuance guidance
-  To do for version 2.0 of the Proof of Age schema spec:
-  Need to provide guidance on credential issuance for single vs. batch
-:::
-
 ![proof of age fields overview diagram](images/proof-of-age.png)
 
 #### Proof of Age Abstract Data Model
@@ -90,8 +85,3 @@ Object used to indicate a user is in a given in age range for example: between "
 #### Sample implementations of this schema standard
 
 - DIF: [Proof of Age Schema](https://github.com/decentralized-identity/credential-schemas/tree/main/dif-draft-schemas/proof-of-age-schema)
-
-
-::: todo add links to schema implementations
-  Need to add links to additional schema implementations in JSON-LD, SD-JWT and others
-:::
