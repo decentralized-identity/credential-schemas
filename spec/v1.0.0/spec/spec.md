@@ -1,13 +1,9 @@
-# credential-schemas v1.x Editor’s Draft
+# credential-schemas v1.0
 
 **Specification Status:** DIF Ratified Specification
 
 **Latest Draft:**
 [identity.foundation/credential-schemas](https://identity.foundation/credential-schemas)
-
-**Ratified Versions:**
-[identity.foundation/credential-schemas/v1.0.0](https://identity.foundation/credential-schemas/v1.0.0)
-
 
 **Editors:**
 ~ Otto Mora - @ottomorac (Privado ID)
