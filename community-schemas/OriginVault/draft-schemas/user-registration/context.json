@@ -1,0 +1,79 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "type": "@type",
+    "credentialSubject": {
+      "@id": "vc:credentialSubject",
+      "@type": "@id"
+    },
+    "RegisterAction": {
+      "@id": "schema:RegisterAction",
+      "@type": "@id"
+    },
+    "agent": {
+      "@id": "schema:agent",
+      "@type": "@id"
+    },
+    "object": {
+      "@id": "schema:object",
+      "@type": "@id"
+    },
+    "target": {
+      "@id": "schema:target",
+      "@type": "@id"
+    },
+    "startTime": {
+      "@id": "schema:startTime",
+      "@type": "xsd:dateTime"
+    },
+    "endTime": {
+      "@id": "schema:endTime",
+      "@type": "xsd:dateTime"
+    },
+    "actionStatus": {
+      "@id": "schema:actionStatus",
+      "@type": "@id"
+    },
+    "result": {
+      "@id": "schema:result",
+      "@type": "@id"
+    },
+    "error": {
+      "@id": "schema:error",
+      "@type": "@id"
+    },
+    "instrument": {
+      "@id": "schema:instrument",
+      "@type": "@id"
+    },
+    "location": {
+      "@id": "schema:location",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "email": "schema:email",
+    "url": "schema:url",
+    "identifier": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
+    "propertyID": "schema:propertyID",
+    "value": "schema:value",
+    "address": {
+      "@id": "schema:address",
+      "@type": "@id"
+    },
+    "addressCountry": "schema:addressCountry",
+    "addressLocality": "schema:addressLocality",
+    "addressRegion": "schema:addressRegion",
+    "accountId": "schema:accountId",
+    "username": "schema:username",
+    "urlTemplate": "schema:urlTemplate",
+    "description": "schema:description"
+  }
+} 

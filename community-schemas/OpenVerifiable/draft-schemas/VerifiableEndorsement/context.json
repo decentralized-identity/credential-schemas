@@ -1,0 +1,53 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    
+    "schema": "https://schema.org/",
+    "ov": "https://schemas.openverifiable.org/terms#",
+    
+    "id": "@id",
+    "type": "@type",
+    "credentialSubject": {
+      "@id": "ov:credentialSubject",
+      "@type": "@id"
+    },
+    
+    "endorsedFor": {
+      "@id": "ov:endorsedFor",
+      "@container": "@list"
+    },
+    "endorsementType": "ov:endorsementType",
+    "endorsedValue": "ov:endorsedValue",
+    "platform": "ov:platform",
+    "platformUrl": {
+      "@id": "ov:platformUrl",
+      "@type": "@id"
+    },
+    "category": "schema:category",
+    "confidence": "ov:confidence",
+    "limitJurisdiction": "ov:limitJurisdiction",
+    
+    "Person": "schema:Person",
+    "Organization": "schema:Organization",
+    "CreativeWork": "schema:CreativeWork",
+    "Product": "schema:Product",
+    "Service": "schema:Service",
+    "Rating": "schema:Rating",
+    
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "validFrom": "schema:validFrom",
+    "validUntil": "schema:validUntil",
+    
+    "rating": "schema:rating",
+    "ratingValue": "schema:ratingValue",
+    "bestRating": "schema:bestRating",
+    "worstRating": "schema:worstRating",
+    
+    "reviewText": "schema:reviewBody",
+    "reviewDate": "schema:datePublished"
+  }
+}
+

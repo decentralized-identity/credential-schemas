@@ -1,0 +1,54 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "type": "@type",
+
+    "credentialSubject": {
+      "@id": "vc:credentialSubject",
+      "@type": "@id"
+    },
+
+    "codeRepository": {
+      "@id": "schema:codeRepository",
+      "@type": "@id"
+    },
+    "codeSampleType": "schema:codeSampleType",
+    "programmingLanguage": "schema:programmingLanguage",
+    "runtimePlatform": "schema:runtimePlatform",
+    "targetProduct": {
+      "@id": "schema:targetProduct",
+      "@type": "@id"
+    },
+
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+
+    "agent": {
+      "@id": "schema:agent",
+      "@type": "@id"
+    },
+
+    "identifier": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
+    "propertyID": "schema:propertyID",
+    "value": "schema:value",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "softwareVersion": "schema:softwareVersion"
+  }
+} 

@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/proof-of-upload/schema.json",
+  "title": "OriginVault Proof of Upload",
+  "description": "A credential that attests that a given content item was uploaded to a specific storage location at a specific time using Schema.org standards.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/proof-of-upload/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "Identifier of the uploaded content (e.g., CID, URI)."
+        },
+        "schema:identifier": {
+          "type": "object",
+          "properties": {
+            "schema:propertyID": { "type": "string" },
+            "schema:value": { "type": "string" }
+          },
+          "required": ["schema:propertyID", "schema:value"],
+          "additionalProperties": false,
+          "description": "Structured identifier containing the upload hash."
+        },
+        "schema:uploadDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of the upload event."
+        },
+        "schema:agent": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "DID or URI of the uploader."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "enum": ["Person", "Organization"],
+                  "default": "Person"
+                },
+                "schema:@id": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "Name of the uploader."
+                },
+                "schema:identifier": {
+                  "type": "object",
+                  "properties": {
+                    "schema:propertyID": { "type": "string" },
+                    "schema:value": { "type": "string" }
+                  },
+                  "required": ["schema:propertyID", "schema:value"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["@type", "schema:@id"],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Entity that performed the upload."
+        },
+        "schema:contentUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Public or internal URL where the uploaded file can be fetched."
+        },
+        "schema:encodingFormat": {
+          "type": "string",
+          "description": "MIME type of the uploaded file."
+        },
+        "schema:contentSize": {
+          "type": "string",
+          "description": "Size of the file (human readable)."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Name of the uploaded file."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Description of the uploaded content."
+        },
+        "schema:dateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the content was originally created."
+        },
+        "schema:dateModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the content was last modified before upload."
+        },
+        "schema:uploadAction": {
+          "type": "object",
+          "properties": {
+            "@type": {
+              "type": "string",
+              "enum": ["CreateAction"],
+              "default": "CreateAction"
+            },
+            "schema:agent": {
+              "oneOf": [
+                { "type": "string", "format": "uri" },
+                { "$ref": "#/properties/credentialSubject/properties/schema:agent/oneOf/1" }
+              ],
+              "description": "The person or organization performing the upload."
+            },
+            "schema:object": {
+              "type": "string",
+              "format": "uri",
+              "description": "The content being uploaded."
+            },
+            "schema:target": {
+              "type": "string",
+              "format": "uri",
+              "description": "The upload endpoint or service."
+            },
+            "schema:startTime": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When the upload began."
+            },
+            "schema:endTime": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When the upload completed."
+            },
+            "schema:actionStatus": {
+              "type": "string",
+              "enum": ["ActiveActionStatus", "CompletedActionStatus", "FailedActionStatus"],
+              "default": "CompletedActionStatus",
+              "description": "Status of the upload action."
+            },
+            "schema:result": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "enum": ["CreativeWork"],
+                  "default": "CreativeWork"
+                },
+                "schema:@id": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Reference to the uploaded content."
+                },
+                "schema:identifier": {
+                  "type": "object",
+                  "properties": {
+                    "schema:propertyID": { "type": "string" },
+                    "schema:value": { "type": "string" }
+                  },
+                  "required": ["schema:propertyID", "schema:value"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["@type", "schema:@id"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["@type", "schema:agent", "schema:object", "schema:actionStatus"],
+          "additionalProperties": false,
+          "description": "Optional Schema.org CreateAction context for the upload process."
+        }
+      },
+      "required": ["id", "schema:identifier", "schema:uploadDate"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 
