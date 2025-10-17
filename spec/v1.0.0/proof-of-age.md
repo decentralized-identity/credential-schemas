@@ -15,7 +15,7 @@ The objective is to generate a general purpose age schema which should allow for
   - Police clearance / Criminal background or similar use cases in child care contexts
 :::
 
-![proof of age fields overview diagram](/images/v1.0.0/proof-of-age.png)
+![proof of age fields overview diagram](../images/v1.0.0/proof-of-age.png)
 
 #### Proof of Age Abstract Data Model
 

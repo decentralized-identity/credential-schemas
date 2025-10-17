@@ -7,7 +7,7 @@ JSON Schema: [Verified Person Schema](https://github.com/decentralized-identity/
 #### Purpose: 
 The purpose of this credential schema specification is to define the fields required to identify an individual at a basic level for KYC purposes. The schema integrates fields from various standards including: [Open ID Connect](https://openid.net/specs/openid-connect-core-1_0.html) , [Open ID for Identity Assurance](https://openid.net/specs/openid-connect-4-identity-assurance-1_0.html) , [EBSI for natural person](https://code.europa.eu/ebsi/json-schema/-/tree/main/schemas/vcdm1.1/multi-uni-pilot/verifiable-attestation-individual-id), and [ISO Mobile Drivers License (ISO/IEC 18013-5:2021)](https://www.iso.org/standard/69084.html). Harmonization and mapping of the fields was done to facilitate interoperability with these standards (see the [mapping section](#mapping-of-the-verified-person-fields-to-various-standards) for details). We also leverage [Schema.org](https://schema.org/Person) as a vocabulary / ontology of terms.
 
-![verified person fields overview diagram](/images/v1.0.0/verified-person.png)
+![verified person fields overview diagram](../images/v1.0.0/verified-person.png)
 
 Use cases: Mainly for financial services, but can also be used in telecommunications, and any sector requiring identity verification for customer onboarding, transaction verification, and regulatory compliance, enabling streamlined and standardized data handling for KYC procedures.
 
