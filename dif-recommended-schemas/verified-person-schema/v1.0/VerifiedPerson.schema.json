@@ -1,0 +1,332 @@
+{
+	"$schema": "https://www.w3.org/2022/credentials/v2/json-schema-credential-schema.json",
+	"$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/dif-draft-schemas/verified-person-schema/VerifiedPerson.schema.json",
+	"title": "DIF Verified Person Schema (August 2025)",
+	"description": "A JSON Schema for the verified person credential as specified in the DIF Credential Schemas spec.",
+	"type": "object",
+	"version": "1.0",
+
+	"properties": {
+		"credentialSubject": {
+			"description": "Stores the data of the credential",
+			"title": "Credential subject",
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string",
+					"description": "Stores the DID of the subject that owns the credential."
+				},
+				"name": {
+					"type": "array",
+					"description": "Names of the credential subject (legal name, birth/maiden name, nicknames, etc.).",
+					"items": {
+						"$ref": "#/$defs/Name"
+					}
+				},
+				"birthDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": "Date of birth of the credential subject."
+				},
+				"address": {
+					"type": "array",
+					"description": "Various addresses associated with the credential subject.",
+					"items": {
+						"$ref": "#/$defs/Address"
+					}
+				},
+				"sex": {
+					"type": "string",
+					"enum": ["male", "female"],
+					"description": "Biological sex of the individual at birth. Allowed values: male, female."
+				},
+				"gender": {
+					"type": "string",
+					"description": "Gender that the credential subject identifies as (e.g., male, female, non-binary...)."
+				},
+				"nationality": {
+					"type": "array",
+					"description": "Array of ISO 3166-1 alpha-3 codes (e.g. FRA, USA, CRC) representing the subject's nationalities.",
+					"items": {
+						"type": "string"
+					}
+				},
+				"contactPoint": {
+					"type": "array",
+					"description": "Contact point(s) of the credential subject (e.g., email, phone, social media handle).",
+					"items": {
+						"$ref": "#/$defs/ContactPoint"
+					}
+				},
+				"identificationEvidence": {
+					"type": "array",
+					"description": "Identifiers of the credential subject (government or other).",
+					"items": {
+						"$ref": "#/$defs/IdentificationEvidence"
+					}
+				},
+				"customField": {
+					"type": "array",
+					"description": "A free-form array to capture additional fields not covered by the main schema.",
+					"items": {
+						"$ref": "#/$defs/CustomField"
+					}
+				}
+			},
+			"required": ["id", "name", "birthDate"]
+		}
+	},
+
+	"required": ["credentialSubject"],
+
+	"$defs": {
+		"CustomEnum": {
+			"type": "object",
+			"description": "Custom enumeration object.",
+			"additionalProperties": false,
+			"properties": {
+				"value": {
+					"type": "string"
+				},
+				"enumDefinition": {
+					"type": "string",
+					"format": "uri"
+				}
+			},
+			"required": ["value", "enumDefinition"]
+		},
+
+		"Name": {
+			"type": "object",
+			"additionalProperties": false,
+			"description": "Represents one name record for the credential subject.",
+			"properties": {
+				"type": {
+					"description": "Type of name, e.g., legalName, birthName, alsoKnownAs, otherName.",
+					"anyOf": [
+						{
+							"type": "string",
+							"enum": ["legalName", "birthName", "alsoKnownAs", "otherName"]
+						},
+						{
+							"$ref": "#/$defs/CustomEnum"
+						}
+					]
+				},
+				"givenName": {
+					"type": "string",
+					"description": "Given name(s) or First name(s) of the credential subject."
+				},
+				"familyName": {
+					"type": "string",
+					"description": "Family (surname) name(s) of the credential subject."
+				},
+				"additionalName": {
+					"type": "string",
+					"description": "Middle name(s). In some cultures, multiple middle names are used."
+				},
+				"fullName": {
+					"type": "string",
+					"description": "Full displayable name, including all parts, titles, suffixes, etc."
+				},
+				"honorificPrefix": {
+					"type": "string",
+					"description": "Title of the credential subject (e.g., 'Dr.', 'Sir')."
+				},
+				"salutation": {
+					"type": "string",
+					"description": "Salutation for the credential subject (e.g., 'Mr.', 'Miss')."
+				},
+				"startDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": "Start date at which this name was first used."
+				},
+				"endDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": "End date at which this name was used."
+				}
+			},
+			"required": ["type"]
+		},
+
+		"IdentificationEvidence": {
+			"type": "object",
+			"additionalProperties": false,
+			"description": "Represents one identifier record for the credential subject.",
+			"properties": {
+				"type": {
+					"description": "Type of identifier (gov or non-gov).",
+					"anyOf": [
+						{
+							"type": "string",
+							"enum": [
+								"Passport",
+								"NationalIdDocument",
+								"CitizenshipCard",
+								"TaxId",
+								"DriversLicense",
+								"SocialServiceNumber",
+                                "EmploymentDocument",
+								"EmployeeId",
+								"Membership",
+								"gymMembership",
+								"sportsClubMembership"
+							]
+						},
+						{
+							"$ref": "#/$defs/CustomEnum"
+						}
+					]
+				},
+				"identifier": {
+					"type": "string",
+					"description": "The actual identifier value (e.g., 'AB1234567')."
+				},
+				"legalName": {
+					"type": "string",
+					"description": "Legal Name of the entity that issues this identifier (Government Authority, University, or Commercial Company)."
+				},
+				"country": {
+					"type": "string",
+					"description": "This is the country of the entity that issues the identifying document. It is a string representing the country in ISO 3166-1 alpha-3 codes (e.g. FRA, USA, CRC)."
+				},
+				"documentExpirationDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": "Date in which the document expires or is subject to renewal."
+				}
+			},
+			"required": [
+				"type",
+				"identifier",
+				"legalName"
+			]
+		},
+
+		"Address": {
+			"type": "object",
+			"additionalProperties": false,
+			"description": "Represents one address record for the credential subject.",
+			"properties": {
+				"type": {
+					"description": "Type of address, e.g. placeOfBirth, primaryAddress, etc.",
+					"anyOf": [
+						{
+							"type": "string",
+							"enum": [
+								"placeOfBirth",
+								"primaryAddress",
+								"homeAddress",
+								"businessAddress",
+								"mailingAddress",
+								"previousAddress"
+							]
+						},
+						{
+							"$ref": "#/$defs/CustomEnum"
+						}
+					]
+				},
+				"streetAddress": {
+					"type": "string"
+				},
+				"extendedAddress": {
+					"type": "string"
+				},
+				"locality": {
+					"type": "string",
+					"description": "City or locality component."
+				},
+				"region": {
+					"type": "string",
+					"description": "State, province, or region component."
+				},
+				"country": {
+					"type": "string",
+					"description": "ISO 3166-1 alpha-3 country code, e.g. 'USA', 'FRA'."
+				},
+				"postalCode": {
+					"type": "string"
+				},
+				"unstructuredAddress": {
+					"type": "string",
+					"description": "Optional single-line address if not structured."
+				},
+				"startDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": "Start date when this address was used."
+				},
+				"endDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": "End date when this address was used."
+				}
+			},
+			"required": ["type"]
+		},
+
+		"ContactPoint": {
+			"type": "object",
+			"additionalProperties": false,
+			"description": "Represents one contact method (phone, email, handle).",
+			"properties": {
+				"type": {
+					"description": "Type of contact channel, e.g. personalEmail, workEmail, phone, social handle.",
+					"anyOf": [
+						{
+							"type": "string",
+							"enum": [
+								"personalEmail",
+								"workEmail",
+								"personalPhone",
+								"homePhone",
+								"workPhone",
+								"otherPhone"
+							]
+						},
+						{
+							"$ref": "#/$defs/CustomEnum"
+						}
+					]
+				},
+				"email": {
+					"type": "string",
+					"description": "Email address in RFC5322 addr-spec syntax."
+				},
+				"telephone": {
+					"type": "string",
+					"description": "Phone number, formatted according to ITU-T recommendation [E.164], e.g., “1999550123” or “50688785073”."
+				},
+				"url": {
+					"type": "string",
+					"description": "URL, used for contact points that refer to websites or social media profile links."
+				},
+				"identifier": {
+					"type": "string",
+					"description": "Identifier used for the contact method (for contact points that are not emails, phone numbers, or URLs)."
+				}
+			},
+			"required": ["type"]
+		},
+
+		"CustomField": {
+			"type": "object",
+			"additionalProperties": false,
+			"description": "Allows for free-form extension fields.",
+			"properties": {
+				"propertyName": {
+					"type": "string",
+					"description": "Label for this custom property."
+				},
+				"propertyValue": {
+					"description": "Value for this custom property (any valid JSON type).",
+					"type": ["string", "number", "boolean", "object", "array", "null"]
+				}
+			},
+			"required": ["propertyName", "propertyValue"]
+		}
+	}
+}
