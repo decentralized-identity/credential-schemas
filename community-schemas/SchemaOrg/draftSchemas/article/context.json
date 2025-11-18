@@ -1,0 +1,253 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "type": "@type",
+    "credentialSubject": {
+      "@id": "vc:credentialSubject",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "author": {
+      "@id": "schema:author",
+      "@type": "@id"
+    },
+    "creator": {
+      "@id": "schema:creator",
+      "@type": "@id"
+    },
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "datePublished": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:dateTime"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "genre": "schema:genre",
+    "keywords": {
+      "@id": "schema:keywords",
+      "@container": "@list"
+    },
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+    "copyrightHolder": {
+      "@id": "schema:copyrightHolder",
+      "@type": "@id"
+    },
+    "copyrightYear": {
+      "@id": "schema:copyrightYear",
+      "@type": "xsd:integer"
+    },
+    "inLanguage": "schema:inLanguage",
+    "isAccessibleForFree": {
+      "@id": "schema:isAccessibleForFree",
+      "@type": "xsd:boolean"
+    },
+    "thumbnailUrl": {
+      "@id": "schema:thumbnailUrl",
+      "@type": "@id"
+    },
+    "image": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "isPartOf": {
+      "@id": "schema:isPartOf",
+      "@type": "@id"
+    },
+    "hasPart": {
+      "@id": "schema:hasPart",
+      "@container": "@list"
+    },
+    "citation": {
+      "@id": "schema:citation",
+      "@container": "@list"
+    },
+    "abstract": "schema:abstract",
+    "wordCount": {
+      "@id": "schema:wordCount",
+      "@type": "xsd:integer"
+    },
+    "characterCount": {
+      "@id": "schema:characterCount",
+      "@type": "xsd:integer"
+    },
+    "pageCount": {
+      "@id": "schema:pageCount",
+      "@type": "xsd:integer"
+    },
+    "duration": "schema:duration",
+    "interactionStatistic": {
+      "@id": "schema:interactionStatistic",
+      "@container": "@list"
+    },
+    "interactionType": "schema:interactionType",
+    "userInteractionCount": {
+      "@id": "schema:userInteractionCount",
+      "@type": "xsd:integer"
+    },
+    "about": {
+      "@id": "schema:about",
+      "@type": "@id"
+    },
+    "accessMode": "schema:accessMode",
+    "accessModeSufficient": {
+      "@id": "schema:accessModeSufficient",
+      "@container": "@list"
+    },
+    "accessibilityAPI": "schema:accessibilityAPI",
+    "accessibilityControl": "schema:accessibilityControl",
+    "accessibilityFeature": {
+      "@id": "schema:accessibilityFeature",
+      "@container": "@list"
+    },
+    "accessibilityHazard": {
+      "@id": "schema:accessibilityHazard",
+      "@container": "@list"
+    },
+    "accessibilitySummary": "schema:accessibilitySummary",
+    "accountablePerson": {
+      "@id": "schema:accountablePerson",
+      "@type": "@id"
+    },
+    "aggregateRating": {
+      "@id": "schema:aggregateRating",
+      "@type": "@id"
+    },
+    "alternativeHeadline": "schema:alternativeHeadline",
+    "commentCount": {
+      "@id": "schema:commentCount",
+      "@type": "xsd:integer"
+    },
+    "contentLocation": {
+      "@id": "schema:contentLocation",
+      "@type": "@id"
+    },
+    "contentRating": {
+      "@id": "schema:contentRating",
+      "@type": "@id"
+    },
+    "contributor": {
+      "@id": "schema:contributor",
+      "@type": "@id"
+    },
+    "copyrightNotice": "schema:copyrightNotice",
+    "countryOfOrigin": {
+      "@id": "schema:countryOfOrigin",
+      "@type": "@id"
+    },
+    "creativeWorkStatus": "schema:creativeWorkStatus",
+    "editor": {
+      "@id": "schema:editor",
+      "@type": "@id"
+    },
+    "expires": {
+      "@id": "schema:expires",
+      "@type": "xsd:dateTime"
+    },
+    "headline": "schema:headline",
+    "isFamilyFriendly": {
+      "@id": "schema:isFamilyFriendly",
+      "@type": "xsd:boolean"
+    },
+    "locationCreated": {
+      "@id": "schema:locationCreated",
+      "@type": "@id"
+    },
+    "mainEntity": {
+      "@id": "schema:mainEntity",
+      "@type": "@id"
+    },
+    "producer": {
+      "@id": "schema:producer",
+      "@type": "@id"
+    },
+    "publisher": {
+      "@id": "schema:publisher",
+      "@type": "@id"
+    },
+    "review": {
+      "@id": "schema:review",
+      "@container": "@list"
+    },
+    "text": "schema:text",
+    "timeRequired": "schema:timeRequired",
+    "typicalAgeRange": "schema:typicalAgeRange",
+    "version": "schema:version",
+    "alternateName": "schema:alternateName",
+    "identifier": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
+    "mainEntityOfPage": {
+      "@id": "schema:mainEntityOfPage",
+      "@type": "@id"
+    },
+    "sameAs": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "subjectOf": {
+      "@id": "schema:subjectOf",
+      "@type": "@id"
+    },
+    "articleBody": "schema:articleBody",
+    "articleSection": "schema:articleSection",
+    "backstory": {
+      "@id": "schema:backstory",
+      "@type": "@id"
+    },
+    "pageEnd": {
+      "@id": "schema:pageEnd",
+      "@type": "xsd:integer"
+    },
+    "pageStart": {
+      "@id": "schema:pageStart",
+      "@type": "xsd:integer"
+    },
+    "pagination": "schema:pagination",
+    "sharedContent": {
+      "@id": "schema:sharedContent",
+      "@type": "@id"
+    },
+    "speakable": {
+      "@id": "schema:speakable",
+      "@type": "@id"
+    },
+    "Article": "schema:Article",
+    "NewsArticle": "schema:NewsArticle",
+    "ScholarlyArticle": "schema:ScholarlyArticle",
+    "TechArticle": "schema:TechArticle",
+    "Report": "schema:Report",
+    "SatiricalArticle": "schema:SatiricalArticle",
+    "SocialMediaPosting": "schema:SocialMediaPosting",
+    "BlogPosting": "schema:BlogPosting",
+    "CreativeWork": "schema:CreativeWork",
+    "Person": "schema:Person",
+    "Organization": "schema:Organization",
+    "Place": "schema:Place",
+    "Country": "schema:Country",
+    "Rating": "schema:Rating",
+    "AggregateRating": "schema:AggregateRating",
+    "Comment": "schema:Comment",
+    "Review": "schema:Review",
+    "WebPage": "schema:WebPage",
+    "WebSite": "schema:WebSite",
+    "MediaObject": "schema:MediaObject",
+    "ImageObject": "schema:ImageObject",
+    "SpeakableSpecification": "schema:SpeakableSpecification"
+  }
+} 
