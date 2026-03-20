@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://originvault.org/schemas/flag-instance/v0.1",
+  "title": "Flag Instance",
+  "description": "Individual flag raised during evaluation. Includes resolution and acknowledgment state.",
+  "type": "object",
+  "required": ["flag_id", "flag_type_id", "indicator_id", "severity", "message", "remediation_guidance", "status", "acknowledged"],
+  "properties": {
+    "flag_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for this flag instance"
+    },
+    "flag_type_id": {
+      "type": "string",
+      "description": "Reference to flag type in registry"
+    },
+    "indicator_id": {
+      "type": "string",
+      "enum": ["best_practices", "journalist_expertise", "type_of_work", "references", "methods", "locally_sourced", "diverse_voices", "actionable_feedback"]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["high", "medium", "low", "info"],
+      "description": "Severity level from flag type definition"
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable message for the editor"
+    },
+    "remediation_guidance": {
+      "type": "string",
+      "description": "Actionable guidance on how to address the flag"
+    },
+    "remediation_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Documentation URL for this flag type"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["open", "resolved", "acknowledged"],
+      "description": "Lifecycle status for this flag instance"
+    },
+    "resolved_by": {
+      "type": ["integer", "null"],
+      "description": "WordPress user ID of the user who resolved the flag"
+    },
+    "resolved_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of resolution"
+    },
+    "resolved_via": {
+      "type": ["string", "null"],
+      "enum": ["sidebar_input", "re_evaluation", null],
+      "description": "How the flag was resolved"
+    },
+    "acknowledged": {
+      "type": "boolean",
+      "description": "Whether editor has acknowledged this flag"
+    },
+    "acknowledged_by": {
+      "type": ["integer", "null"],
+      "description": "WordPress user ID of editor who acknowledged"
+    },
+    "acknowledged_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of acknowledgment"
+    }
+  }
+}

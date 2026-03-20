@@ -1,0 +1,278 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://originvault.org/schemas/evidence-reliability-receipt/v0.2",
+  "title": "Evidence Reliability Receipt",
+  "description": "Article-level W3C Verifiable Credential summarizing negative signals at publish time. Clean receipt = no flags. Any flags present = investigate via component pointers.",
+  "type": "object",
+  "required": ["@context", "type", "issuer", "issuanceDate", "credentialSubject"],
+  "properties": {
+    "@context": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "W3C VC context URIs. Includes OriginVault receipt context."
+    },
+    "type": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Always includes 'VerifiableCredential' and 'EvidenceReliabilityReceipt'"
+    },
+    "id": {
+      "type": "string",
+      "description": "DID URI of this receipt on the article's cheqd identity. Corrections produce new receipt IDs on the same article DID."
+    },
+    "issuer": {
+      "type": "string",
+      "description": "DID of issuing entity. Phase 1: OriginVault's signing DID. Phase 2+: org-specific signing DID."
+    },
+    "issuanceDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of publish-time evaluation."
+    },
+    "credentialStatus": {
+      "type": "object",
+      "description": "Bitstring status list entry on org's mainnet DID. This is the payment gate for downstream verification.",
+      "required": ["id", "type", "statusPurpose", "statusListIndex", "statusListCredential"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "const": "BitstringStatusListEntry"
+        },
+        "statusPurpose": {
+          "type": "string",
+          "enum": ["revocation", "suspension"],
+          "description": "Revocation = article retracted. Suspension = correction in progress."
+        },
+        "statusListIndex": {
+          "type": "string"
+        },
+        "statusListCredential": {
+          "type": "string",
+          "description": "DID URL to status list resource on org's mainnet DID."
+        }
+      }
+    },
+    "credentialSubject": {
+      "$ref": "#/definitions/credential_subject"
+    },
+    "credentialSchema": {
+      "type": "object",
+      "description": "Points to this schema for downstream validation.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "const": "https://originvault.org/schemas/evidence-reliability-receipt/v0.2"
+        },
+        "type": {
+          "type": "string",
+          "const": "JSONSchema"
+        }
+      }
+    },
+    "proof": {
+      "$ref": "#/definitions/proof"
+    }
+  },
+  "definitions": {
+    "credential_subject": {
+      "type": "object",
+      "required": ["article", "publisher", "evaluation_summary", "components"],
+      "properties": {
+        "article": {
+          "type": "object",
+          "description": "Article identity. The DID is the persistent anchor that accumulates correction history.",
+          "required": ["did", "url"],
+          "properties": {
+            "did": {
+              "type": "string",
+              "description": "Article DID on cheqd testnet. Persistent across corrections."
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "Canonical article URL at publish time."
+            },
+            "title": {
+              "type": "string",
+              "description": "Article headline at publish time."
+            },
+            "published_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "supersedes": {
+              "type": ["string", "null"],
+              "description": "Receipt ID of the previous version if this is a correction. Null for first publish."
+            }
+          }
+        },
+        "publisher": {
+          "type": "object",
+          "description": "Organization identity. Resolved via contributor identity credentials, not the signing cert.",
+          "required": ["name", "org_did"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Newsroom name."
+            },
+            "org_did": {
+              "type": "string",
+              "description": "Organization DID on cheqd mainnet."
+            },
+            "trust_framework": {
+              "type": "string",
+              "description": "DID URL to the org's trust framework resource on cheqd. Tells a downstream consumer what standard this org commits to."
+            }
+          }
+        },
+        "evaluation_summary": {
+          "type": "object",
+          "description": "High-level triage data. A consumer reads this first. If overall_status is 'pass' and remaining_flags is empty, the article is clean - stop here.",
+          "required": ["profile_ref", "evaluated_at", "overall_status", "remaining_flags"],
+          "properties": {
+            "profile_ref": {
+              "type": "object",
+              "description": "Which Trust Profile was used. Pointer + hash so a downstream consumer can verify the standard without fetching it.",
+              "required": ["profile_id", "profile_hash"],
+              "properties": {
+                "profile_id": {
+                  "type": "string",
+                  "description": "DID URL or URI of the Trust Profile used."
+                },
+                "profile_hash": {
+                  "type": "string",
+                  "pattern": "^sha256:[a-f0-9]{64}$",
+                  "description": "Hash of the profile at evaluation time. Proves which version of the rules were applied."
+                }
+              }
+            },
+            "evaluated_at": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When evaluation was performed. May differ from publish time if evaluation was cached."
+            },
+            "overall_status": {
+              "type": "string",
+              "enum": ["pass", "flagged"],
+              "description": "'pass' = zero remaining flags. 'flagged' = one or more flags survived to publish (acknowledged or unacknowledged). No 'fail' - publishing with flags is an editorial choice, not a system failure."
+            },
+            "remaining_flags": {
+              "type": "array",
+              "description": "NEGATIVE SIGNALS ONLY. Flags that survived to publish. Resolved flags do not appear - their absence is the positive signal. Empty array = clean article.",
+              "items": {
+                "$ref": "#/definitions/remaining_flag"
+              }
+            }
+          }
+        },
+        "components": {
+          "type": "array",
+          "description": "Pointers to per-component trust reports. Not the reports themselves - just enough to discover and resolve them. A consumer who wants depth follows these pointers.",
+          "items": {
+            "$ref": "#/definitions/component_ref"
+          }
+        }
+      }
+    },
+    "remaining_flag": {
+      "type": "object",
+      "description": "A single negative signal that survived to publish. Two types: acknowledged (editor made a judgment) and unacknowledged (gap exists, no one addressed it). The difference is the entire editorial trust signal.",
+      "required": ["indicator_id", "flag_type", "severity", "disposition"],
+      "properties": {
+        "indicator_id": {
+          "type": "string",
+          "description": "Trust Project indicator this flag belongs to. e.g., 'journalist_expertise', 'methods', 'locally_sourced', 'references'. Lets a downstream consumer filter by the indicators they care about."
+        },
+        "flag_type": {
+          "type": "string",
+          "description": "Specific flag from the risk registry. e.g., 'missing_photographer_identity', 'no_capture_device_info', 'ai_generation_markers_present', 'unsigned_content'. Registry URI resolvable for remediation guidance."
+        },
+        "flag_registry_ref": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI to the flag definition in the risk registry. Provides severity rationale, remediation guidance, and context a downstream consumer may need."
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"],
+          "description": "From risk registry. Informs downstream triage priority."
+        },
+        "disposition": {
+          "type": "string",
+          "enum": ["acknowledged", "unacknowledged"],
+          "description": "The core editorial signal. 'acknowledged' = an editor reviewed this gap and accepted it. 'unacknowledged' = the gap exists and no one on the editorial team addressed it."
+        },
+        "acknowledged_by": {
+          "type": ["string", "null"],
+          "description": "Editor/reporter identifier (WordPress user ID or contributor DID). Present only when disposition is 'acknowledged'. Null otherwise."
+        },
+        "acknowledged_at": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Timestamp of acknowledgment. Present only when disposition is 'acknowledged'. Null otherwise."
+        },
+        "component_hash": {
+          "type": ["string", "null"],
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "If this flag is specific to one content block (e.g., a single image missing photographer identity), reference the component. Null if the flag is article-level or org-level."
+        }
+      }
+    },
+    "component_ref": {
+      "type": "object",
+      "description": "Pointer to a content block's embedded trust report. The trust report carries the full positive + negative signal detail. The receipt only carries the negatives.",
+      "required": ["content_hash", "content_type"],
+      "properties": {
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "Hash of the content block. Anchored on the article DID for recovery when platforms strip provenance."
+        },
+        "content_type": {
+          "type": "string",
+          "description": "MIME type. Phase 1: image/*. Phase 2+: text, video, etc."
+        },
+        "c2pa_manifest_present": {
+          "type": "boolean",
+          "description": "Whether a C2PA manifest was present at evaluation time. Lets a downstream consumer know whether provenance chain existed for this component."
+        },
+        "trust_report_ref": {
+          "type": ["string", "null"],
+          "description": "DID URL or content-addressed URI to the full trust report embedded in or associated with this component. Null if the component had no evaluable provenance."
+        }
+      }
+    },
+    "proof": {
+      "type": "object",
+      "required": ["type", "created", "verificationMethod", "proofPurpose", "proofValue"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Phase 1: 'Ed25519Signature2020'. MOCK_MODE: 'mock'."
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "verificationMethod": {
+          "type": "string",
+          "description": "DID key URI of the signing key. Phase 1: OriginVault's key. Phase 2+: org's key."
+        },
+        "proofPurpose": {
+          "type": "string",
+          "const": "assertionMethod"
+        },
+        "proofValue": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

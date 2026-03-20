@@ -1,0 +1,87 @@
+schema_version: "0.1.0"
+profile_id: "default-trust-project-v0.1"
+profile_name: "Default Trust Project Profile"
+description: |
+  Phase 1 default profile based on Trust Project indicators.
+  Evaluates all 8 indicators; flags raised for missing org-level and image-level fields.
+  
+created_at: "2026-03-18T14:00:00Z"
+creator: "OriginVault Team"
+
+# Which indicators are required for this profile
+indicators:
+  - id: best_practices
+    required: true
+    default_flags_on_absence: true
+    
+  - id: journalist_expertise
+    required: true
+    default_flags_on_absence: true
+    
+  - id: type_of_work
+    required: false  # Image-level not evaluable in Phase 1
+    default_flags_on_absence: false
+    
+  - id: references
+    required: true
+    default_flags_on_absence: true
+    
+  - id: methods
+    required: true
+    default_flags_on_absence: true
+    
+  - id: locally_sourced
+    required: false  # Not required; no default flag on absence
+    default_flags_on_absence: false
+    
+  - id: diverse_voices
+    required: true
+    default_flags_on_absence: true
+    
+  - id: actionable_feedback
+    required: true
+    default_flags_on_absence: true
+
+# Evaluation rules: which field combinations trigger flags
+evaluation_rules:
+  best_practices:
+    flags:
+      - type: missing_ethics_policy
+        condition: "ethics_policy_url is null AND editorial_standards_url is null"
+        
+  journalist_expertise:
+    flags:
+      - type: missing_creator_name
+        condition: "creator_name is null or empty"
+        
+  references:
+    flags:
+      - type: no_source_attribution
+        condition: "source_attribution is null AND provenance_chain_depth is 0"
+      - type: no_c2pa_manifest
+        condition: "c2pa_manifest_present is false"
+      - type: invalid_c2pa_manifest
+        condition: "c2pa_manifest_present is true AND c2pa_manifest_valid is false"
+        
+  methods:
+    flags:
+      - type: unknown_capture_method
+        condition: "capture_method is 'unknown' AND no c2pa actions"
+        
+  diverse_voices:
+    flags:
+      - type: no_diversity_commitment
+        condition: "diversity_commitment_url is null"
+        
+  actionable_feedback:
+    flags:
+      - type: no_feedback_mechanism
+        condition: "feedback_mechanism_url is null AND corrections_process_url is null"
+
+# Phase 1 notes
+phase_1_constraints: |
+  - Type of Work evaluable only at article level (deferred)
+  - Locally Sourced not flagged by default; optional for future use
+  - Text-dependent fields (expertise areas, publication history) are null
+  - Location data (GPS) extracted but redacted from external-facing output
+  - Endorsements deferred (Phase 2)

@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "description": "Default flag type registry for Phase 1. Shipped with plugin.",
+  "flag_types": [
+    {
+      "flag_type_id": "missing_ethics_policy",
+      "indicator_id": "best_practices",
+      "severity": "medium",
+      "message": "Organization has no ethics policy URL in metadata",
+      "remediation_guidance": "Add an ethics policy URL to your site metadata or WordPress settings, following Trust Project recommendations: https://trustproject.org/",
+      "remediation_url": "https://originvault.org/docs/flags/missing_ethics_policy",
+      "default_on_absence": true,
+      "eval_condition": "ethics_policy_url is null AND editorial_standards_url is null"
+    },
+    {
+      "flag_type_id": "missing_creator_name",
+      "indicator_id": "journalist_expertise",
+      "severity": "high",
+      "message": "Image has no creator attribution in metadata or C2PA manifest",
+      "remediation_guidance": "Add photographer credit via the sidebar 'Creator Name' field, or ensure the image includes EXIF artist metadata from the camera or editing software.",
+      "remediation_url": "https://originvault.org/docs/flags/missing_creator_name",
+      "default_on_absence": true,
+      "eval_condition": "creator_name is null or empty"
+    },
+    {
+      "flag_type_id": "no_source_attribution",
+      "indicator_id": "references",
+      "severity": "medium",
+      "message": "Image has no source attribution and no C2PA provenance chain",
+      "remediation_guidance": "Add source attribution via the sidebar, or ensure the image has C2PA signing or ingredient references showing its origin.",
+      "remediation_url": "https://originvault.org/docs/flags/no_source_attribution",
+      "default_on_absence": true,
+      "eval_condition": "source_attribution is null AND provenance_chain_depth is 0"
+    },
+    {
+      "flag_type_id": "unknown_capture_method",
+      "indicator_id": "methods",
+      "severity": "low",
+      "message": "Image capture method is unknown (no C2PA actions or EXIF metadata)",
+      "remediation_guidance": "This is informational. Many legitimate images lack method metadata. For valuable investigative work, consider adding method metadata or C2PA signing.",
+      "remediation_url": "https://originvault.org/docs/flags/unknown_capture_method",
+      "default_on_absence": true,
+      "eval_condition": "capture_method is 'unknown' AND no C2PA actions"
+    },
+    {
+      "flag_type_id": "no_diversity_commitment",
+      "indicator_id": "diverse_voices",
+      "severity": "low",
+      "message": "Organization has no stated diversity commitment in metadata",
+      "remediation_guidance": "Add a diversity commitment URL to your site metadata, or refer to your organization's diversity and inclusion initiatives.",
+      "remediation_url": "https://originvault.org/docs/flags/no_diversity_commitment",
+      "default_on_absence": true,
+      "eval_condition": "diversity_commitment_url is null"
+    },
+    {
+      "flag_type_id": "no_feedback_mechanism",
+      "indicator_id": "actionable_feedback",
+      "severity": "low",
+      "message": "Organization has no feedback mechanism or corrections process URL",
+      "remediation_guidance": "Publish contact information or a corrections form, and link to it in your site metadata.",
+      "remediation_url": "https://originvault.org/docs/flags/no_feedback_mechanism",
+      "default_on_absence": true,
+      "eval_condition": "feedback_mechanism_url is null AND corrections_process_url is null"
+    },
+    {
+      "flag_type_id": "no_c2pa_manifest",
+      "indicator_id": "references",
+      "severity": "info",
+      "message": "Image does not have a C2PA manifest",
+      "remediation_guidance": "This is informational. C2PA manifests are optional but provide valuable provenance data. Consider ORing images with C2PA signing when possible.",
+      "remediation_url": "https://originvault.org/docs/flags/no_c2pa_manifest",
+      "default_on_absence": false,
+      "eval_condition": "c2pa_manifest_present is false"
+    },
+    {
+      "flag_type_id": "invalid_c2pa_manifest",
+      "indicator_id": "references",
+      "severity": "high",
+      "message": "Image has a C2PA manifest but it failed validation",
+      "remediation_guidance": "The manifest may be corrupted or improperly signed. Re-sign the image or use a fresh source. Contact technical support if the issue persists.",
+      "remediation_url": "https://originvault.org/docs/flags/invalid_c2pa_manifest",
+      "default_on_absence": true,
+      "eval_condition": "c2pa_manifest_present is true and c2pa_manifest_valid is false"
+    }
+  ]
+}

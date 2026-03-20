@@ -1,0 +1,281 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://originvault.org/schemas/trust-indicator-set/v0.1",
+  "title": "Trust Indicator Set",
+  "description": "Combined extraction output from all 8 Trust Project indicators. Output of indicator-extractor sidecar.",
+  "type": "object",
+  "required": ["schema_version", "extraction_timestamp", "asset_ref", "indicators"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "extraction_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when extraction completed"
+    },
+    "extraction_source": {
+      "type": "string",
+      "enum": ["c2pa", "exif", "mixed"],
+      "description": "Primary metadata source for extraction"
+    },
+    "asset_ref": {
+      "type": "object",
+      "required": ["file_hash", "file_type"],
+      "properties": {
+        "attachment_id": {
+          "type": ["integer", "null"],
+          "description": "WordPress attachment post ID if available"
+        },
+        "file_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "SHA256 hash of asset file"
+        },
+        "file_type": {
+          "type": "string",
+          "enum": ["image/jpeg", "image/png", "image/webp", "image/avif"]
+        }
+      }
+    },
+    "c2pa_manifest_present": {
+      "type": "boolean",
+      "description": "Whether C2PA manifest found in asset"
+    },
+    "c2pa_manifest_valid": {
+      "type": ["boolean", "null"],
+      "description": "Manifest validity check (null if not validated)"
+    },
+    "indicators": {
+      "type": "object",
+      "required": ["best_practices", "journalist_expertise", "type_of_work", "references", "methods", "locally_sourced", "diverse_voices", "actionable_feedback"],
+      "properties": {
+        "best_practices": {
+          "$ref": "#/definitions/best_practices_indicator"
+        },
+        "journalist_expertise": {
+          "$ref": "#/definitions/journalist_expertise_indicator"
+        },
+        "type_of_work": {
+          "$ref": "#/definitions/type_of_work_indicator"
+        },
+        "references": {
+          "$ref": "#/definitions/references_indicator"
+        },
+        "methods": {
+          "$ref": "#/definitions/methods_indicator"
+        },
+        "locally_sourced": {
+          "$ref": "#/definitions/locally_sourced_indicator"
+        },
+        "diverse_voices": {
+          "$ref": "#/definitions/diverse_voices_indicator"
+        },
+        "actionable_feedback": {
+          "$ref": "#/definitions/actionable_feedback_indicator"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "best_practices_indicator": {
+      "type": "object",
+      "properties": {
+        "funding_sources": {
+          "type": ["array", "null"],
+          "items": {"type": "string"}
+        },
+        "mission_statement": {
+          "type": ["string", "null"]
+        },
+        "ethics_policy_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "editorial_standards_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "corrections_policy_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "conflict_of_interest_policy": {
+          "type": ["string", "null"]
+        },
+        "ownership_structure": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "journalist_expertise_indicator": {
+      "type": "object",
+      "properties": {
+        "creator_name": {
+          "type": ["string", "null"],
+          "description": "From image EXIF or C2PA artist field"
+        },
+        "creator_contact": {
+          "type": ["string", "null"]
+        },
+        "creator_role": {
+          "type": ["string", "null"],
+          "description": "From C2PA CAWG identity assertion or manual"
+        },
+        "creator_bio_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "Text-dependent; deferred in Phase 1"
+        },
+        "creator_expertise_areas": {
+          "type": ["array", "null"],
+          "items": {"type": "string"},
+          "description": "Deferred in Phase 1"
+        },
+        "creator_publication_history_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "Deferred in Phase 1"
+        }
+      }
+    },
+    "type_of_work_indicator": {
+      "type": "object",
+      "properties": {
+        "content_type_label": {
+          "type": ["string", "null"],
+          "enum": ["news", "analysis", "opinion", "sponsored", "editorial", "other", null],
+          "description": "From post category/tag; deferred at image level"
+        },
+        "content_type_definition_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "is_labeled": {
+          "type": ["boolean", "null"],
+          "description": "Deferred in Phase 1"
+        }
+      }
+    },
+    "references_indicator": {
+      "type": "object",
+      "properties": {
+        "source_attribution": {
+          "type": ["string", "null"],
+          "description": "From C2PA action history or manual sidebar input"
+        },
+        "original_source_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "From C2PA manifest parentOf reference"
+        },
+        "provenance_chain_depth": {
+          "type": "integer",
+          "description": "Count of C2PA ingredient manifests"
+        },
+        "supporting_materials_urls": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "format": "uri"},
+          "description": "Deferred in Phase 1"
+        }
+      }
+    },
+    "methods_indicator": {
+      "type": "object",
+      "properties": {
+        "capture_method": {
+          "type": "string",
+          "enum": ["camera", "screenshot", "scan", "ai_generated", "ai_modified", "composite", "unknown"],
+          "description": "From C2PA actions or EXIF software tags"
+        },
+        "capture_device": {
+          "type": ["string", "null"],
+          "description": "From C2PA claim_generator or EXIF Make/Model"
+        },
+        "capture_timestamp": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "From EXIF DateTimeOriginal or C2PA"
+        },
+        "editing_history": {
+          "type": ["array", "null"],
+          "items": {"type": "object"},
+          "description": "C2PA action history if present"
+        },
+        "reporting_methodology_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "Deferred in Phase 1"
+        },
+        "story_priority_rationale": {
+          "type": ["string", "null"],
+          "description": "Deferred in Phase 1"
+        }
+      }
+    },
+    "locally_sourced_indicator": {
+      "type": "object",
+      "properties": {
+        "capture_latitude": {
+          "type": ["number", "null"],
+          "description": "From EXIF GPSLatitude; PRIVACY SENSITIVE"
+        },
+        "capture_longitude": {
+          "type": ["number", "null"],
+          "description": "From EXIF GPSLongitude; PRIVACY SENSITIVE"
+        },
+        "capture_location_name": {
+          "type": ["string", "null"]
+        },
+        "on_scene_claimed": {
+          "type": ["boolean", "null"],
+          "description": "Manual editor attestation via sidebar toggle"
+        },
+        "community_knowledge_signals": {
+          "type": ["array", "null"],
+          "items": {"type": "string"},
+          "description": "Deferred in Phase 1"
+        }
+      }
+    },
+    "diverse_voices_indicator": {
+      "type": "object",
+      "properties": {
+        "diversity_commitment_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "diversity_report_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "source_diversity_signals": {
+          "type": ["object", "null"],
+          "description": "Deferred in Phase 1 (NLP-dependent)"
+        }
+      }
+    },
+    "actionable_feedback_indicator": {
+      "type": "object",
+      "properties": {
+        "feedback_mechanism_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "feedback_mechanism_type": {
+          "type": ["string", "null"],
+          "enum": ["email", "form", "comments", "tip_line", "other", null]
+        },
+        "corrections_process_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "reader_engagement_policy_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        }
+      }
+    }
+  }
+}

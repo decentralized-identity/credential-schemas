@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://originvault.org/schemas/trust-report/v0.1",
+  "title": "Trust Report",
+  "description": "Output of profile-evaluator sidecar. Evaluation results per-indicator and overall status.",
+  "type": "object",
+  "required": ["schema_version", "evaluation_timestamp", "profile_id", "overall_status", "indicator_results"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "evaluation_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "profile_id": {
+      "type": "string",
+      "description": "Identifier of Trust Profile used for evaluation"
+    },
+    "profile_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "description": "SHA256 hash of profile YAML for audit trail"
+    },
+    "overall_status": {
+      "type": "string",
+      "enum": ["pass", "flagged", "fail"],
+      "description": "Summary: pass=no flags, flagged=some flags raised, fail=critical flags"
+    },
+    "indicator_results": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/indicator_result"
+      }
+    },
+    "total_flags": {
+      "type": "integer",
+      "description": "Count of all flags raised"
+    },
+    "total_acknowledged": {
+      "type": "integer",
+      "description": "Count of flags user has acknowledged"
+    },
+    "all_flags_resolved": {
+      "type": "boolean",
+      "description": "true if total_acknowledged == total_flags"
+    }
+  },
+  "definitions": {
+    "indicator_result": {
+      "type": "object",
+      "required": ["indicator_id", "status"],
+      "properties": {
+        "indicator_id": {
+          "type": "string",
+          "enum": ["best_practices", "journalist_expertise", "type_of_work", "references", "methods", "locally_sourced", "diverse_voices", "actionable_feedback"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pass", "flagged", "not_evaluable"],
+          "description": "pass=no issues, flagged=one or more flags, not_evaluable=lacks required data"
+        },
+        "evaluated_fields": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "List of fields this indicator checked"
+        },
+        "flags": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Array of flag_type_id references if any flags were raised"
+        }
+      }
+    }
+  }
+}
