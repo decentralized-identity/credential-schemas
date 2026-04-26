@@ -1,0 +1,45 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/WordPress/schemas/wpai-monitor-record/schema.json",
+	"title": "WPAI C2PA Monitor record",
+	"description": "WordPress postmeta value for the C2PA Monitor experiment: JSON string at _wpai_monitor_record. Extends the OpenVerifiable media-provenance-capture subject with plugin-specific fields. Not a Verifiable Credential on its own.",
+	"allOf": [
+		{
+			"$ref": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OpenVerifiable/schemas/media-provenance-capture/schema.json"
+		},
+		{
+			"type": "object",
+			"properties": {
+				"schema_version": {
+					"type": "integer",
+					"minimum": 1,
+					"description": "Increment on breaking postmeta record shape changes."
+				},
+				"duration_ms": {
+					"type": "integer",
+					"minimum": 0,
+					"description": "Wall time for the capture run, in milliseconds."
+				},
+				"source": {
+					"type": "object",
+					"allOf": [
+						{
+							"$ref": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OpenVerifiable/schemas/media-provenance-capture/schema.json#/$defs/source"
+						},
+						{
+							"type": "object",
+							"properties": {
+								"attachment_id": {
+									"type": "integer",
+									"minimum": 0
+								}
+							},
+							"required": [ "attachment_id" ]
+						}
+					]
+				}
+			},
+			"required": [ "schema_version", "duration_ms" ]
+		}
+	]
+}

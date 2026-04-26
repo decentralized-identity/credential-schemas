@@ -1,0 +1,41 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"@protected": true,
+		"xsd": "http://www.w3.org/2001/XMLSchema#",
+		"schema": "https://schema.org/",
+		"ov": "https://openverifiable.ai/vocab#",
+		"captured_at": { "@id": "schema:uploadDate", "@type": "xsd:dateTime" },
+		"source": {
+			"@id": "ov:mediaSource",
+			"@context": {
+				"mime": "schema:encodingFormat",
+				"size_bytes": { "@id": "schema:contentSize", "@type": "xsd:nonNegativeInteger" },
+				"original_path_relative": { "@id": "schema:contentUrl" }
+			}
+		},
+		"traditional": {
+			"@id": "ov:traditionalMetadata",
+			"@context": {
+				"exif": "schema:exifData",
+				"iptc": "ov:iptcMetadata",
+				"xmp": "ov:xmpMetadata"
+			}
+		},
+		"c2pa": {
+			"@id": "ov:c2paCapture",
+			"@context": {
+				"present": { "@id": "ov:manifestStorePresent" },
+				"format": "ov:imageContainerFormat",
+				"container": "ov:manifestContainerLabel",
+				"manifest_sha256": "schema:sha256",
+				"manifest_length": { "@id": "schema:fileSize" },
+				"sidecar_path_relative": "ov:sidecarRelativePath",
+				"decoded": "ov:decodedC2paManifest"
+			}
+		},
+		"errors": { "@id": "ov:captureErrorLog" },
+		"stage": "ov:errorStage",
+		"message": "schema:description"
+	}
+}
