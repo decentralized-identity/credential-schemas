@@ -11,5 +11,6 @@
 /community-schemas/OpenVerifiable/* @lnispel
 /community-schemas/OriginVault/* @lnispel
 /community-schemas/VelocityNetwork/* @vmc-crossmint @ottomorac @sloops77
+/community-schemas/WordPress/* @lnispel
 /community-schemas/cheqd/* @tweeddalex @ankurdotb
 /community-schemas/schemasWorkingGroup/* @vmc-crossmint @ottomorac @kimdhamilton
