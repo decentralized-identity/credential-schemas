@@ -10,6 +10,11 @@
 		{
 			"type": "object",
 			"properties": {
+				"@context": {
+					"type": "array",
+					"items": { "type": "string", "format": "uri" },
+					"description": "JSON-LD context URLs. First entry is https://schema.org/; second is the wpai-monitor-record context.json. Present in every stored record; not required by schema validation since JSON Schema processors ignore JSON-LD keywords."
+				},
 				"schema_version": {
 					"type": "integer",
 					"minimum": 1,

@@ -3,7 +3,7 @@
 JSON Schema and JSON-LD **subject** shape for the C2PA Monitor experiment in the WordPress AI plugin: the value stored as a JSON string in post meta key `_wpai_monitor_record`.
 
 - **JSON Schema:** [`schema.json`](./schema.json) — `allOf` the [OpenVerifiable `media-provenance-capture`](../../../OpenVerifiable/schemas/media-provenance-capture/schema.json) subject plus `schema_version`, `duration_ms`, and `source.attachment_id`.
-- **JSON-LD context:** [`context.json`](./context.json) — same logical fields; WordPress-specific terms use the `ov` vocabulary (see [OpenVerifiable](https://openverifiable.ai)).
+- **JSON-LD context:** [`context.json`](./context.json) — same logical fields; WordPress-specific terms use the `ove` vocabulary prefix (`https://openverifiable.ai/vocab#`, see [OpenVerifiable](https://openverifiable.ai)).
 
 **Not** a Verifiable Credential — do not add `issuer`, `proof`, or `credentialSubject` to these files. Wrap at issuance time if needed.
 
