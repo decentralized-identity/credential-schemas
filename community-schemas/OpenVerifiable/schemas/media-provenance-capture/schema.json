@@ -1,0 +1,65 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OpenVerifiable/schemas/media-provenance-capture/schema.json",
+	"title": "Media Provenance Capture",
+	"description": "Subject-only capture record: structured metadata and raw C2PA manifest presence detected in a media file at intake time. For use as credentialSubject data or in CMS storage; no Verifiable Credential envelope.",
+	"type": "object",
+	"properties": {
+		"captured_at": {
+			"type": "string",
+			"format": "date-time",
+			"description": "When the capture run completed (ISO 8601, UTC Z recommended)."
+		},
+		"source": { "$ref": "#/$defs/source" },
+		"traditional": { "$ref": "#/$defs/traditional" },
+		"c2pa": { "$ref": "#/$defs/c2pa" },
+		"errors": { "$ref": "#/$defs/errors" }
+	},
+	"required": [ "captured_at", "source", "traditional", "c2pa", "errors" ],
+	"additionalProperties": true,
+	"$defs": {
+		"source": {
+			"type": "object",
+			"description": "The assessed media asset. Maps to schema:ImageObject / schema:MediaObject fields; see context.json.",
+			"properties": {
+				"mime": { "type": "string", "description": "IANA media type (e.g. image/jpeg)." },
+				"size_bytes": { "type": "integer", "minimum": 0 },
+				"original_path_relative": {
+					"type": "string",
+					"description": "Path to the file relative to a storage root, or an absolute path if outside that root."
+				}
+			}
+		},
+		"traditional": {
+			"type": "object",
+			"description": "Reserved for EXIF / IPTC / XMP promotions from the host environment (often empty in early phases).",
+			"properties": {
+				"exif": { "type": "object", "additionalProperties": true },
+				"iptc": { "type": "object", "additionalProperties": true },
+				"xmp": { "type": "object", "additionalProperties": true }
+			}
+		},
+		"c2pa": {
+			"type": "object",
+			"description": "C2PA manifest store detection result (read-only; no cryptographic verification in baseline).",
+			"properties": {
+				"present": { "type": "boolean" },
+				"format": { "type": [ "string", "null" ] },
+				"container": { "type": "string" },
+				"manifest_sha256": { "type": "string", "description": "Lowercase hex SHA-256 of the raw manifest store bytes." },
+				"manifest_length": { "type": "integer", "minimum": 0 },
+				"sidecar_path_relative": { "type": "string" },
+				"decoded": { "type": [ "object", "null" ] }
+			}
+		},
+		"errorItem": {
+			"type": "object",
+			"properties": {
+				"stage": { "type": "string" },
+				"message": { "type": "string" }
+			},
+			"required": [ "stage", "message" ]
+		},
+		"errors": { "type": "array", "items": { "$ref": "#/$defs/errorItem" } }
+	}
+}
