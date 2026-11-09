@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/action-access-specification/schema.json",
+  "title": "OriginVault Action Access Specification Credential",
+  "description": "Defines conditions required for performing an action, based on Schema.org ActionAccessSpecification.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/action-access-specification/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uri", "description": "Identifier for the action or service." },
+        "schema:actionPlatform": { "type": "string", "format": "uri", "description": "Platform(s) where action is supported." },
+        "schema:availabilityStarts": { "type": "string", "format": "date-time", "description": "Start date when action becomes available." },
+        "schema:availabilityEnds": { "type": "string", "format": "date-time", "description": "End date when action is no longer available." },
+        "schema:category": { "type": "string", "description": "Category of action (e.g., promotional, subscription)." },
+        "schema:eligibleRegion": { "type": "string", "format": "uri", "description": "Region(s) where action is allowed." },
+        "schema:requiresSubscription": { "type": "string", "format": "uri", "description": "Subscription or payment model required." },
+        "schema:dateCreated": { "type": "string", "format": "date-time" },
+        "schema:dateModified": { "type": "string", "format": "date-time" },
+        "schema:agent": {
+          "oneOf": [
+            { "type": "string", "format": "uri" },
+            { "type": "object", "properties": { "@type": { "type": "string" }, "schema:@id": { "type": "string", "format": "uri" } }, "required": ["@type", "schema:@id"], "additionalProperties": false }
+          ]
+        }
+      },
+      "required": ["id", "schema:actionPlatform"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 

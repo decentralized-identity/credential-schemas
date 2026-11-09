@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/interaction-counter/schema.json",
+  "title": "OriginVault Interaction Counter Credential",
+  "description": "A credential describing user interactions count using Schema.org InteractionCounter type.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/OriginVault/draft-schemas/interaction-counter/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uri", "description": "Identifier for the target item (content, app, etc.)." },
+        "schema:interactionType": { "type": "string", "format": "uri", "description": "Type of interaction (e.g., LikeAction, DownloadAction)." },
+        "schema:userInteractionCount": { "type": "integer", "description": "Number of interactions." },
+        "schema:dateCreated": { "type": "string", "format": "date-time", "description": "When the counter was first recorded." },
+        "schema:dateModified": { "type": "string", "format": "date-time", "description": "Last update timestamp." },
+        "schema:agent": { "type": "string", "format": "uri", "description": "Entity responsible for tracking interactions." },
+        "schema:identifier": {
+          "type": "object",
+          "properties": { "schema:propertyID": { "type": "string" }, "schema:value": { "type": "string" } },
+          "required": ["schema:propertyID", "schema:value"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["id", "schema:interactionType", "schema:userInteractionCount"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 

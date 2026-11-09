@@ -1,0 +1,47 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "type": "@type",
+
+    "credentialSubject": {
+      "@id": "vc:credentialSubject",
+      "@type": "@id"
+    },
+
+    "interactionType": {
+      "@id": "schema:interactionType",
+      "@type": "@id"
+    },
+    "userInteractionCount": "schema:userInteractionCount",
+
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+
+    "agent": {
+      "@id": "schema:agent",
+      "@type": "@id"
+    },
+
+    "identifier": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
+    "propertyID": "schema:propertyID",
+    "value": "schema:value",
+
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description"
+  }
+} 

@@ -1,0 +1,45 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "type": "@type",
+    "credentialSubject": {
+      "@id": "vc:credentialSubject",
+      "@type": "@id"
+    },
+    "legalName": "schema:legalName",
+    "telephone": "schema:telephone",
+    "email": "schema:email",
+    "vatID": "schema:vatID",
+    "taxID": "schema:taxID",
+    "location": {
+      "@id": "schema:location",
+      "@type": "@id"
+    },
+    "url": "schema:url",
+    "description": "schema:description",
+    "foundingDate": {
+      "@id": "schema:foundingDate",
+      "@type": "xsd:date"
+    },
+    "numberOfEmployees": {
+      "@id": "schema:numberOfEmployees",
+      "@type": "@id"
+    },
+    "industry": "schema:industry",
+    "leiCode": "schema:leiCode",
+    "duns": "schema:duns",
+    "streetAddress": "schema:streetAddress",
+    "addressLocality": "schema:addressLocality",
+    "addressRegion": "schema:addressRegion",
+    "postalCode": "schema:postalCode",
+    "addressCountry": "schema:addressCountry",
+    "PostalAddress": "schema:PostalAddress",
+    "Organization": "schema:Organization",
+    "value": "schema:value"
+  }
+} 

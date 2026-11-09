@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/organization/schema.json",
+  "title": "Organization Schema",
+  "description": "A JSON Schema for the Organization credential that represents organizational information using schema.org vocabulary.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "default": "https://raw.githubusercontent.com/decentralized-identity/credential-schemas/main/community-schemas/schemasWorkingGroup/draftSchemas/organization/context.json"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "The unique identifier for the organization, typically a DID or URI."
+        },
+        "schema:legalName": {
+          "type": "string",
+          "description": "The legal name of the organization."
+        },
+        "schema:telephone": {
+          "type": "string",
+          "description": "The telephone number of the organization."
+        },
+        "schema:email": {
+          "type": "string",
+          "format": "email",
+          "description": "The email address of the organization."
+        },
+        "schema:vatID": {
+          "type": "string",
+          "description": "The VAT identification number of the organization."
+        },
+        "schema:taxID": {
+          "type": "string",
+          "description": "The tax identification number of the organization."
+        },
+        "schema:location": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["schema:PostalAddress"],
+              "description": "The type of the address object."
+            },
+            "schema:streetAddress": {
+              "type": "string",
+              "description": "The street address of the organization."
+            },
+            "schema:addressLocality": {
+              "type": "string",
+              "description": "The locality (city) of the organization's address."
+            },
+            "schema:addressRegion": {
+              "type": "string",
+              "description": "The region (state/province) of the organization's address."
+            },
+            "schema:postalCode": {
+              "type": "string",
+              "description": "The postal code of the organization's address."
+            },
+            "schema:addressCountry": {
+              "type": "string",
+              "description": "The country of the organization's address (ISO 3166-1 alpha-2 code)."
+            }
+          },
+          "required": ["type"],
+          "additionalProperties": false
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The website URL of the organization."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "A description of the organization."
+        },
+        "schema:foundingDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The founding date of the organization."
+        },
+        "schema:numberOfEmployees": {
+          "type": "object",
+          "properties": {
+            "schema:value": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "The number of employees."
+            }
+          },
+          "required": ["schema:value"],
+          "additionalProperties": false
+        },
+        "schema:industry": {
+          "type": "string",
+          "description": "The industry sector of the organization."
+        },
+        "schema:leiCode": {
+          "type": "string",
+          "description": "The Legal Entity Identifier (LEI) code of the organization."
+        },
+        "schema:duns": {
+          "type": "string",
+          "description": "The D-U-N-S number of the organization."
+        }
+      },
+      "required": ["id", "schema:legalName"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["credentialSubject", "@context"],
+  "additionalProperties": false
+} 
